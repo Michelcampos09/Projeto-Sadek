@@ -26,7 +26,10 @@ function Header() {
             setMenuAberto(!menuAberto);
           }}
         >
-          ☰
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/10080/10080458.png"
+            alt="Nav button"
+          />
         </button>
       </section>
 

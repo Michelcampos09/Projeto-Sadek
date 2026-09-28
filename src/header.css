@@ -74,8 +74,14 @@
   .botao-menu {
     display: block;
     border: none;
-    background-color: inherit;
     cursor: pointer;
+    background: transparent;
+  }
+  .botao-menu img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    display: block;
   }
 }
 
