@@ -2,9 +2,11 @@ import Header from "./components/Header";
 function App() {
   return (
     <>
-      <Header />
       <main>
-        <section id="inicio"></section>
+        <section id="inicio">
+          {" "}
+          <Header />
+        </section>
         <section id="donos"></section>
         <section id="historia"></section>
         <section id="restaurantes"></section>
