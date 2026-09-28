@@ -1,0 +1,62 @@
+.principal {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+  justify-content: space-between;
+  position: sticky;
+  padding-inline: 1.4rem;
+}
+.sec-one {
+  margin-right: 0;
+}
+.sec-one ul {
+  display: flex;
+  gap: 0.5rem 1rem;
+  list-style: none;
+  margin: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+}
+.sec-one a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+.sec-one a:hover {
+  color: rgb(129, 89, 28);
+}
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-left: 1rem;
+  color: inherit;
+  text-decoration: none;
+}
+.marca img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.title {
+  font-size: 1.25rem;
+  color: rgb(129, 89, 28);
+  text-decoration: none;
+}
+@media (max-width: 700px) {
+  .sec-one {
+    display: none;
+  }
+  .sec-one.aberta {
+    display: block;
+  }
+  .sec-one ul {
+    flex-direction: column;
+  }
+}
+.marca {
+  margin-left: 0;
+}

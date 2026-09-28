@@ -1,0 +1,33 @@
+/* src/index.css */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap");
+
+:root {
+  --font-titulos: "Book Antiqua", serif;
+  --font-textos: "Montserrat", sans-serif;
+
+  /* Cores principais mantidas */
+  --cor-fundo: #fcfbf8;
+  --cor-texto-escuro: #111827;
+  --cor-texto-claro: #4b5563;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-textos);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-escuro);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Opcional: Se criar uma classe específica para o Header/Menu superior depois */
+.principal {
+  font-family: var(--font-titulos);
+  font-size: 1.1rem;
+  font-weight: 500;
+  background-color: var(--cor-fundo);
+}
