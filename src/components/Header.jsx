@@ -4,7 +4,7 @@ function Header() {
   const [menuAberto, setMenuAberto] = useState(false);
   return (
     <div className="principal">
-      <section>
+      <section className="topo">
         <div className="marca">
           <a href="#">
             <img
@@ -19,10 +19,13 @@ function Header() {
             </a>
           </span>
         </div>
-      </section>
-
-      <section>
-        <button style={{}} onClick={() => setMenuAberto(!menuAberto)}>
+        <button
+          className="botao-menu"
+          style={{}}
+          onClick={() => {
+            setMenuAberto(!menuAberto);
+          }}
+        >
           ☰
         </button>
       </section>

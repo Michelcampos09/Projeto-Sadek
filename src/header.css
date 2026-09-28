@@ -46,7 +46,21 @@
   color: rgb(129, 89, 28);
   text-decoration: none;
 }
+.botao-menu {
+  display: none;
+}
+
 @media (max-width: 700px) {
+  .principal {
+    display: block;
+    padding-inline: 1.4rem;
+  }
+  .topo {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   .sec-one {
     display: none;
   }
@@ -56,7 +70,11 @@
   .sec-one ul {
     flex-direction: column;
   }
+  .botao-menu {
+    display: block;
+  }
 }
+
 .marca {
   margin-left: 0;
 }
