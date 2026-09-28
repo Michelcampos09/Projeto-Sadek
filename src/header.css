@@ -66,12 +66,16 @@
   }
   .sec-one.aberta {
     display: block;
+    padding-bottom: 6px;
   }
   .sec-one ul {
     flex-direction: column;
   }
   .botao-menu {
     display: block;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
   }
 }
 

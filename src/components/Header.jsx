@@ -6,7 +6,7 @@ function Header() {
     <div className="principal">
       <section className="topo">
         <div className="marca">
-          <a href="#">
+          <a href="#inicio">
             <img
               src="https://d3im3awbb0qs95.cloudfront.net/eyJidWNrZXQiOiJtaXN0ZXJzMyIsImtleSI6Im1jX3NhaHRlaW5yb3Rpc3NlcmlhXzAxNDA0MVwvbWVyY2hhbnRcL3NhaHRlaW5fcm90aXNzZXJpYS0yMDIzMDgxMDE0MTk1Ni5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjI1MCwiZml0IjoiY292ZXIifX19"
               alt="Logo - Sahtein"
