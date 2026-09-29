@@ -13,6 +13,41 @@ function Hero() {
           <div className="texto-sobre-imagem">
             <h1>{hero.titulo}</h1>
             <p>{hero.descricao}</p>
+            <div className="links-hero">
+              <button
+                style={{
+                  backgroundColor: "rgb(75, 60, 10)",
+                  border: "none",
+                  padding: "5px",
+                  borderRadius: "3px",
+                  cursor: "pointer",
+                  marginRight: "10px",
+                }}
+              >
+                <a
+                  style={{ textDecoration: "none", color: "rgb(170, 110, 61)" }}
+                  href=""
+                >
+                  Visitar restaurante árabe
+                </a>
+              </button>
+              <button
+                style={{
+                  backgroundColor: "rgb(14, 46, 10)",
+                  border: "none",
+                  padding: "5px",
+                  borderRadius: "3px",
+                  cursor: "pointer",
+                }}
+              >
+                <a
+                  style={{ textDecoration: "none", color: "rgb(52, 112, 34)" }}
+                  href="#restaurantes"
+                >
+                  Visitar restaurante árabe
+                </a>
+              </button>
+            </div>
           </div>
         </div>
       </section>

@@ -19,3 +19,7 @@
   transform: translate(-50%, -50%);
   width: 90%;
 }
+.links-hero {
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
