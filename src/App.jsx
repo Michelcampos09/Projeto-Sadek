@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import Owners from "./components/Owners";
 function App() {
   return (
     <>
@@ -9,7 +10,9 @@ function App() {
           <Header />
           <Hero />
         </section>
-        <section id="donos"></section>
+        <section id="donos">
+          <Owners />
+        </section>
         <section id="historia"></section>
         <section id="restaurantes"></section>
         <section id="avaliacao"></section>
