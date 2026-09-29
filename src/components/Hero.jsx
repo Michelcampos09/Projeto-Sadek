@@ -1,3 +1,4 @@
+import iconeLink from "../assets/icone.png";
 import "../hero.css";
 import { dadosDoSite } from "../data/conteudo";
 function Hero() {
@@ -14,45 +15,23 @@ function Hero() {
             <h1>{hero.titulo}</h1>
             <p>{hero.descricao}</p>
             <div className="links-hero">
-              <button
-                style={{
-                  backgroundColor: "rgb(75, 60, 10)",
-                  border: "none",
-                  padding: "5px",
-                  borderRadius: "3px",
-                  cursor: "pointer",
-                  marginRight: "10px",
-                }}
-              >
-                <a
-                  style={{
-                    textDecoration: "none",
-                    color: "rgb(255, 255, 255)",
-                  }}
-                  href=""
-                >
-                  Visitar restaurante árabe
-                </a>
-              </button>
-              <button
-                style={{
-                  backgroundColor: "rgb(14, 46, 10)",
-                  border: "none",
-                  padding: "5px",
-                  borderRadius: "3px",
-                  cursor: "pointer",
-                }}
-              >
-                <a
-                  style={{
-                    textDecoration: "none",
-                    color: "rgb(252, 255, 251)",
-                  }}
-                  href="#restaurantes"
-                >
-                  Visitar restaurante árabe
-                </a>
-              </button>
+              <a className="botao-hero" href="#restaurantes">
+                <span>Visitar restaurante árabe</span>
+                <img
+                  style={{ width: "16px", height: "16px", objectFit: "cover" }}
+                  src={iconeLink}
+                  alt=""
+                />
+              </a>
+
+              <a className="botao-hero2" href="#restaurantes">
+                <span>Visitar restaurante italiano</span>
+                <img
+                  style={{ width: "16px", height: "16px", objectFit: "cover" }}
+                  src={iconeLink}
+                  alt=""
+                />
+              </a>
             </div>
           </div>
         </div>
