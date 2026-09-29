@@ -11,8 +11,7 @@
 .texto-sobre-imagem {
   position: absolute;
   top: 50%;
-  color: black;
-  text-shadow: 0 2px 5px black;
+  text-shadow: 0 4px 4px black;
   color: white;
   text-align: center;
   left: 50%;

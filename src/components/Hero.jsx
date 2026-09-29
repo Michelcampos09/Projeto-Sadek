@@ -1,4 +1,5 @@
 import iconeLink from "../assets/icone.png";
+import fotoFundo from "../assets/fotoFundo.jpg";
 import "../hero.css";
 import { dadosDoSite } from "../data/conteudo";
 function Hero() {
@@ -7,10 +8,7 @@ function Hero() {
     <div className="main">
       <section>
         <div className="background-image">
-          <img
-            src="https://media.istockphoto.com/id/632218640/pt/foto/meat-appetizer-kibbeh-closeup-on-a-plate.jpg?s=612x612&w=0&k=20&c=xXUzprGrvCv_O9r4zicmP4lRQqO_btMmxxpkQQWk6_E="
-            alt="BackGround - Food"
-          />
+          <img src={fotoFundo} alt="Background - Food" />
           <div className="texto-sobre-imagem">
             <h1>{hero.titulo}</h1>
             <p>{hero.descricao}</p>
