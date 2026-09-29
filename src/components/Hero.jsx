@@ -25,7 +25,10 @@ function Hero() {
                 }}
               >
                 <a
-                  style={{ textDecoration: "none", color: "rgb(170, 110, 61)" }}
+                  style={{
+                    textDecoration: "none",
+                    color: "rgb(255, 255, 255)",
+                  }}
                   href=""
                 >
                   Visitar restaurante árabe
@@ -41,7 +44,10 @@ function Hero() {
                 }}
               >
                 <a
-                  style={{ textDecoration: "none", color: "rgb(52, 112, 34)" }}
+                  style={{
+                    textDecoration: "none",
+                    color: "rgb(252, 255, 251)",
+                  }}
                   href="#restaurantes"
                 >
                   Visitar restaurante árabe
