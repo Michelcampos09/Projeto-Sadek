@@ -52,8 +52,8 @@
   text-decoration: none;
   color: white;
   cursor: pointer;
-  background: none;
-  border: 2px solid rgb(91, 125, 105);
+  background-color: rgb(91, 125, 105);
+  /* border: 2px solid rgb(91, 125, 105); */
 }
 @media (max-width: 600px) {
   .links-hero {

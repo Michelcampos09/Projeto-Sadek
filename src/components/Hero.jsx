@@ -26,7 +26,11 @@ function Hero() {
                 />
               </a>
 
-              <a className="botao-hero2" href="">
+              <a
+                className="botao-hero2"
+                href="https://cardapio.takeat.app/fornosahtein"
+                target="_blank"
+              >
                 <span>Visitar restaurante italiano</span>
                 <img
                   style={{ width: "16px", height: "16px", objectFit: "cover" }}
