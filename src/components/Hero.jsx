@@ -13,7 +13,11 @@ function Hero() {
             <h1>{hero.titulo}</h1>
             <p>{hero.descricao}</p>
             <div className="links-hero">
-              <a className="botao-hero" href="#restaurantes">
+              <a
+                className="botao-hero"
+                href="https://sahteinrotisseria.com.br"
+                target="_blank"
+              >
                 <span>Visitar restaurante árabe</span>
                 <img
                   style={{ width: "16px", height: "16px", objectFit: "cover" }}
@@ -22,7 +26,7 @@ function Hero() {
                 />
               </a>
 
-              <a className="botao-hero2" href="#restaurantes">
+              <a className="botao-hero2" href="">
                 <span>Visitar restaurante italiano</span>
                 <img
                   style={{ width: "16px", height: "16px", objectFit: "cover" }}

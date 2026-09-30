@@ -54,6 +54,7 @@
   .principal {
     display: block;
     padding-inline: 1.4rem;
+    position: relative;
   }
   .topo {
     min-height: 70px;
@@ -66,10 +67,22 @@
   }
   .sec-one.aberta {
     display: block;
-    padding-bottom: 6px;
+    padding-bottom: 8px;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    top: 100%;
+    position: absolute;
+    background-color: rgba(252, 251, 248, 0.93);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 0.5rem 1.4rem 1rem;
   }
   .sec-one ul {
     flex-direction: column;
+    gap: 0;
+  }
+  .sec-one li {
+    padding: 0.3rem 0;
   }
   .botao-menu {
     display: block;
