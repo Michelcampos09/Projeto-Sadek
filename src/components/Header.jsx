@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../header.css";
+import LogoSahtein from "../assets/LogoSahtein.png";
 function Header() {
   const [menuAberto, setMenuAberto] = useState(false);
   return (
@@ -8,16 +9,11 @@ function Header() {
         <div className="marca">
           <a href="#inicio">
             <img
-              src="https://d3im3awbb0qs95.cloudfront.net/eyJidWNrZXQiOiJtaXN0ZXJzMyIsImtleSI6Im1jX3NhaHRlaW5yb3Rpc3NlcmlhXzAxNDA0MVwvbWVyY2hhbnRcL3NhaHRlaW5fcm90aXNzZXJpYS0yMDIzMDgxMDE0MTk1Ni5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjI1MCwiZml0IjoiY292ZXIifX19"
+              src={LogoSahtein}
               alt="Logo - Sahtein"
               title="Logo - Sahtein"
             />
           </a>
-          <span className="title">
-            <a className="title" href="#inicio">
-              Sahtein
-            </a>
-          </span>
         </div>
         <button
           className="botao-menu"
