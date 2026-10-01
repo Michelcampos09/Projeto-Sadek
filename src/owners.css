@@ -1,3 +1,48 @@
 .owners {
-  margin-top: 80px;
+  margin-top: 60px;
+  padding: 1.5rem 4.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 3rem;
+}
+.first-half {
+  display: flex;
+  justify-content: flex-end;
+}
+.first-half img {
+  display: block;
+  width: 100%;
+  max-width: 20rem;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+@media (max-width: 750px) {
+  .owners {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  .first-half {
+    justify-content: center;
+  }
+  .first-half img {
+    max-width: 24rem;
+  }
+}
+.second-half {
+  max-width: 32rem;
+}
+.uptitle-owners {
+  color: rgb(155, 153, 153);
+}
+.title-owners {
+  font-size: 28px;
+}
+.subtitle-owners {
+  font-size: 15px;
+  color: rgb(48, 48, 48);
+}
+.line {
+  margin-top: 5px;
 }
