@@ -4,8 +4,22 @@ import LogoSahtein from "../assets/LogoSahtein.png";
 function Header() {
   const [menuAberto, setMenuAberto] = useState(false);
   return (
-    <div className="principal">
-      <section className="topo">
+    <header className="principal">
+      <div className="topo">
+        <nav className="nav-left">
+          <ul>
+            <li>
+              <a href="#">Início</a>
+            </li>
+            <li>
+              <a href="#donos">Conheça os donos</a>
+            </li>
+            <li>
+              <a href="#historia">História</a>
+            </li>
+          </ul>
+        </nav>
+
         <div className="marca">
           <a href="#inicio">
             <img
@@ -15,6 +29,21 @@ function Header() {
             />
           </a>
         </div>
+
+        <nav className="nav-right">
+          <ul>
+            <li>
+              <a href="restaurantes">Restaurantes</a>
+            </li>
+            <li>
+              <a href="avaliacao">Avaliações</a>
+            </li>
+            <li>
+              <a href="avaliacao">Reservas</a>
+            </li>
+          </ul>
+        </nav>
+
         <button
           className="botao-menu"
           style={{}}
@@ -27,10 +56,8 @@ function Header() {
             alt="Nav button"
           />
         </button>
-      </section>
 
-      <section>
-        <div className={menuAberto ? "sec-one aberta" : "sec-one"}>
+        <nav className={menuAberto ? "menu-mobile aberta" : "menu-mobile"}>
           <ul>
             <li>
               <a href="#">Início</a>
@@ -47,10 +74,13 @@ function Header() {
             <li>
               <a href="avaliacao">Avaliações</a>
             </li>
+            <li>
+              <a href="avaliacao">Reservas</a>
+            </li>
           </ul>
-        </div>
-      </section>
-    </div>
+        </nav>
+      </div>
+    </header>
   );
 }
 export default Header;
