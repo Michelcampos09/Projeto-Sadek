@@ -16,6 +16,15 @@ function Owners() {
         <p className="subtitle-owners">{owners.paragrafo2}</p>
         <p className="subtitle-owners">{owners.paragrafo3}</p>
         <hr className="line" />
+        <div className="links-section">
+          <h3>Explore cada sabor:</h3>
+          <a className="link-arabic" href="#restaurantes">
+            → Restaurante Árabe
+          </a>
+          <a className="link-italian" href="#restaurantes">
+            → Restaurante Italiano
+          </a>
+        </div>
       </section>
     </div>
   );
