@@ -34,3 +34,19 @@ body {
 * {
   scroll-behavior: smooth;
 }
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-fundo);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-arabic);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-arabic-hover);
+}
