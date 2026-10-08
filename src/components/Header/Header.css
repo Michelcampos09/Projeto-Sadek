@@ -1,8 +1,13 @@
+/* Cabeçalho fixo e estrutura da navegação desktop */
 .principal {
   position: sticky;
   top: 0;
   z-index: 1000;
   padding-inline: 3rem;
+  background-color: var(--cor-fundo);
+  font-family: var(--font-titulos);
+  font-size: 1.1rem;
+  font-weight: 500;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
@@ -22,6 +27,7 @@
   justify-self: end;
 }
 
+/* Listas desktop e mobile sem marcadores padrão */
 .nav-left ul,
 .nav-right ul,
 .menu-mobile ul {
@@ -33,6 +39,7 @@
   list-style: none;
 }
 
+/* Aparência, hover e foco dos links */
 .nav-left a,
 .nav-right a,
 .menu-mobile a {
@@ -42,9 +49,7 @@
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
-  transition:
-    color 160ms ease,
-    background-color 160ms ease;
+  transition: color 160ms ease, background-color 160ms ease;
 }
 
 .nav-left a:hover,
@@ -60,6 +65,7 @@
   outline-offset: 3px;
 }
 
+/* Marca central */
 .marca {
   display: flex;
   align-items: center;
@@ -72,6 +78,7 @@
   height: auto;
 }
 
+/* O menu e o botão hambúrguer aparecem apenas no mobile */
 .botao-menu,
 .menu-mobile {
   display: none;
@@ -81,9 +88,7 @@
   width: 24px;
   height: 2px;
   background-color: rgb(48, 48, 48);
-  transition:
-    transform 220ms ease,
-    opacity 180ms ease;
+  transition: transform 220ms ease, opacity 180ms ease;
 }
 
 .botao-menu[aria-expanded="true"] span:first-child {
@@ -98,6 +103,7 @@
   transform: translateY(-8px) rotate(-45deg);
 }
 
+/* Navegação mobile e dropdown */
 @media (max-width: 770px) {
   .principal {
     padding-inline: 1.4rem;

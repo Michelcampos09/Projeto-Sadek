@@ -1,12 +1,16 @@
-import { dadosDoSite } from "../data/conteudo";
-import donosExemplo from "../assets/donosExemplo.webp";
-import "../owners.css";
+import { dadosDoSite } from "../../data/conteudo";
+import donosExemplo from "../../assets/donosExemplo.webp";
+import "./Owners.css";
+
 function Owners() {
   const { owners } = dadosDoSite;
+
   return (
     <div className="owners">
       <section className="first-half">
-        <img src={donosExemplo} alt="Foto dos donos na cozinha" />
+        <div className="owners-image-frame">
+          <img src={donosExemplo} alt="Foto dos donos na cozinha" />
+        </div>
       </section>
 
       <section className="second-half">
@@ -29,4 +33,5 @@ function Owners() {
     </div>
   );
 }
+
 export default Owners;

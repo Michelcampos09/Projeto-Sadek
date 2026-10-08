@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Owners from "./components/Owners";
+import Header from "./components/Header/Header";
+import Hero from "./components/Hero/Hero";
+import Owners from "./components/Owners/Owners";
 function App() {
   useEffect(() => {
     const secoes = document.querySelectorAll("main > section:not(#inicio)");
@@ -23,22 +23,19 @@ function App() {
     return () => observer.disconnect();
   }, []);
   return (
-    <>
-      <main>
-        <section id="inicio">
-          {" "}
-          <Header />
-          <Hero />
-        </section>
-        <section id="donos">
-          <Owners />
-        </section>
-        <section id="historia"></section>
-        <section id="restaurantes"></section>
-        <section id="avaliacao"></section>
-        <section id="contato"></section>
-      </main>
-    </>
+    <main>
+      <section id="inicio">
+        <Header />
+        <Hero />
+      </section>
+      <section id="donos">
+        <Owners />
+      </section>
+      <section id="historia"></section>
+      <section id="restaurantes"></section>
+      <section id="avaliacao"></section>
+      <section id="contato"></section>
+    </main>
   );
 }
 export default App;

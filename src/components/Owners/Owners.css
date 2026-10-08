@@ -1,0 +1,153 @@
+/* Layout da apresentação dos donos */
+.owners {
+  display: grid;
+  grid-template-columns: minmax(0, 27rem) minmax(0, 30rem);
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 60px;
+  padding: 3rem 4.5rem;
+}
+
+/* Retrato e detalhe decorativo do frame */
+.first-half {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.first-half img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform 350ms ease;
+}
+
+.owners-image-frame {
+  width: 100%;
+  max-width: 27rem;
+  overflow: hidden;
+}
+
+.first-half::before {
+  position: absolute;
+  top: -1.25rem;
+  left: -1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-top: 2px solid rgb(220, 177, 128);
+  border-left: 2px solid rgb(220, 177, 128);
+  content: "";
+}
+
+/* Título, descrição e links */
+.second-half {
+  max-width: 30rem;
+}
+
+.uptitle-owners {
+  color: rgb(155, 153, 153);
+}
+
+.title-owners {
+  font-size: 28px;
+}
+
+.subtitle-owners {
+  color: rgb(48, 48, 48);
+  font-size: 15px;
+}
+
+.line {
+  margin-block: 8px;
+}
+
+.links-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.link-arabic,
+.link-italian {
+  position: relative;
+  transition: transform 180ms ease;
+  text-decoration: none;
+}
+
+.link-arabic {
+  color: rgb(185, 136, 71);
+  font-weight: bold;
+}
+
+.link-italian {
+  color: rgb(91, 155, 119);
+  font-weight: bold;
+}
+.link-arabic::after,
+.link-italian::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+.link-arabic:hover,
+.link-italian:hover {
+  transform: translate(3px, -1px);
+}
+.link-arabic:hover::after,
+.link-italian:hover::after {
+  transform: scaleX(1);
+}
+
+/* Empilha e redimensiona o conteúdo em telas pequenas */
+@media (max-width: 750px) {
+  .owners {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .first-half {
+    justify-content: center;
+  }
+
+  .first-half img {
+    max-width: none;
+  }
+
+  .owners-image-frame {
+    max-width: 24rem;
+  }
+
+  .first-half::before {
+    display: none;
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .owners-image-frame:hover img {
+    transform: scale(1.04);
+  }
+}
+
+@media (min-width: 751px) {
+  .title-owners {
+    font-size: 2.5rem;
+    line-height: 1.15;
+  }
+
+  .subtitle-owners {
+    font-size: 1rem;
+    line-height: 1.62;
+  }
+}
