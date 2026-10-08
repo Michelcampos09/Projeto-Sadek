@@ -1,5 +1,5 @@
 import iconeLink from "../assets/icone.png";
-import fotoFundo from "../assets/fotoFundo.jpg";
+import fotoFundo1 from "../assets/fotoFundo1.jpg";
 import "../hero.css";
 import { dadosDoSite } from "../data/conteudo";
 function Hero() {
@@ -8,7 +8,7 @@ function Hero() {
     <div className="main">
       <section>
         <div className="background-image">
-          <img src={fotoFundo} alt="Background - Food" />
+          <img src={fotoFundo1} alt="Background - Food" />
           <div className="texto-sobre-imagem">
             <h1>{hero.titulo}</h1>
             <p>{hero.descricao}</p>

@@ -46,15 +46,15 @@ function Header() {
 
         <button
           className="botao-menu"
-          style={{}}
+          aria-label={menuAberto ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={menuAberto}
           onClick={() => {
             setMenuAberto(!menuAberto);
           }}
         >
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/10080/10080458.png"
-            alt="Nav button"
-          />
+          <span />
+          <span />
+          <span />
         </button>
 
         <nav className={menuAberto ? "menu-mobile aberta" : "menu-mobile"}>

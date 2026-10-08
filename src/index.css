@@ -50,3 +50,23 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-arabic-hover);
 }
+main > section:not(#inicio) {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 600ms ease,
+    transform 600ms ease;
+}
+
+main > section:not(#inicio).apareceu {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main > section:not(#inicio) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
