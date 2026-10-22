@@ -7,12 +7,6 @@ import "./history.css";
 function History() {
   const { history } = dadosDoSite;
   const momentos = history.subTitulo.split(/(?<=\.)\s+/);
-  const periodos = ["Year 1", "Years 2-N", "This year"];
-  const titulos = [
-    "Uma tradição árabe",
-    "Uma nova cozinha",
-    "Duas culturas à mesa",
-  ];
   const imagens = [
     { src: imagemArabe, alt: "Prato grelhado com acompanhamentos" },
     { src: imagemRestaurante, alt: "Mesa posta em um restaurante" },
@@ -28,8 +22,8 @@ function History() {
       <section className="timeline" aria-label="Linha do tempo da história">
         {momentos.map((momento, index) => (
           <article className="timeline-item" key={momento}>
-            <span className="timeline-period">{periodos[index]}</span>
-            <h2 className="timeline-title">{titulos[index]}</h2>
+            <span className="timeline-period">{history.periodos[index]}</span>
+            <h2 className="timeline-title">{history.titulos[index]}</h2>
             <p>{momento}</p>
             <img
               className="timeline-image"

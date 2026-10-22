@@ -27,5 +27,7 @@ export const dadosDoSite = {
     titulo: "De um restaurante à dois",
     subTitulo:
       "O tradicional restaurante árabe decidiu inovar e expandir seus horizontes gastronômicos. Com muita dedicação, os donos criaram um novo espaço focado inteiramente na culinária italiana, unindo duas culturas apaixonantes. Agora, os clientes têm o privilégio de começar a refeição com deliciosas esfihas e celebrar o prato principal com uma autêntica massa artesanal.",
+    periodos: ["Ano 1", "Ano 3", "Atualmente"],
+    titulos: ["Uma tradição árabe", "Uma nova cozinha", "Duas culturas à mesa"],
   },
 };
