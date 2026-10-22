@@ -20,6 +20,7 @@
   aspect-ratio: 4 / 5;
   overflow: hidden;
   background-color: #eee7dc;
+  border-radius: 5px;
 }
 
 .arabic .first-half img {
