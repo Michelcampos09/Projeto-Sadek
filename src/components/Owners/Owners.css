@@ -30,6 +30,7 @@
   max-width: 27rem;
   overflow: hidden;
   background-color: #eee7dc;
+  border-radius: 5px;
 }
 
 .owners .first-half::before {
