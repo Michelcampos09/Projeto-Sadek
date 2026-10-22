@@ -29,6 +29,8 @@ function Arabic() {
         <span className="uptitle-arabic">{arabic.intro}</span>
         <h1 className="title-arabic">{arabic.titulo}</h1>
         <p className="subtitle-arabic">{arabic.subTitulo}</p>
+        <hr className="line" />
+        <span className="dishes">{arabic.menu}</span>
       </section>
     </div>
   );

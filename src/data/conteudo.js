@@ -35,5 +35,6 @@ export const dadosDoSite = {
     titulo: "Onde a família começou",
     subTitulo:
       "O pequeno restaurante árabe começou como um projeto familiar, encantando os clientes com receitas autênticas passadas de geração em geração. Foi nesse ambiente acolhedor, repleto do aroma de especiarias frescas e esfihas assadas na hora, que eles construíram sua clientela fiel antes de expandir.",
+    menu: "Shawarma, Kibe de Forno, Charutos de Folha de Uva, Falafel",
   },
 };
