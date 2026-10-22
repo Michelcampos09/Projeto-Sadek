@@ -2,6 +2,8 @@ import { dadosDoSite } from "../../data/conteudo";
 import imagemPrato from "../../assets/arabic-prato.jpg";
 import imagemMesa from "../../assets/arabic-mesa.jpg";
 import imagemGrill from "../../assets/arabic-grill.jpg";
+import iconeLink from "../../assets/icone.png";
+
 import "./arabic.css";
 
 function Arabic() {
@@ -41,9 +43,25 @@ function Arabic() {
           <span className="title-info">Informações:</span>
           <span className="info">{arabic.info}</span>
         </div>
-        <div className="buttons-arabic">
-          <button></button>
-          <button></button>
+        <div className="links-arabic">
+          <a
+            className="botao-hero"
+            href="https://sahteinrotisseria.com.br"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>Visitar restaurante árabe</span>
+            <img className="icone" src={iconeLink} alt="" />
+          </a>
+          <a
+            className="botao-hero2"
+            href="https://cardapio.takeat.app/fornosahtein"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>Visitar restaurante italiano</span>
+            <img className="icone" src={iconeLink} alt="" />
+          </a>
         </div>
       </section>
     </div>

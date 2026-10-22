@@ -61,6 +61,18 @@
   .arabic .first-half {
     grid-template-rows: 13rem 9rem;
   }
+  .links-arabic {
+    display: block;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+
+  .links-arabic > a {
+    width: 100%;
+  }
 }
 .title-arabic {
   margin-bottom: 1.5rem;
@@ -82,7 +94,7 @@
   line-height: 1.5;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: clamp(1rem, 2vw, 2rem);
+  font-size: 1rem;
   font-family: var(--font-titulos);
   letter-spacing: 0.1em;
   color: #49362c;
@@ -103,11 +115,18 @@
   text-transform: uppercase;
   font-weight: bold;
   font-family: var(--font-titulos);
-  font-size: clamp(1rem, 2vw, 2rem);
+  font-size: 1rem;
   letter-spacing: 0.1em;
   color: #49362c;
 }
 .info {
   font-family: var(--font-textos);
   color: #5b554e;
+}
+.links-arabic {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
