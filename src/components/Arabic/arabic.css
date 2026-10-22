@@ -1,45 +1,105 @@
 .arabic {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  grid-template-areas:
+    "gallery intro"
+    "gallery content";
   align-items: center;
-  gap: clamp(2rem, 6vw, 5rem);
+  column-gap: clamp(2rem, 6vw, 5rem);
+  row-gap: 0.25rem;
   width: min(100%, 78rem);
   margin: 5.8rem auto 0;
   padding: 4rem 2rem;
 }
 
 .arabic .first-half {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: 15rem 11rem;
-  gap: 0.8rem;
+  position: relative;
+  grid-area: gallery;
+  justify-self: center;
+  width: min(90%, 32rem);
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: #eee7dc;
 }
 
 .arabic .first-half img {
+  display: block;
   width: 100%;
   height: 100%;
   min-height: 0;
-  aspect-ratio: auto;
   object-fit: cover;
   object-position: center;
+  animation: gallery-image-enter 500ms ease-out;
 }
 
-.arabic .first-half img:first-child {
-  grid-column: 1 / -1;
+@keyframes gallery-image-enter {
+  from {
+    opacity: 0.85;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 65%);
+  border-radius: 50%;
+  background: rgb(36 30 25 / 55%);
+  color: white;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: background-color 180ms ease;
+}
+
+.gallery-arrow:hover {
+  background: rgb(36 30 25 / 80%);
+}
+
+.gallery-arrow:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 3px;
+}
+
+.gallery-arrow svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.gallery-arrow-previous {
+  left: 1rem;
+}
+
+.gallery-arrow-next {
+  right: 1rem;
 }
 
 .arabic .second-half {
+  grid-area: content;
   align-self: center;
 }
 
 .uptitle-arabic {
+  grid-area: intro;
   max-width: 14rem;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 1rem;
-  padding: 1rem;
-  margin-bottom: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  margin-bottom: 0;
   color: #987044;
   font-size: 0.75rem;
   font-weight: 600;
@@ -53,14 +113,15 @@
 @media (max-width: 750px) {
   .arabic {
     grid-template-columns: minmax(0, 1fr);
-    gap: 2rem;
+    grid-template-areas:
+      "intro"
+      "gallery"
+      "content";
+    row-gap: 1rem;
     margin-block: 2rem;
     padding: 1.5rem;
   }
 
-  .arabic .first-half {
-    grid-template-rows: 13rem 9rem;
-  }
   .links-arabic {
     display: block;
     flex-wrap: wrap;
@@ -72,6 +133,16 @@
 
   .links-arabic > a {
     width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arabic .first-half img {
+    animation: none;
+  }
+
+  .gallery-arrow {
+    transition: none;
   }
 }
 .title-arabic {
@@ -119,9 +190,43 @@
   letter-spacing: 0.1em;
   color: #49362c;
 }
-.info {
+.info-list {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+.info-list li {
+  display: grid;
+  gap: 0.2rem;
+}
+.info-label {
+  color: #80613e;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+.info,
+.info-link {
   font-family: var(--font-textos);
+  font-size: 0.95rem;
+  line-height: 1.7;
   color: #5b554e;
+}
+.info-link {
+  text-decoration-color: #c9b99f;
+  text-underline-offset: 0.2em;
+}
+.info-link:hover {
+  color: #80613e;
+}
+.info-link:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid #987044;
+  outline-offset: 3px;
 }
 .links-arabic {
   display: flex;
@@ -129,4 +234,20 @@
   justify-content: start;
   gap: 1rem;
   margin-top: 1.5rem;
+}
+.botao-hero2-arabic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 190px;
+  min-height: 58px;
+  padding: 0.75rem 1rem;
+  color: rgb(148, 112, 64);
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid rgb(148, 112, 64);
+}
+.botao-hero2-arabic .icone {
+  filter: brightness(0);
 }
