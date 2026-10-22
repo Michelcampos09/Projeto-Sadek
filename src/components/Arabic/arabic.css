@@ -77,3 +77,37 @@
   font-size: 1rem;
   line-height: 1.5;
 }
+.dishes-title {
+  display: block;
+  line-height: 1.5;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: clamp(1rem, 2vw, 2rem);
+  font-family: var(--font-titulos);
+  letter-spacing: 0.1em;
+  color: #49362c;
+}
+.dishes {
+  font-family: var(--font-textos);
+  color: #5b554e;
+}
+.line-arabic {
+  width: auto;
+  margin-block: 1.3rem;
+  border: 0;
+  border-top: 1px solid #c9b99f;
+}
+.title-info {
+  display: block;
+  line-height: 1.5;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: var(--font-titulos);
+  font-size: clamp(1rem, 2vw, 2rem);
+  letter-spacing: 0.1em;
+  color: #49362c;
+}
+.info {
+  font-family: var(--font-textos);
+  color: #5b554e;
+}

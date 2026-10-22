@@ -27,10 +27,24 @@ function Arabic() {
       </section>
       <section className="second-half">
         <span className="uptitle-arabic">{arabic.intro}</span>
-        <h1 className="title-arabic">{arabic.titulo}</h1>
-        <p className="subtitle-arabic">{arabic.subTitulo}</p>
-        <hr className="line" />
-        <span className="dishes">{arabic.menu}</span>
+        <div>
+          <h1 className="title-arabic">{arabic.titulo}</h1>
+          <p className="subtitle-arabic">{arabic.subTitulo}</p>
+        </div>
+        <hr className="line-arabic" />
+        <div>
+          <span className="dishes-title">Pratos Principais:</span>
+          <span className="dishes">{arabic.menu}</span>
+        </div>
+        <hr className="line-arabic" />
+        <div>
+          <span className="title-info">Informações:</span>
+          <span className="info">{arabic.info}</span>
+        </div>
+        <div className="buttons-arabic">
+          <button></button>
+          <button></button>
+        </div>
       </section>
     </div>
   );
