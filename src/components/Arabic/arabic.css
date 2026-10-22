@@ -1,6 +1,6 @@
 .arabic {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-areas:
     "gallery intro"
     "gallery content";
@@ -89,11 +89,14 @@
 .arabic .second-half {
   grid-area: content;
   align-self: center;
+  width: 100%;
+  max-width: 35rem;
 }
 
 .uptitle-arabic {
   grid-area: intro;
-  max-width: 14rem;
+  width: fit-content;
+  max-width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,11 +125,12 @@
     padding: 1.5rem;
   }
 
+  .arabic .first-half {
+    width: 100%;
+  }
+
   .links-arabic {
-    display: block;
-    flex-wrap: wrap;
-    justify-content: start;
-    gap: 1rem;
+    flex-direction: column;
     margin-top: 1.5rem;
     width: 100%;
   }

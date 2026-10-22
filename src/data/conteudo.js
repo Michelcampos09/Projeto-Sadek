@@ -42,4 +42,16 @@ export const dadosDoSite = {
       telefone: "(21) 98765-4321",
     },
   },
+  italian: {
+    intro: "O novo restaurante italiano",
+    titulo: "Pizza fresca, feita no forno",
+    subTitulo:
+      "O restaurante árabe nasceu do sonho de compartilhar receitas familiares, conquistando o paladar local com temperos marcantes e porções fartas. Com o sucesso absoluto das esfihas e quibes artesanais, o pequeno espaço tornou-se um ponto de encontro clássico antes da sua grande expansão.",
+    menu: "Pizza de salmão com cream cheese, pizza carbonara, pizza de calabresa e pizza de pistache com hortelã",
+    info: {
+      endereco: "Estr. Francisco da Cruz Nunes, 1874 B - Itaipu, Niterói - RJ",
+      horario: "Terça a domingo, das 11h às 23h",
+      telefone: "(21) 98765-4321",
+    },
+  },
 };

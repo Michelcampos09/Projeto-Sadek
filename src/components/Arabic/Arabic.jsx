@@ -17,8 +17,14 @@ function Arabic() {
     { src: imagemPrato, alt: "Foto de um prato árabe original" },
     { src: imagemMesa, alt: "Foto da mesa principal" },
     { src: imagemGrill, alt: "Foto da grill que cozinha" },
-    { src: imagemMezze, alt: "Prato árabe de mezze com molho e acompanhamentos" },
-    { src: imagemMaqluba, alt: "Maqluba servida em uma refeição compartilhada" },
+    {
+      src: imagemMezze,
+      alt: "Prato árabe de mezze com molho e acompanhamentos",
+    },
+    {
+      src: imagemMaqluba,
+      alt: "Maqluba servida em uma refeição compartilhada",
+    },
     { src: imagemKanafeh, alt: "Sobremesa árabe kanafeh servida com chá" },
   ];
 
