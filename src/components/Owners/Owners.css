@@ -72,12 +72,12 @@
   margin-top: 0.9rem;
   color: #5b554e;
   font-family: var(--font-textos);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   line-height: 1.8;
 }
 
 .line {
-  width: 3.5rem;
+  width: auto;
   margin-block: 1.75rem;
   border: 0;
   border-top: 1px solid #c9b99f;
@@ -94,13 +94,13 @@
   margin-bottom: 0.2rem;
   color: #49362c;
   font-family: var(--font-titulos);
-  font-size: 1.1rem;
+  font-size: 1.7rem;
 }
 
 .link-arabic,
 .link-italian {
   position: relative;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   line-height: 1.5;
   text-decoration: none;
