@@ -30,4 +30,10 @@ export const dadosDoSite = {
     periodos: ["Ano 1", "Ano 3", "Atualmente"],
     titulos: ["Uma tradição árabe", "Uma nova cozinha", "Duas culturas à mesa"],
   },
+  arabic: {
+    intro: "O Restaurante árabe",
+    titulo: "Onde a família começou",
+    subTitulo:
+      "O pequeno restaurante árabe começou como um projeto familiar, encantando os clientes com receitas autênticas passadas de geração em geração. Foi nesse ambiente acolhedor, repleto do aroma de especiarias frescas e esfihas assadas na hora, que eles construíram sua clientela fiel antes de expandir.",
+  },
 };

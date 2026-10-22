@@ -32,7 +32,7 @@
   background-color: #eee7dc;
 }
 
-.first-half::before {
+.owners .first-half::before {
   position: absolute;
   top: -1.25rem;
   left: -1.25rem;
@@ -162,7 +162,7 @@
     max-width: 24rem;
   }
 
-  .first-half::before {
+  .owners .first-half::before {
     display: none;
   }
 

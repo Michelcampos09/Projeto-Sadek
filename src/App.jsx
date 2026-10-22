@@ -3,6 +3,7 @@ import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
 import Owners from "./components/Owners/Owners";
 import History from "./components/History/History";
+import Arabic from "./components/Arabic/Arabic";
 function App() {
   useEffect(() => {
     const secoes = document.querySelectorAll("main > section:not(#inicio)");
@@ -35,7 +36,9 @@ function App() {
       <section id="historia">
         <History />
       </section>
-      <section id="restaurantes"></section>
+      <section id="restaurantes">
+        <Arabic />
+      </section>
       <section id="avaliacao"></section>
       <section id="contato"></section>
     </main>
