@@ -10,7 +10,7 @@ function Header() {
       <div className="topo">
         <nav className="nav-left">
           <ul>
-            <li><a href="#">Início</a></li>
+            <li><a href="#inicio">Início</a></li>
             <li><a href="#donos">Conheça os donos</a></li>
             <li><a href="#historia">História</a></li>
           </ul>
@@ -24,9 +24,9 @@ function Header() {
 
         <nav className="nav-right">
           <ul>
-            <li><a href="restaurantes">Restaurantes</a></li>
-            <li><a href="avaliacao">Avaliações</a></li>
-            <li><a href="avaliacao">Reservas</a></li>
+            <li><a href="#restaurantes">Restaurantes</a></li>
+            <li><a href="#avaliacao">Avaliações</a></li>
+            <li><a href="#contato">Reservas</a></li>
           </ul>
         </nav>
 
@@ -41,14 +41,17 @@ function Header() {
           <span />
         </button>
 
-        <nav className={menuAberto ? "menu-mobile aberta" : "menu-mobile"}>
+        <nav
+          id="menu-mobile"
+          className={menuAberto ? "menu-mobile aberta" : "menu-mobile"}
+        >
           <ul>
-            <li><a href="#">Início</a></li>
-            <li><a href="#donos">Conheça os donos</a></li>
-            <li><a href="#historia">História</a></li>
-            <li><a href="restaurantes">Restaurantes</a></li>
-            <li><a href="avaliacao">Avaliações</a></li>
-            <li><a href="avaliacao">Reservas</a></li>
+            <li><a href="#inicio" onClick={() => setMenuAberto(false)}>Início</a></li>
+            <li><a href="#donos" onClick={() => setMenuAberto(false)}>Conheça os donos</a></li>
+            <li><a href="#historia" onClick={() => setMenuAberto(false)}>História</a></li>
+            <li><a href="#restaurantes" onClick={() => setMenuAberto(false)}>Restaurantes</a></li>
+            <li><a href="#avaliacao" onClick={() => setMenuAberto(false)}>Avaliações</a></li>
+            <li><a href="#contato" onClick={() => setMenuAberto(false)}>Reservas</a></li>
           </ul>
         </nav>
       </div>

@@ -1,5 +1,5 @@
 import { dadosDoSite } from "../../data/conteudo";
-import donosExemplo from "../../assets/donosExemplo.webp";
+import donosFamilia from "../../assets/donos-familia.jpg";
 import "./Owners.css";
 
 function Owners() {
@@ -9,7 +9,7 @@ function Owners() {
     <div className="owners">
       <section className="first-half">
         <div className="owners-image-frame">
-          <img src={donosExemplo} alt="Foto dos donos na cozinha" />
+          <img src={donosFamilia} alt="Os donos reunidos em frente ao restaurante" />
         </div>
       </section>
 

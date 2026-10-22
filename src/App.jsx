@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
 import Owners from "./components/Owners/Owners";
+import History from "./components/History/History";
 function App() {
   useEffect(() => {
     const secoes = document.querySelectorAll("main > section:not(#inicio)");
@@ -24,14 +25,16 @@ function App() {
   }, []);
   return (
     <main>
+      <Header />
       <section id="inicio">
-        <Header />
         <Hero />
       </section>
       <section id="donos">
         <Owners />
       </section>
-      <section id="historia"></section>
+      <section id="historia">
+        <History />
+      </section>
       <section id="restaurantes"></section>
       <section id="avaliacao"></section>
       <section id="contato"></section>

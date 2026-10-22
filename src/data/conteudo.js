@@ -22,4 +22,10 @@ export const dadosDoSite = {
     paragrafo3:
       "Seja com nossas especiarias árabes ou uma massa fresca feita no dia, o nosso maior prazer é receber você. Duas cozinhas, duas culturas, mas a mesma hospitalidade de sempre.",
   },
+  history: {
+    intro: 'Eyebrow - the "history"',
+    titulo: "De um restaurante à dois",
+    subTitulo:
+      "O tradicional restaurante árabe decidiu inovar e expandir seus horizontes gastronômicos. Com muita dedicação, os donos criaram um novo espaço focado inteiramente na culinária italiana, unindo duas culturas apaixonantes. Agora, os clientes têm o privilégio de começar a refeição com deliciosas esfihas e celebrar o prato principal com uma autêntica massa artesanal.",
+  },
 };
