@@ -39,37 +39,6 @@ const reviews = [
   },
 ];
 
-const isConfigured = (profile) =>
-  profile.rating > 0 &&
-  profile.rating <= 5 &&
-  profile.totalReviews > 0 &&
-  !profile.url.startsWith("COLE_AQUI_");
-
-function Stars({ rating, label }) {
-  return (
-    <span className="reviews__stars" role="img" aria-label={label}>
-      {Array.from({ length: 5 }, (_, index) => (
-        <svg
-          key={index}
-          className={
-            index < Math.round(rating)
-              ? "reviews__star reviews__star--filled"
-              : "reviews__star"
-          }
-          viewBox="0 0 20 20"
-          aria-hidden="true"
-        >
-          <path d="m10 1.5 2.6 5.3 5.9.9-4.25 4.15 1 5.85L10 14.95l-5.25 2.75 1-5.85L1.5 7.7l5.9-.9L10 1.5Z" />
-        </svg>
-      ))}
-    </span>
-  );
-}
-
-function GoogleMark() {
-  return <span className="reviews__google-mark">Google</span>;
-}
-
 function Reviews() {
   return (
     <section className="reviews" aria-labelledby="reviews-title">
@@ -82,54 +51,6 @@ function Reviews() {
             <p className="reviews__intro">
               Histórias à mesa, compartilhadas por quem já nos visitou.
             </p>
-          </div>
-
-          <div
-            className="reviews__summary-group"
-            aria-label="Escolha qual restaurante avaliar"
-          >
-            {googleProfiles.map((profile) => (
-              <a
-                className="reviews__summary"
-                href={profile.url}
-                key={profile.restaurant}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={
-                  isConfigured(profile)
-                    ? `Ver ${profile.totalReviews} avaliações do restaurante ${profile.restaurant} no Google. Nota ${profile.rating} de 5.`
-                    : `Ver avaliações do restaurante ${profile.restaurant} no Google`
-                }
-              >
-                <GoogleMark />
-                {isConfigured(profile) ? (
-                  <>
-                    <span className="reviews__summary-stars">
-                      <Stars
-                        rating={profile.rating}
-                        label={`Nota ${profile.rating} de 5`}
-                      />
-                    </span>
-                    <span className="reviews__summary-content">
-                      <span className="reviews__score">
-                        {String(profile.rating).replace(".", ",")}
-                        <span className="reviews__score-max">/5</span>
-                      </span>
-                      <span className="reviews__summary-detail">
-                        <strong>Restaurante {profile.restaurant}</strong>
-                        <span>
-                          Baseado em {profile.totalReviews} avaliações
-                        </span>
-                      </span>
-                    </span>
-                  </>
-                ) : (
-                  <span className="reviews__summary-prompt">
-                    Avaliar restaurante {profile.restaurant}
-                  </span>
-                )}
-              </a>
-            ))}
           </div>
         </header>
 
