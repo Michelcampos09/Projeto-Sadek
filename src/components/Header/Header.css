@@ -93,7 +93,9 @@
   height: auto;
 }
 
-/* O menu e o botão hambúrguer aparecem apenas no mobile */
+/* O menu, ações mobile e backdrop ficam ocultos no desktop */
+.acoes-mobile,
+.menu-backdrop,
 .botao-menu,
 .menu-mobile {
   display: none;
@@ -118,8 +120,8 @@
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Navegação mobile e dropdown */
-@media (max-width: 770px) {
+/* Navegação mobile: breakpoint ajustado para 880px para evitar esmagamento do menu desktop */
+@media (max-width: 880px) {
   .principal {
     padding-inline: 1.25rem;
   }
@@ -127,11 +129,45 @@
   .topo {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   .nav-left,
   .nav-right {
     display: none;
+  }
+
+  /* Grupo de ações visíveis na barra mobile */
+  .acoes-mobile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* CTA "Reservar" visível diretamente na barra mobile */
+  .nav-reservas-mobile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    background-color: #4e785d;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    transition: background-color 160ms ease;
+  }
+
+  .nav-reservas-mobile:hover {
+    background-color: #3f614c;
+    color: #fff;
+  }
+
+  .nav-reservas-mobile:focus-visible {
+    outline: 2px solid #4e785d;
+    outline-offset: 3px;
   }
 
   .botao-menu {
@@ -148,17 +184,30 @@
     cursor: pointer;
   }
 
+  /* Backdrop escuro com clique para fechar */
+  .menu-backdrop {
+    display: block;
+    position: fixed;
+    top: 4rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(27, 21, 18, 0.45);
+    backdrop-filter: blur(2px);
+    z-index: 998;
+  }
+
   .menu-mobile.aberta {
     position: absolute;
     top: 100%;
     right: 0;
     left: 0;
-    z-index: 10;
+    z-index: 1001;
     display: block;
     padding: 0.75rem 1.25rem 1.25rem;
     border-top: 1px solid #e4dfd3;
     background-color: #f3efe6;
-    box-shadow: 0 6px 12px rgba(73, 54, 44, 0.1);
+    box-shadow: 0 10px 25px rgba(27, 21, 18, 0.15);
   }
 
   .menu-mobile ul {
@@ -168,7 +217,8 @@
   }
 
   .menu-mobile a {
-    padding: 0.7rem 0.75rem;
+    padding: 0.75rem 0.85rem;
+    font-size: 0.95rem;
   }
 
   .menu-mobile a:hover,
@@ -177,6 +227,6 @@
   }
 
   .menu-mobile .nav-reservas {
-    margin-top: 0.35rem;
+    margin-top: 0.4rem;
   }
 }
