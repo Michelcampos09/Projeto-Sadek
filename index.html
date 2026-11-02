@@ -7,7 +7,7 @@
     </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sahtein | Rotisseria árabe e Forno Sahtein em Itaipu, Niterói</title>
+    <title>Sahtein | Sahtein Rotisseria e Forno Sahtein em Itaipu, Niterói</title>
     <meta
       name="description"
       content="Conheça a família por trás da Sahtein Rotisseria e do Forno Sahtein, em Itaipu (Niterói). Esfiha na brasa de um lado, pizza no forno a lenha do outro."
@@ -42,20 +42,40 @@
     />
     <meta name="twitter:image" content="https://SEU-DOMINIO/og-1200x630.jpg" />
 
-    <!-- Dados estruturados -->
+    <!-- Dados estruturados das duas casas (sem aggregateRating próprio / self-serving) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Restaurant",
-        "name": "Sahtein",
-        "url": "https://SEU-DOMINIO/",
-        "servesCuisine": ["Árabe", "Pizza"],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Niterói",
-          "addressRegion": "RJ",
-          "addressCountry": "BR"
-        }
+        "@graph": [
+          {
+            "@type": "Restaurant",
+            "name": "Sahtein Rotisseria",
+            "url": "https://sahteinrotisseria.com.br",
+            "telephone": "+55-21-97301-1881",
+            "servesCuisine": "Árabe",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Estr. Francisco da Cruz Nunes, 1874 B - Itaipu",
+              "addressLocality": "Niterói",
+              "addressRegion": "RJ",
+              "addressCountry": "BR"
+            }
+          },
+          {
+            "@type": "Restaurant",
+            "name": "Forno Sahtein",
+            "url": "https://cardapio.takeat.app/fornosahtein",
+            "telephone": "+55-21-97301-1881",
+            "servesCuisine": "Italiana",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Estr. Francisco da Cruz Nunes, 1980 A - Itaipu",
+              "addressLocality": "Niterói",
+              "addressRegion": "RJ",
+              "addressCountry": "BR"
+            }
+          }
+        ]
       }
     </script>
   </head>

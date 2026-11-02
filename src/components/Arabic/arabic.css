@@ -1,4 +1,9 @@
-.arabic {
+/* Estrutura compartilhada das seções de restaurante e tema Árabe padrão */
+.restaurante {
+  --cor-tema: var(--cor-marrom-destaque);
+  --cor-botao-cheio: var(--cor-marrom-destaque);
+  --cor-fundo-galeria: #d6a64f;
+
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-areas:
@@ -8,22 +13,44 @@
   column-gap: clamp(2rem, 6vw, 5rem);
   row-gap: 0.25rem;
   width: min(100%, 78rem);
-  margin: 5.8rem auto 0;
+  margin: var(--espaco-secao) auto 0;
   padding: 4rem 2rem;
 }
 
-.arabic .first-half {
-  position: relative;
+.restaurante-uptitle {
+  grid-area: intro;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 1rem;
+  padding: 0.65rem 0.85rem;
+  color: var(--cor-tema);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  border: 1px solid var(--cor-tema);
+}
+
+.restaurante-galeria {
   grid-area: gallery;
   justify-self: center;
   width: min(90%, 32rem);
+}
+
+.restaurante-galeria-quadro {
+  position: relative;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  background-color: #d6a64f;
+  background-color: var(--cor-fundo-galeria);
   border-radius: 5px;
 }
 
-.arabic .first-half img {
+.restaurante-galeria-quadro > img {
   display: block;
   width: 100%;
   height: 100%;
@@ -44,7 +71,7 @@
   }
 }
 
-.gallery-arrow {
+.restaurante-seta {
   position: absolute;
   top: 50%;
   display: grid;
@@ -60,16 +87,16 @@
   transition: background-color 180ms ease;
 }
 
-.gallery-arrow:hover {
+.restaurante-seta:hover {
   background: rgb(36 30 25 / 80%);
 }
 
-.gallery-arrow:focus-visible {
+.restaurante-seta:focus-visible {
   outline: 2px solid white;
   outline-offset: 3px;
 }
 
-.gallery-arrow svg {
+.restaurante-seta svg {
   width: 1.35rem;
   height: 1.35rem;
   fill: none;
@@ -79,43 +106,152 @@
   stroke-width: 1.8;
 }
 
-.gallery-arrow-previous {
+.restaurante-seta-anterior {
   left: 1rem;
 }
 
-.gallery-arrow-next {
+.restaurante-seta-proxima {
   right: 1rem;
 }
 
-.arabic .second-half {
+.restaurante-conteudo {
   grid-area: content;
   align-self: center;
   width: 100%;
   max-width: 35rem;
 }
 
-.uptitle-arabic {
-  grid-area: intro;
-  width: fit-content;
-  max-width: 100%;
+.restaurante-titulo {
+  margin-bottom: 1.5rem;
+  color: var(--cor-titulo);
+  font-family: var(--font-titulos);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.restaurante-subtitulo {
+  margin-top: 0.9rem;
+  color: var(--cor-texto);
+  font-family: var(--font-textos);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.restaurante-secao-titulo {
+  display: block;
+  margin: 0;
+  color: var(--cor-titulo);
+  font-family: var(--font-titulos);
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.restaurante-pratos,
+.restaurante-info-texto,
+.restaurante-info-link {
+  color: var(--cor-texto);
+  font-family: var(--font-textos);
+}
+
+.restaurante-divisor {
+  width: auto;
+  margin-block: 1.3rem;
+  border: 0;
+  border-top: 1px solid var(--cor-linha);
+}
+
+.restaurante-info-lista {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 0.75rem;
+  padding: 0;
+  list-style: none;
+}
+
+.restaurante-info-lista li {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.restaurante-info-rotulo {
+  color: var(--cor-tema);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.restaurante-info-texto,
+.restaurante-info-link {
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.restaurante-info-link {
+  text-decoration-color: var(--cor-linha);
+  text-underline-offset: 0.2em;
+}
+
+.restaurante-info-link:hover {
+  color: var(--cor-tema);
+}
+
+.restaurante-info-link:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid var(--cor-tema);
+  outline-offset: 3px;
+}
+
+.restaurante-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.restaurante-botao-primario,
+.restaurante-botao-secundario {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 1rem;
-  padding: 0.65rem 0.85rem;
-  margin-bottom: 0;
-  color: #987044;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  line-height: 1;
+  gap: 0.5rem;
+  width: 190px;
+  min-height: 58px;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
   text-align: center;
-  text-transform: uppercase;
-  border: 1px solid #987044;
+  text-decoration: none;
+  border: 1px solid var(--cor-botao-cheio);
+}
+
+.restaurante-botao-primario {
+  background-color: var(--cor-botao-cheio);
+  color: white;
+}
+
+.restaurante-botao-secundario {
+  color: var(--cor-tema);
+  border-color: var(--cor-tema);
+}
+
+.restaurante-botao-secundario .icone {
+  filter: brightness(0);
+}
+
+.restaurante-botao-primario:focus-visible,
+.restaurante-botao-secundario:focus-visible {
+  outline: 2px solid var(--cor-tema);
+  outline-offset: 3px;
 }
 
 @media (max-width: 750px) {
-  .arabic {
+  .restaurante {
     grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
       "intro"
@@ -126,145 +262,24 @@
     padding: 1.5rem;
   }
 
-  .arabic .first-half {
+  .restaurante-galeria {
     width: 100%;
   }
 
-  .links-arabic {
+  .restaurante-links {
     flex-direction: column;
-    margin-top: 1.5rem;
     width: 100%;
   }
 
-  .links-arabic > a {
+  .restaurante-links > a {
     width: 100%;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .arabic .first-half img {
+  .restaurante-galeria-quadro > img,
+  .restaurante-seta {
     animation: none;
-  }
-
-  .gallery-arrow {
     transition: none;
   }
-}
-.title-arabic {
-  margin-bottom: 1.5rem;
-  color: #49362c;
-  font-family: var(--font-titulos);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  line-height: 1.15;
-}
-.subtitle-arabic {
-  margin-top: 0.9rem;
-  color: #5b554e;
-  font-family: var(--font-textos);
-  font-size: 1rem;
-  line-height: 1.5;
-}
-.dishes-title {
-  display: block;
-  margin: 0;
-  line-height: 1.5;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 1rem;
-  font-family: var(--font-titulos);
-  letter-spacing: 0.1em;
-  color: #49362c;
-}
-.dishes {
-  font-family: var(--font-textos);
-  color: #5b554e;
-}
-.line-arabic {
-  width: auto;
-  margin-block: 1.3rem;
-  border: 0;
-  border-top: 1px solid #c9b99f;
-}
-.title-info {
-  display: block;
-  margin: 0;
-  line-height: 1.5;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-family: var(--font-titulos);
-  font-size: 1rem;
-  letter-spacing: 0.1em;
-  color: #49362c;
-}
-.info-list {
-  display: grid;
-  gap: 0.85rem;
-  margin-top: 0.75rem;
-  padding: 0;
-  list-style: none;
-}
-.info-list li {
-  display: grid;
-  gap: 0.2rem;
-}
-.info-label {
-  color: #80613e;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  line-height: 1.5;
-  text-transform: uppercase;
-}
-.info,
-.info-link {
-  font-family: var(--font-textos);
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: #5b554e;
-}
-.info-link {
-  text-decoration-color: #c9b99f;
-  text-underline-offset: 0.2em;
-}
-.info-link:hover {
-  color: #80613e;
-}
-.info-link:focus-visible {
-  border-radius: 2px;
-  outline: 2px solid #987044;
-  outline-offset: 3px;
-}
-.links-arabic {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: start;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-.botao-hero,
-.botao-hero2-arabic {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  width: 190px;
-  min-height: 58px;
-  padding: 0.75rem 1rem;
-  color: rgb(148, 112, 64);
-  text-align: center;
-  text-decoration: none;
-  border: 1px solid rgb(148, 112, 64);
-}
-.botao-hero {
-  background-color: rgb(148, 112, 64);
-  color: white;
-}
-.botao-hero:focus-visible,
-.botao-hero2-arabic:focus-visible {
-  outline: 2px solid rgb(148, 112, 64);
-  outline-offset: 3px;
-}
-.botao-hero2-arabic .icone {
-  filter: brightness(0);
 }

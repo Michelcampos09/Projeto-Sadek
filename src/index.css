@@ -2,12 +2,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
 
-/* Fontes e cores compartilhadas pelo site */
+/* Fontes, paleta de cores (com contraste WCAG AA validado) e espaçamentos compartilhados */
 :root {
   --font-titulos: "Lora", "Book Antiqua", serif;
   --font-textos: "Montserrat", sans-serif;
+
   --cor-fundo: #fcfbf8;
+  --cor-fundo-creme: #f3efe6;
+  --cor-fundo-italiano: #f1f5f0;
+
   --cor-texto-escuro: #111827;
+  --cor-titulo: #49362c;
+  --cor-texto: #5b554e;
+
+  --cor-borda: #e4dfd3;
+  --cor-linha: #c9b99f;
+
+  --cor-marrom-destaque: #7a5833;
+  --cor-terracota-destaque: #8a4329;
+  --cor-verde-destaque: #3b5d47;
+  --cor-verde-botao: #4e785d;
+
+  --espaco-secao: 5.8rem;
 }
 
 /* Reset e estilos base */

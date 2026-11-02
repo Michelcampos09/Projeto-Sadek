@@ -7,27 +7,26 @@ function Owners() {
 
   return (
     <div className="owners">
-      <div className="first-half">
+      <div className="owners-media">
         <div className="owners-image-frame">
           <img src={donosFamilia} alt="Os donos reunidos em frente ao restaurante" />
         </div>
       </div>
 
-      <div className="second-half">
+      <div className="owners-content">
         <span className="uptitle-owners">{owners.intro}</span>
         <h2 className="title-owners" id="donos-title">{owners.titulo}</h2>
         <p className="subtitle-owners">{owners.paragrafo1}</p>
         <p className="subtitle-owners">{owners.paragrafo2}</p>
         <p className="subtitle-owners">{owners.paragrafo3}</p>
-        <hr className="line" />
-        <div className="links-section">
+        <hr className="owners-divider" />
+        <div className="owners-links">
           <h3>Explore cada sabor:</h3>
-          <a className="link-arabic" href="#restaurantes">
-            → Restaurante Árabe
-          </a>
-          <a className="link-italian" href="#restaurantes">
-            → Restaurante Italiano
-          </a>
+          {owners.linksRestaurantes.map((item) => (
+            <a key={item.ancora} className={item.classe} href={item.ancora}>
+              → {item.nome}
+            </a>
+          ))}
         </div>
       </div>
     </div>

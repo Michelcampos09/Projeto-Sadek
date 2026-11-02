@@ -1,8 +1,8 @@
 .history {
   padding: 4rem 2rem;
-  margin: 5.8rem auto 0;
-  background-color: #f3efe6;
-  border-top: 1px solid #e4dfd3;
+  margin: var(--espaco-secao) auto 0;
+  background-color: var(--cor-fundo-creme);
+  border-top: 1px solid var(--cor-borda);
   box-shadow:
     0 -3px 8px rgba(0, 0, 0, 0.06),
     0 3px 8px rgba(0, 0, 0, 0.06);
@@ -17,7 +17,7 @@
 .uptitle-history {
   display: block;
   margin-bottom: 0.75rem;
-  color: #7a5833;
+  color: var(--cor-marrom-destaque);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.16em;
@@ -27,7 +27,7 @@
 
 .up-content h2 {
   margin: 0;
-  color: #49362c;
+  color: var(--cor-titulo);
   font-family: var(--font-titulos);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
@@ -67,29 +67,29 @@
   left: 0.5rem;
   width: 1rem;
   height: 1rem;
-  border: 2px solid #f3efe6;
+  border: 2px solid var(--cor-fundo-creme);
   border-radius: 50%;
-  background-color: #987044;
+  background-color: var(--cor-marrom-destaque);
   content: "";
   transform: translateX(-50%);
 }
 
 .timeline-item:nth-child(2)::before {
-  background-color: #a45a3d;
+  background-color: var(--cor-terracota-destaque);
 }
 
 .timeline-item:nth-child(3)::before {
-  background-color: #4e785d;
+  background-color: var(--cor-verde-botao);
 }
 
 .timeline-period {
   width: fit-content;
   margin-bottom: 0.85rem;
   padding: 0.3rem 0.65rem;
-  border: 1px solid #c9b99f;
+  border: 1px solid var(--cor-linha);
   border-radius: 4px;
   background-color: #fbf9f4;
-  color: #7a5833;
+  color: var(--cor-marrom-destaque);
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -99,17 +99,17 @@
 
 .timeline-item:nth-child(2) .timeline-period {
   border-color: #d6b2a3;
-  color: #8a4329;
+  color: var(--cor-terracota-destaque);
 }
 
 .timeline-item:nth-child(3) .timeline-period {
   border-color: #a9c0b1;
-  color: #3b5d47;
+  color: var(--cor-verde-destaque);
 }
 
 .timeline-title {
   margin: 0 0 0.6rem;
-  color: #49362c;
+  color: var(--cor-titulo);
   font-family: var(--font-titulos);
   font-size: 1.25rem;
   font-weight: 700;
@@ -119,7 +119,7 @@
 .timeline-item p {
   flex-grow: 1;
   margin: 0 0 1.25rem;
-  color: #5b554e;
+  color: var(--cor-texto);
   font-family: var(--font-textos);
   font-size: 0.95rem;
   line-height: 1.75;

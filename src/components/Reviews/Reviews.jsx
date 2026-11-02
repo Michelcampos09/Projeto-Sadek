@@ -61,7 +61,7 @@ function Reviews() {
                   </span>
                   <span className="reviews__author">{review.author}</span>
                   <span className="reviews__restaurant">
-                    {conteudo.restauranteLabel} {review.restaurant}
+                    {review.restaurant}
                   </span>
                 </figcaption>
               </figure>

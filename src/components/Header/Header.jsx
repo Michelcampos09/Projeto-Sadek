@@ -91,19 +91,19 @@ function Header() {
         <nav className="nav-left" aria-label="Navegação principal">
           <ul>
             <li>
-              <a href="#inicio">Início</a>
+              <a href="/#inicio">Início</a>
             </li>
             <li>
-              <a href="#donos">Conheça os donos</a>
+              <a href="/#donos">Conheça os donos</a>
             </li>
             <li>
-              <a href="#historia">História</a>
+              <a href="/#historia">História</a>
             </li>
           </ul>
         </nav>
 
         <div className="marca">
-          <a href="#inicio" aria-label="Ir para o início">
+          <a href="/#inicio" aria-label="Ir para o início">
             <img src={LogoSahtein} alt="Logo Sahtein" />
           </a>
         </div>
@@ -111,10 +111,10 @@ function Header() {
         <nav className="nav-right" aria-label="Outras páginas">
           <ul>
             <li>
-              <a href="#restaurantes">Restaurantes</a>
+              <a href="/#restaurantes">Restaurantes</a>
             </li>
             <li>
-              <a href="#avaliacao">Avaliações</a>
+              <a href="/#avaliacao">Avaliações</a>
             </li>
             <li>
               <Link to="/reservas" className="nav-reservas">
@@ -162,27 +162,27 @@ function Header() {
         >
           <ul>
             <li>
-              <a href="#inicio" onClick={() => setMenuAberto(false)}>
+              <a href="/#inicio" onClick={() => setMenuAberto(false)}>
                 Início
               </a>
             </li>
             <li>
-              <a href="#donos" onClick={() => setMenuAberto(false)}>
+              <a href="/#donos" onClick={() => setMenuAberto(false)}>
                 Conheça os donos
               </a>
             </li>
             <li>
-              <a href="#historia" onClick={() => setMenuAberto(false)}>
+              <a href="/#historia" onClick={() => setMenuAberto(false)}>
                 História
               </a>
             </li>
             <li>
-              <a href="#restaurantes" onClick={() => setMenuAberto(false)}>
+              <a href="/#restaurantes" onClick={() => setMenuAberto(false)}>
                 Restaurantes
               </a>
             </li>
             <li>
-              <a href="#avaliacao" onClick={() => setMenuAberto(false)}>
+              <a href="/#avaliacao" onClick={() => setMenuAberto(false)}>
                 Avaliações
               </a>
             </li>

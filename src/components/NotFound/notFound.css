@@ -1,0 +1,264 @@
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100svh - 12rem);
+  padding: clamp(2.5rem, 6vw, 5rem) 1.5rem;
+  background-color: var(--cor-fundo);
+}
+
+.not-found-card {
+  position: relative;
+  width: min(100%, 44rem);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  background-color: var(--cor-fundo-creme);
+  border: 1px solid var(--cor-borda);
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 3px 12px rgba(73, 54, 44, 0.06);
+}
+
+/* Cantoneiras decorativas seguindo a identidade da seção Donos */
+.not-found-card::before,
+.not-found-card::after {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  content: "";
+  pointer-events: none;
+}
+
+.not-found-card::before {
+  top: -0.75rem;
+  left: -0.75rem;
+  border-top: 2px solid var(--cor-marrom-destaque);
+  border-left: 2px solid var(--cor-marrom-destaque);
+}
+
+.not-found-card::after {
+  right: -0.75rem;
+  bottom: -0.75rem;
+  border-right: 2px solid var(--cor-verde-destaque);
+  border-bottom: 2px solid var(--cor-verde-destaque);
+}
+
+.not-found-uptitle {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--cor-linha);
+  border-radius: 4px;
+  background-color: #fbf9f4;
+  color: var(--cor-marrom-destaque);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.not-found-badge {
+  margin-bottom: 1.25rem;
+}
+
+.not-found-number {
+  display: block;
+  color: var(--cor-titulo);
+  font-family: var(--font-titulos);
+  font-size: clamp(4rem, 10vw, 6.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+/* Linha e pontos conectando as cores das duas casas (como na Timeline) */
+.not-found-dots {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 9rem;
+  margin: 0.75rem auto 0;
+}
+
+.not-found-dots::before {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 1px;
+  background-color: var(--cor-linha);
+  content: "";
+  transform: translateY(-50%);
+}
+
+.not-found-dot {
+  position: relative;
+  width: 0.85rem;
+  height: 0.85rem;
+  border: 2px solid var(--cor-fundo-creme);
+  border-radius: 50%;
+}
+
+.not-found-dot--arabic {
+  background-color: var(--cor-marrom-destaque);
+}
+
+.not-found-dot--middle {
+  background-color: var(--cor-terracota-destaque);
+}
+
+.not-found-dot--italian {
+  background-color: var(--cor-verde-botao);
+}
+
+.not-found-title {
+  margin: 0 0 1rem;
+  color: var(--cor-titulo);
+  font-family: var(--font-titulos);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.not-found-text {
+  max-width: 34rem;
+  margin: 0 auto 2rem;
+  color: var(--cor-texto);
+  font-family: var(--font-textos);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.not-found-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.not-found-btn-primary,
+.not-found-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 12rem;
+  min-height: 3.25rem;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-textos);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.not-found-btn-primary {
+  background-color: var(--cor-marrom-destaque);
+  border: 1px solid var(--cor-marrom-destaque);
+  color: #ffffff;
+}
+
+.not-found-btn-primary:hover {
+  background-color: #634628;
+}
+
+.not-found-btn-secondary {
+  background-color: transparent;
+  border: 1px solid var(--cor-marrom-destaque);
+  color: var(--cor-marrom-destaque);
+}
+
+.not-found-btn-secondary:hover {
+  background-color: rgba(122, 88, 51, 0.08);
+}
+
+.not-found-btn-primary:focus-visible,
+.not-found-btn-secondary:focus-visible {
+  outline: 2px solid var(--cor-marrom-destaque);
+  outline-offset: 3px;
+}
+
+.not-found-divider {
+  margin: 2rem auto 1.5rem;
+  border: 0;
+  border-top: 1px solid var(--cor-linha);
+}
+
+.not-found-houses {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.not-found-houses-label {
+  color: var(--cor-texto);
+  font-size: 0.85rem;
+}
+
+.not-found-houses-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.not-found-house-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 4px;
+  background-color: #fbf9f4;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.not-found-house-link .icone {
+  filter: brightness(0);
+}
+
+.not-found-house-link--arabic {
+  border: 1px solid var(--cor-marrom-destaque);
+  color: var(--cor-marrom-destaque);
+}
+
+.not-found-house-link--italian {
+  border: 1px solid var(--cor-verde-destaque);
+  color: var(--cor-verde-destaque);
+}
+
+.not-found-house-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .not-found {
+    padding: 2rem 1rem;
+  }
+
+  .not-found-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .not-found-card::before,
+  .not-found-card::after {
+    display: none;
+  }
+
+  .not-found-actions,
+  .not-found-houses-links {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .not-found-btn-primary,
+  .not-found-btn-secondary,
+  .not-found-house-link {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
