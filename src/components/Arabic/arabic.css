@@ -242,6 +242,7 @@
   gap: 1rem;
   margin-top: 1.5rem;
 }
+.botao-hero,
 .botao-hero2-arabic {
   display: flex;
   align-items: center;
@@ -254,6 +255,15 @@
   text-align: center;
   text-decoration: none;
   border: 1px solid rgb(148, 112, 64);
+}
+.botao-hero {
+  background-color: rgb(148, 112, 64);
+  color: white;
+}
+.botao-hero:focus-visible,
+.botao-hero2-arabic:focus-visible {
+  outline: 2px solid rgb(148, 112, 64);
+  outline-offset: 3px;
 }
 .botao-hero2-arabic .icone {
   filter: brightness(0);

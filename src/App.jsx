@@ -9,8 +9,25 @@ import Reviews from "./components/Reviews/Reviews";
 import Contact from "./components/Contact/Contact";
 function App() {
   useEffect(() => {
+    // Se IntersectionObserver não for suportado no ambiente, revela todas as seções
+    if (!("IntersectionObserver" in window)) {
+      document.querySelectorAll("main > section").forEach((secao) => {
+        secao.classList.add("apareceu");
+      });
+      return;
+    }
+
     const secoes = document.querySelectorAll("main > section:not(#inicio)");
 
+    // Revela imediatamente a seção de destino caso a página seja aberta com âncora (#donos, etc.)
+    if (window.location.hash) {
+      const secaoAlvo = document.querySelector(window.location.hash);
+      if (secaoAlvo) {
+        secaoAlvo.classList.add("apareceu");
+      }
+    }
+
+    // M5: threshold 0 + rootMargin para revelar a seção assim que o topo entrar na tela
     const observer = new IntersectionObserver(
       (entradas) => {
         entradas.forEach((entrada) => {
@@ -20,12 +37,23 @@ function App() {
           }
         });
       },
-      { threshold: 0.15 },
+      { threshold: 0, rootMargin: "0px 0px -10% 0px" },
     );
 
     secoes.forEach((secao) => observer.observe(secao));
 
-    return () => observer.disconnect();
+    const lidarHashChange = () => {
+      if (window.location.hash) {
+        const secaoAlvo = document.querySelector(window.location.hash);
+        if (secaoAlvo) secaoAlvo.classList.add("apareceu");
+      }
+    };
+    window.addEventListener("hashchange", lidarHashChange);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("hashchange", lidarHashChange);
+    };
   }, []);
   return (
     <>

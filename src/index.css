@@ -17,8 +17,24 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Ícone de link externo usado nos botões das seções */
+.icone {
+  display: block;
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* Scroll suave respeitando a preferência do usuário (M6) */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Respiro para âncoras não ficarem coladas sob o cabeçalho fixo */
+[id] {
+  scroll-margin-top: 5rem;
 }
 
 body {
@@ -28,24 +44,33 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Entrada das seções quando aparecem na tela */
-main > section:not(#inicio) {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 600ms ease,
-    transform 600ms ease;
-}
-
-main > section:not(#inicio).apareceu {
+/* M5: Por padrão, todo o conteúdo é visível (acessibilidade, print, busca e fallback sem JS) */
+main > section {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  main > section:not(#inicio) {
+/* Transição suave ativada somente quando há suporte a scripts e sem preferência de movimento reduzido */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+  html.js main > section:not(#inicio) {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 600ms ease,
+      transform 600ms ease;
+  }
+
+  html.js main > section:not(#inicio).apareceu {
     opacity: 1;
-    transform: none;
-    transition: none;
+    transform: translateY(0);
+  }
+}
+
+/* Na impressão ou quando o usuário prefere menos animações, mantém tudo 100% visível e estático */
+@media print, (prefers-reduced-motion: reduce) {
+  main > section {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
