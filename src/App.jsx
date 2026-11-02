@@ -6,6 +6,7 @@ import History from "./components/History/History";
 import Arabic from "./components/Arabic/Arabic";
 import Italian from "./components/Italian/Italian";
 import Reviews from "./components/Reviews/Reviews";
+import Contact from "./components/Contact/Contact";
 function App() {
   useEffect(() => {
     const secoes = document.querySelectorAll("main > section:not(#inicio)");
@@ -45,7 +46,9 @@ function App() {
       <section id="avaliacao">
         <Reviews />
       </section>
-      <section id="contato"></section>
+      <section id="contact">
+        <Contact />
+      </section>
     </main>
   );
 }

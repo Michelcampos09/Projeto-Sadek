@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import LogoSahtein from "../../assets/LogoSahtein.png";
 import "./Header.css";
 
@@ -37,9 +38,9 @@ function Header() {
               <a href="#avaliacao">Avaliações</a>
             </li>
             <li>
-              <a className="nav-reservas" href="#contato">
+              <Link to="/reservas" className="nav-reservas">
                 Reservas
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -88,13 +89,13 @@ function Header() {
               </a>
             </li>
             <li>
-              <a
+              <Link
                 className="nav-reservas"
-                href="#contato"
+                to="/reservas"
                 onClick={() => setMenuAberto(false)}
               >
                 Reservas
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
