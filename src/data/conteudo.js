@@ -54,4 +54,48 @@ export const dadosDoSite = {
       telefone: "(21) 98765-4321",
     },
   },
+  reviews: {
+    titulo: "O que dizem nossos convidados",
+    introducao: "Histórias à mesa, compartilhadas por quem já nos visitou.",
+    listaAriaLabel: "Depoimentos de visitantes",
+    autorLabel: "Autor",
+    restauranteLabel: "Restaurante",
+    convite: "Já nos visitou? Conte como foi a sua experiência.",
+    avaliarLink: "Avaliar restaurante {restaurant} no Google",
+    notaLabel: "Nota {rating} de 5",
+    perfisGoogle: [
+      {
+        restaurant: "árabe",
+        url: "COLE_AQUI_O_LINK_DO_GOOGLE_ARABE",
+        rating: 0,
+        totalReviews: 0,
+      },
+      {
+        restaurant: "italiano",
+        url: "COLE_AQUI_O_LINK_DO_GOOGLE_ITALIANO",
+        rating: 0,
+        totalReviews: 0,
+      },
+    ],
+    avaliacoes: [
+      {
+        text: "Texto de exemplo: substitua por um trecho fiel de uma avaliação pública.",
+        author: "Identificação a preencher",
+        restaurant: "árabe",
+        source: "Fonte a confirmar",
+      },
+      {
+        text: "Texto de exemplo: substitua por um trecho fiel de uma avaliação pública.",
+        author: "Identificação a preencher",
+        restaurant: "italiano",
+        source: "Fonte a confirmar",
+      },
+      {
+        text: "Texto de exemplo: substitua por um trecho fiel de uma avaliação pública.",
+        author: "Identificação a preencher",
+        restaurant: "árabe",
+        source: "Fonte a confirmar",
+      },
+    ],
+  },
 };
