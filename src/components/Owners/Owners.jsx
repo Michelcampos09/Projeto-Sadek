@@ -7,15 +7,15 @@ function Owners() {
 
   return (
     <div className="owners">
-      <section className="first-half">
+      <div className="first-half">
         <div className="owners-image-frame">
           <img src={donosFamilia} alt="Os donos reunidos em frente ao restaurante" />
         </div>
-      </section>
+      </div>
 
-      <section className="second-half">
+      <div className="second-half">
         <span className="uptitle-owners">{owners.intro}</span>
-        <h1 className="title-owners">{owners.titulo}</h1>
+        <h2 className="title-owners" id="donos-title">{owners.titulo}</h2>
         <p className="subtitle-owners">{owners.paragrafo1}</p>
         <p className="subtitle-owners">{owners.paragrafo2}</p>
         <p className="subtitle-owners">{owners.paragrafo3}</p>
@@ -29,7 +29,7 @@ function Owners() {
             → Restaurante Italiano
           </a>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

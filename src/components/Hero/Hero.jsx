@@ -10,7 +10,7 @@ function Hero() {
     <div className="background-image">
       <img src={fotoFundo1} alt="Pratos da culinária Sahtein" />
       <div className="texto-sobre-imagem">
-        <h1>{hero.titulo}</h1>
+        <h1 id="hero-title">{hero.titulo}</h1>
         <p>{hero.descricao}</p>
         <div className="links-hero">
           <a

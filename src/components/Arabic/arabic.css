@@ -167,6 +167,7 @@
 }
 .dishes-title {
   display: block;
+  margin: 0;
   line-height: 1.5;
   text-transform: uppercase;
   font-weight: bold;
@@ -187,6 +188,7 @@
 }
 .title-info {
   display: block;
+  margin: 0;
   line-height: 1.5;
   text-transform: uppercase;
   font-weight: bold;

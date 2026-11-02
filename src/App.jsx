@@ -28,28 +28,30 @@ function App() {
     return () => observer.disconnect();
   }, []);
   return (
-    <main>
+    <>
       <Header />
-      <section id="inicio">
-        <Hero />
-      </section>
-      <section id="donos">
-        <Owners />
-      </section>
-      <section id="historia">
-        <History />
-      </section>
-      <section id="restaurantes">
-        <Arabic />
-        <Italian />
-      </section>
-      <section id="avaliacao">
-        <Reviews />
-      </section>
-      <section id="contact">
-        <Contact />
-      </section>
-    </main>
+      <main>
+        <section id="inicio" aria-labelledby="hero-title">
+          <Hero />
+        </section>
+        <section id="donos" aria-labelledby="donos-title">
+          <Owners />
+        </section>
+        <section id="historia" aria-labelledby="historia-title">
+          <History />
+        </section>
+        <section id="restaurantes" aria-label="Restaurantes da família">
+          <Arabic />
+          <Italian />
+        </section>
+        <section id="avaliacao" aria-labelledby="reviews-title">
+          <Reviews />
+        </section>
+        <section id="contact" aria-label="Contato">
+          <Contact />
+        </section>
+      </main>
+    </>
   );
 }
 export default App;

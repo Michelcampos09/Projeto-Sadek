@@ -143,6 +143,7 @@
 .italian-dishes-title,
 .italian-info-title {
   display: block;
+  margin: 0;
   color: #49362c;
   font-family: var(--font-titulos);
   font-size: 1rem;

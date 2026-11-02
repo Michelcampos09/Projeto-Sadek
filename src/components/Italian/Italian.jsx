@@ -26,8 +26,9 @@ function Italian() {
   return (
     <div className="italian">
       <span className="uptitle-italian">{italian.intro}</span>
-      <section
+      <div
         className="italian-gallery"
+        role="region"
         aria-label="Galeria de fotos do restaurante italiano"
         aria-roledescription="carrossel"
       >
@@ -60,20 +61,20 @@ function Italian() {
             </svg>
           </button>
         </div>
-      </section>
-      <section className="italian-content">
+      </div>
+      <div className="italian-content">
         <div>
-          <h1 className="italian-title">{italian.titulo}</h1>
+          <h2 className="italian-title" id="italian-title">{italian.titulo}</h2>
           <p className="italian-subtitle">{italian.subTitulo}</p>
         </div>
         <hr className="italian-divider" />
         <div>
-          <span className="italian-dishes-title">Sabores da nossa cozinha</span>
+          <h3 className="italian-dishes-title">Sabores da nossa cozinha</h3>
           <span className="italian-dishes">{italian.menu}</span>
         </div>
         <hr className="italian-divider" />
         <div>
-          <span className="italian-info-title">Informações:</span>
+          <h3 className="italian-info-title">Informações:</h3>
           <ul className="italian-info-list">
             <li>
               <span className="italian-info-label">Endereço</span>
@@ -118,7 +119,7 @@ function Italian() {
             <img className="icone" src={iconeLink} alt="" />
           </a>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

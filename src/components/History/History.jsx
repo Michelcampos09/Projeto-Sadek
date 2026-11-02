@@ -15,15 +15,15 @@ function History() {
 
   return (
     <div className="history">
-      <section className="up-content">
+      <div className="up-content">
         <span className="uptitle-owners">{history.intro}</span>
-        <h1>{history.titulo}</h1>
-      </section>
-      <section className="timeline" aria-label="Linha do tempo da história">
+        <h2 id="historia-title">{history.titulo}</h2>
+      </div>
+      <div className="timeline" role="region" aria-label="Linha do tempo da história">
         {momentos.map((momento, index) => (
           <article className="timeline-item" key={momento}>
             <span className="timeline-period">{history.periodos[index]}</span>
-            <h2 className="timeline-title">{history.titulos[index]}</h2>
+            <h3 className="timeline-title">{history.titulos[index]}</h3>
             <p>{momento}</p>
             <img
               className="timeline-image"
@@ -34,7 +34,7 @@ function History() {
             />
           </article>
         ))}
-      </section>
+      </div>
     </div>
   );
 }

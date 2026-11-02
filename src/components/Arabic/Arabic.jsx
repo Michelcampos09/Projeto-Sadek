@@ -43,8 +43,9 @@ function Arabic() {
   return (
     <div className="arabic">
       <span className="uptitle-arabic">{arabic.intro}</span>
-      <section
+      <div
         className="first-half"
+        role="region"
         aria-label="Galeria de fotos do restaurante árabe"
         aria-roledescription="carrossel"
       >
@@ -77,20 +78,20 @@ function Arabic() {
             <path d="m9 18 6-6-6-6" />
           </svg>
         </button>
-      </section>
-      <section className="second-half">
+      </div>
+      <div className="second-half">
         <div>
-          <h1 className="title-arabic">{arabic.titulo}</h1>
+          <h2 className="title-arabic" id="arabic-title">{arabic.titulo}</h2>
           <p className="subtitle-arabic">{arabic.subTitulo}</p>
         </div>
         <hr className="line-arabic" />
         <div>
-          <span className="dishes-title">Sabores da nossa cozinha</span>
+          <h3 className="dishes-title">Sabores da nossa cozinha</h3>
           <span className="dishes">{arabic.menu}</span>
         </div>
         <hr className="line-arabic" />
         <div>
-          <span className="title-info">Informações:</span>
+          <h3 className="title-info">Informações:</h3>
           <ul className="info-list">
             <li>
               <span className="info-label">Endereço</span>
@@ -135,7 +136,7 @@ function Arabic() {
             <img className="icone" src={iconeLink} alt="" />
           </a>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
