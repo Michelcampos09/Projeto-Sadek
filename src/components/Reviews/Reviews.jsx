@@ -1,6 +1,23 @@
 import { dadosDoSite } from "../../data/conteudo";
 import "./reviews.css";
 
+function Stars({ rating, label }) {
+  return (
+    <span className="reviews__stars" role="img" aria-label={label}>
+      {Array.from({ length: 5 }, (_, index) => (
+        <svg
+          className={`reviews__star${index < rating ? " reviews__star--filled" : ""}`}
+          key={index}
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="m12 2.5 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5-4.7-4.6 6.5-.9L12 2.5Z" />
+        </svg>
+      ))}
+    </span>
+  );
+}
+
 function Reviews() {
   const conteudo = dadosDoSite.reviews;
 

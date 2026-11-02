@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { dadosDoSite } from "../../data/conteudo";
-import imagemPrato from "../../assets/arabic-prato.jpg";
-import imagemMesa from "../../assets/arabic-mesa.jpg";
-import imagemGrill from "../../assets/arabic-grill.jpg";
-import imagemMezze from "../../assets/arabic-mezze.jpg";
-import imagemMaqluba from "../../assets/arabic-maqluba.jpg";
-import imagemKanafeh from "../../assets/arabic-kanafeh.jpg";
+import miniKibe from "../../assets/arabic-mini-kibe.png";
+import torreKibeCru from "../../assets/arabic-torre-kibe-cru.png";
+import copinhoTeta from "../../assets/arabic-copinho-teta.png";
+import ninhoGalak from "../../assets/arabic-ninho-galak.png";
+import ninhoKinderBueno from "../../assets/arabic-ninho-kinder-bueno.png";
+import ninhoKitKat from "../../assets/arabic-ninho-kitkat.png";
 import iconeLink from "../../assets/icone.png";
 
 import "./arabic.css";
@@ -14,18 +14,30 @@ function Arabic() {
   const { arabic } = dadosDoSite;
   const [imagemAtual, setImagemAtual] = useState(0);
   const imagens = [
-    { src: imagemPrato, alt: "Foto de um prato árabe original" },
-    { src: imagemMesa, alt: "Foto da mesa principal" },
-    { src: imagemGrill, alt: "Foto da grill que cozinha" },
     {
-      src: imagemMezze,
-      alt: "Prato árabe de mezze com molho e acompanhamentos",
+      src: miniKibe,
+      alt: "Pôster dourado de mini kibe",
     },
     {
-      src: imagemMaqluba,
-      alt: "Maqluba servida em uma refeição compartilhada",
+      src: torreKibeCru,
+      alt: "Pôster dourado de torre de kibe cru",
     },
-    { src: imagemKanafeh, alt: "Sobremesa árabe kanafeh servida com chá" },
+    {
+      src: copinhoTeta,
+      alt: "Pôster dourado do copinho da TeTa",
+    },
+    {
+      src: ninhoGalak,
+      alt: "Pôster do ninho Galak",
+    },
+    {
+      src: ninhoKinderBueno,
+      alt: "Pôster do ninho Kinder Bueno",
+    },
+    {
+      src: ninhoKitKat,
+      alt: "Pôster do ninho KitKat",
+    },
   ];
 
   return (
