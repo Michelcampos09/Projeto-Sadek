@@ -24,11 +24,27 @@ export const dadosDoSite = {
   },
   history: {
     intro: "A história",
-    titulo: "De um restaurante à dois",
-    subTitulo:
-      "O tradicional restaurante árabe decidiu inovar e expandir seus horizontes gastronômicos. Com muita dedicação, os donos criaram um novo espaço focado inteiramente na culinária italiana, unindo duas culturas apaixonantes. Agora, os clientes têm o privilégio de começar a refeição com deliciosas esfihas e celebrar o prato principal com uma autêntica massa artesanal.",
-    periodos: ["Ano 1", "Ano 3", "Atualmente"],
-    titulos: ["Uma tradição árabe", "Uma nova cozinha", "Duas culturas à mesa"],
+    titulo: "De um restaurante a dois",
+    itens: [
+      {
+        periodo: "O início",
+        titulo: "Uma tradição árabe",
+        texto:
+          "Tudo começou com o desejo de compartilhar as receitas árabes da família em Itaipu, conquistando os clientes pelo sabor das esfihas abertas, dos quibes e dos grelhados na brasa.",
+      },
+      {
+        periodo: "A expansão",
+        titulo: "Uma nova cozinha",
+        texto:
+          "Com a casa árabe consolidada e muita dedicação, a família decidiu expandir seus horizontes gastronômicos e criar um novo espaço dedicado à culinária italiana.",
+      },
+      {
+        periodo: "Atualmente",
+        titulo: "Duas culturas à mesa",
+        texto:
+          "Hoje, as duas casas caminham lado a lado na mesma rua, permitindo começar a experiência com clássicos árabes e celebrar com pizzas artesanais assadas no forno.",
+      },
+    ],
   },
   arabic: {
     intro: "O Restaurante árabe",
