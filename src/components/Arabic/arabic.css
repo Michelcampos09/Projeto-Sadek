@@ -1,8 +1,7 @@
 /* Estrutura compartilhada das seções de restaurante e tema Árabe padrão */
 .restaurante {
-  --cor-tema: var(--cor-marrom-destaque);
-  --cor-botao-cheio: var(--cor-marrom-destaque);
-  --cor-fundo-galeria: #d6a64f;
+  --cor-tema: var(--cor-arabe);
+  --cor-fundo-galeria: #e4b95a;
 
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -19,21 +18,8 @@
 
 .restaurante-uptitle {
   grid-area: intro;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  max-width: 100%;
-  min-height: 1rem;
-  padding: 0.65rem 0.85rem;
+  align-self: end;
   color: var(--cor-tema);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  line-height: 1;
-  text-align: center;
-  text-transform: uppercase;
-  border: 1px solid var(--cor-tema);
 }
 
 .restaurante-galeria {
@@ -47,7 +33,8 @@
   aspect-ratio: 4 / 5;
   overflow: hidden;
   background-color: var(--cor-fundo-galeria);
-  border-radius: 5px;
+  border-radius: var(--raio-cartao);
+  box-shadow: var(--sombra-cartao);
 }
 
 .restaurante-galeria-quadro > img {
@@ -80,7 +67,7 @@
   place-items: center;
   border: 1px solid rgb(255 255 255 / 65%);
   border-radius: 50%;
-  background: rgb(36 30 25 / 55%);
+  background: rgb(42 29 23 / 55%);
   color: white;
   cursor: pointer;
   transform: translateY(-50%);
@@ -88,7 +75,7 @@
 }
 
 .restaurante-seta:hover {
-  background: rgb(36 30 25 / 80%);
+  background: rgb(42 29 23 / 80%);
 }
 
 .restaurante-seta:focus-visible {
@@ -116,7 +103,7 @@
 
 .restaurante-conteudo {
   grid-area: content;
-  align-self: center;
+  align-self: start;
   width: 100%;
   max-width: 35rem;
 }
@@ -126,7 +113,7 @@
   color: var(--cor-titulo);
   font-family: var(--font-titulos);
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.15;
 }
 
@@ -134,8 +121,8 @@
   margin-top: 0.9rem;
   color: var(--cor-texto);
   font-family: var(--font-textos);
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 1.05rem;
+  line-height: 1.65;
 }
 
 .restaurante-secao-titulo {
@@ -143,11 +130,9 @@
   margin: 0;
   color: var(--cor-titulo);
   font-family: var(--font-titulos);
-  font-size: 1rem;
-  font-weight: bold;
-  letter-spacing: 0.1em;
+  font-size: 1.15rem;
+  font-weight: 600;
   line-height: 1.5;
-  text-transform: uppercase;
 }
 
 .restaurante-pratos,
@@ -179,17 +164,15 @@
 
 .restaurante-info-rotulo {
   color: var(--cor-tema);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  font-weight: 700;
   line-height: 1.5;
-  text-transform: uppercase;
 }
 
 .restaurante-info-texto,
 .restaurante-info-link {
-  font-size: 0.95rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .restaurante-info-link {
@@ -221,23 +204,32 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  width: 190px;
-  min-height: 58px;
-  padding: 0.75rem 1rem;
-  font-weight: 500;
+  min-width: 12.5rem;
+  min-height: 3.25rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--cor-tema);
+  border-radius: var(--raio-botao);
+  font-weight: 600;
   text-align: center;
   text-decoration: none;
-  border: 1px solid var(--cor-botao-cheio);
+  transition: background-color 180ms ease;
 }
 
 .restaurante-botao-primario {
-  background-color: var(--cor-botao-cheio);
+  background-color: var(--cor-tema);
   color: white;
+}
+
+.restaurante-botao-primario:hover {
+  filter: brightness(0.9);
 }
 
 .restaurante-botao-secundario {
   color: var(--cor-tema);
-  border-color: var(--cor-tema);
+}
+
+.restaurante-botao-secundario:hover {
+  background-color: color-mix(in srgb, var(--cor-tema) 10%, transparent);
 }
 
 .restaurante-botao-secundario .icone {
@@ -283,3 +275,4 @@
     transition: none;
   }
 }
+

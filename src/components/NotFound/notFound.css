@@ -13,48 +13,13 @@
   padding: clamp(2rem, 5vw, 3.5rem);
   background-color: var(--cor-fundo-creme);
   border: 1px solid var(--cor-borda);
-  border-radius: 5px;
+  border-radius: var(--raio-cartao);
   text-align: center;
-  box-shadow: 0 3px 12px rgba(73, 54, 44, 0.06);
-}
-
-/* Cantoneiras decorativas seguindo a identidade da seção Donos */
-.not-found-card::before,
-.not-found-card::after {
-  position: absolute;
-  width: 2rem;
-  height: 2rem;
-  content: "";
-  pointer-events: none;
-}
-
-.not-found-card::before {
-  top: -0.75rem;
-  left: -0.75rem;
-  border-top: 2px solid var(--cor-marrom-destaque);
-  border-left: 2px solid var(--cor-marrom-destaque);
-}
-
-.not-found-card::after {
-  right: -0.75rem;
-  bottom: -0.75rem;
-  border-right: 2px solid var(--cor-verde-destaque);
-  border-bottom: 2px solid var(--cor-verde-destaque);
+  box-shadow: var(--sombra-cartao);
 }
 
 .not-found-uptitle {
-  display: inline-block;
   margin-bottom: 1rem;
-  padding: 0.35rem 0.75rem;
-  border: 1px solid var(--cor-linha);
-  border-radius: 4px;
-  background-color: #fbf9f4;
-  color: var(--cor-marrom-destaque);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  line-height: 1.4;
-  text-transform: uppercase;
 }
 
 .not-found-badge {
@@ -66,7 +31,7 @@
   color: var(--cor-titulo);
   font-family: var(--font-titulos);
   font-size: clamp(4rem, 10vw, 6.5rem);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1;
   letter-spacing: 0.04em;
 }
@@ -101,15 +66,15 @@
 }
 
 .not-found-dot--arabic {
-  background-color: var(--cor-marrom-destaque);
+  background-color: var(--cor-arabe);
 }
 
 .not-found-dot--middle {
-  background-color: var(--cor-terracota-destaque);
+  background-color: var(--cor-brasa);
 }
 
 .not-found-dot--italian {
-  background-color: var(--cor-verde-botao);
+  background-color: var(--cor-italiano);
 }
 
 .not-found-title {
@@ -117,7 +82,7 @@
   color: var(--cor-titulo);
   font-family: var(--font-titulos);
   font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.2;
 }
 
@@ -126,8 +91,8 @@
   margin: 0 auto 2rem;
   color: var(--cor-texto);
   font-family: var(--font-textos);
-  font-size: 1rem;
-  line-height: 1.75;
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 
 .not-found-actions {
@@ -145,36 +110,37 @@
   min-width: 12rem;
   min-height: 3.25rem;
   padding: 0.75rem 1.5rem;
+  border-radius: var(--raio-botao);
   font-family: var(--font-textos);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  transition: background-color 180ms ease, color 180ms ease;
+  transition: background-color 180ms ease;
 }
 
 .not-found-btn-primary {
-  background-color: var(--cor-marrom-destaque);
-  border: 1px solid var(--cor-marrom-destaque);
+  background-color: var(--cor-brasa);
+  border: 1px solid var(--cor-brasa);
   color: #ffffff;
 }
 
 .not-found-btn-primary:hover {
-  background-color: #634628;
+  background-color: var(--cor-brasa-escura);
 }
 
 .not-found-btn-secondary {
   background-color: transparent;
-  border: 1px solid var(--cor-marrom-destaque);
-  color: var(--cor-marrom-destaque);
+  border: 1px solid var(--cor-brasa);
+  color: var(--cor-brasa);
 }
 
 .not-found-btn-secondary:hover {
-  background-color: rgba(122, 88, 51, 0.08);
+  background-color: rgba(168, 64, 31, 0.08);
 }
 
 .not-found-btn-primary:focus-visible,
 .not-found-btn-secondary:focus-visible {
-  outline: 2px solid var(--cor-marrom-destaque);
+  outline: 2px solid var(--cor-brasa);
   outline-offset: 3px;
 }
 
@@ -193,7 +159,7 @@
 
 .not-found-houses-label {
   color: var(--cor-texto);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
 }
 
 .not-found-houses-links {
@@ -207,10 +173,10 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.5rem 0.9rem;
-  border-radius: 4px;
-  background-color: #fbf9f4;
-  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--raio-botao);
+  background-color: var(--cor-fundo-claro);
+  font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
 }
@@ -220,13 +186,13 @@
 }
 
 .not-found-house-link--arabic {
-  border: 1px solid var(--cor-marrom-destaque);
-  color: var(--cor-marrom-destaque);
+  border: 1px solid var(--cor-arabe);
+  color: var(--cor-arabe);
 }
 
 .not-found-house-link--italian {
-  border: 1px solid var(--cor-verde-destaque);
-  color: var(--cor-verde-destaque);
+  border: 1px solid var(--cor-italiano);
+  color: var(--cor-italiano);
 }
 
 .not-found-house-link:focus-visible {
@@ -241,11 +207,6 @@
 
   .not-found-card {
     padding: 1.75rem 1.25rem;
-  }
-
-  .not-found-card::before,
-  .not-found-card::after {
-    display: none;
   }
 
   .not-found-actions,

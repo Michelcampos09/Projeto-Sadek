@@ -1,7 +1,7 @@
 .reviews {
   padding: 4rem max(2rem, calc((100% - 78rem) / 2));
   background-color: #e6dcc8;
-  color: #2b2420;
+  color: var(--cor-texto-escuro);
 }
 
 .reviews__inner {
@@ -26,13 +26,13 @@
   color: var(--cor-titulo);
   font-family: var(--font-titulos);
   font-size: clamp(2.2rem, 5vw, 4rem);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.1;
 }
 
 .reviews__intro {
   margin-top: 1rem;
-  color: #5c5145;
+  color: var(--cor-texto);
   font-family: var(--font-textos);
   font-size: 0.95rem;
   line-height: 1.7;
@@ -40,7 +40,7 @@
 
 .reviews__all-link:focus-visible {
   border-radius: 2px;
-  outline: 2px solid #b5532f;
+  outline: 2px solid var(--cor-brasa);
   outline-offset: 3px;
 }
 
@@ -81,7 +81,9 @@
   flex-direction: column;
   padding: 1rem;
   border: 1px solid #cbbfa6;
-  background-color: #efe7d6;
+  background-color: var(--cor-fundo-claro);
+  border-radius: var(--raio-cartao);
+  box-shadow: var(--sombra-cartao);
 }
 
 .reviews__card-meta {
@@ -95,14 +97,14 @@
 }
 
 .reviews__source {
-  color: #5c5145;
+  color: var(--cor-texto);
   font-family: var(--font-textos);
   font-size: 0.7rem;
 }
 
 .reviews__quote {
   margin: 1rem 0 2rem;
-  color: #2b2420;
+  color: var(--cor-texto-escuro);
   font-family: var(--font-titulos);
   font-size: clamp(1.1rem, 1.7vw, 1.4rem);
   line-height: 1.4;
@@ -112,7 +114,7 @@
   display: grid;
   gap: 0.2rem;
   margin-top: auto;
-  color: #5c5145;
+  color: var(--cor-texto);
   font-family: var(--font-textos);
   font-size: 0.75rem;
   line-height: 1.5;
@@ -123,7 +125,7 @@
 }
 
 .reviews__author {
-  color: #2b2420;
+  color: var(--cor-texto-escuro);
   font-weight: 600;
 }
 
@@ -131,8 +133,8 @@
   width: fit-content;
   margin-top: 0.45rem;
   padding: 0.2rem 0.45rem;
-  border: 1px solid #5b6038;
-  color: #4a4e2e;
+  border: 1px solid var(--cor-italiano);
+  color: var(--cor-italiano);
   font-size: 0.65rem;
   text-transform: uppercase;
 }
@@ -144,7 +146,7 @@
   flex-direction: column;
   gap: 0.5rem 1rem;
   margin-top: 2.5rem;
-  color: #5c5145;
+  color: var(--cor-texto);
   font-family: var(--font-textos);
   font-size: 0.85rem;
   line-height: 1.6;
@@ -166,14 +168,14 @@
   justify-content: center;
   gap: 0.4rem;
   padding: 0.5rem 0.75rem;
-  color: #8f3f25;
+  color: var(--cor-brasa);
   font-weight: 600;
-  text-decoration-color: #b5532f;
+  text-decoration-color: var(--cor-brasa);
   text-underline-offset: 0.2em;
 }
 
 .reviews__all-link:hover {
-  color: #6f2d1a;
+  color: var(--cor-brasa-escura);
 }
 
 @media (max-width: 800px) {
@@ -194,7 +196,7 @@
     overscroll-behavior-x: contain;
     padding: 0.15rem 0.15rem 1rem;
     scroll-snap-type: x mandatory;
-    scrollbar-color: #b5532f #cbbfa6;
+    scrollbar-color: var(--cor-brasa) #cbbfa6;
     scrollbar-width: thin;
   }
 

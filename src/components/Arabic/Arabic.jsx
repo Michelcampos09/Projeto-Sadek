@@ -29,7 +29,7 @@ export function Restaurante({ variante, dados, imagens, ariaGaleria }) {
 
   return (
     <div id={dados.id} className={`restaurante ${variante}`}>
-      <span className="restaurante-uptitle">{dados.intro}</span>
+      <span className="restaurante-uptitle rotulo-secao">{dados.intro}</span>
       <div
         className="restaurante-galeria"
         role="region"

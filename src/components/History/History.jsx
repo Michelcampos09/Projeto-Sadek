@@ -16,7 +16,7 @@ function History() {
   return (
     <div className="history">
       <div className="up-content">
-        <span className="uptitle-history">{history.intro}</span>
+        <span className="rotulo-secao">{history.intro}</span>
         <h2 id="historia-title">{history.titulo}</h2>
       </div>
       <div className="timeline" role="region" aria-label="Linha do tempo da história">

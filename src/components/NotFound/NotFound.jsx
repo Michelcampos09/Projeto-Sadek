@@ -30,7 +30,7 @@ function NotFound() {
   return (
     <section className="not-found" aria-labelledby="not-found-title">
       <div className="not-found-card">
-        <span className="not-found-uptitle">Erro 404 · Página não encontrada</span>
+        <span className="not-found-uptitle rotulo-secao">Erro 404 · Página não encontrada</span>
 
         <div className="not-found-badge" aria-hidden="true">
           <span className="not-found-number">404</span>

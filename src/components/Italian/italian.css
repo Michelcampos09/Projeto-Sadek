@@ -1,8 +1,7 @@
 /* Tema e inversão de colunas exclusivos da seção Italiana */
 .restaurante.italian {
-  --cor-tema: var(--cor-verde-destaque);
-  --cor-botao-cheio: var(--cor-verde-botao);
-  --cor-fundo-galeria: #0b0907;
+  --cor-tema: var(--cor-italiano);
+  --cor-fundo-galeria: #2a1d17;
 
   grid-template-areas:
     "intro gallery"
@@ -10,10 +9,7 @@
   width: 100%;
   padding: 4rem max(2rem, calc((100% - 78rem) / 2));
   background-color: var(--cor-fundo-italiano);
-  border-top: 1px solid var(--cor-borda);
-  box-shadow:
-    0 -3px 8px rgba(0, 0, 0, 0.06),
-    0 3px 8px rgba(0, 0, 0, 0.06);
+  border-block: 1px solid var(--cor-borda);
 }
 
 @media (max-width: 750px) {
@@ -25,3 +21,4 @@
     padding: 1.5rem;
   }
 }
+

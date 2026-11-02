@@ -1,18 +1,18 @@
 export const dadosDoSite = {
   hero: {
-    titulo: "Sabores que aproximam",
+    titulo: "Esfiha primeiro. Pizza depois.",
     descricao:
-      "Da tradição árabe da Sahtein Rotisseria às pizzas artesanais do Forno Sahtein — mesma família, duas cozinhas.",
+      "Em Itaipu, a mesma família cuida de duas casas na Estrada Francisco da Cruz Nunes: a Sahtein Rotisseria, de cozinha árabe, e o Forno Sahtein, de pizzas artesanais.",
   },
   owners: {
     intro: "A Família",
     titulo: "Conheça os donos",
     paragrafo1:
-      "Nossa história na gastronomia começou há mais de vinte anos, quando abrimos as portas da Sahtein Rotisseria para compartilhar as receitas árabes passadas de geração em geração.",
+      "Há mais de vinte anos, abrimos a Sahtein Rotisseria em Itaipu para servir as receitas árabes da nossa família: esfiha assada na hora, kibe, shawarma e charuto de folha de uva.",
     paragrafo2:
-      "Com o passar dos anos, nossa paixão por ingredientes frescos nos levou a um novo sonho: inaugurar o Forno Sahtein, nossa segunda casa em Itaipu, dedicada às pizzas artesanais e paninis.",
+      "Anos depois, abrimos o Forno Sahtein na mesma estrada, com pizzas artesanais e paninis. Foi o jeito de continuar a história da Rotisseria com outra cozinha.",
     paragrafo3:
-      "Seja com nossas especiarias árabes ou uma pizza saindo do forno, o nosso maior prazer é receber você. Duas cozinhas, duas culturas, mas a mesma hospitalidade de sempre.",
+      "Hoje dá para começar o jantar com uma esfiha na Rotisseria e terminar com uma pizza de pistache no Forno. São duas cozinhas, tocadas pela mesma família.",
     linksRestaurantes: [
       {
         nome: "Sahtein Rotisseria (Cozinha Árabe)",
@@ -34,19 +34,19 @@ export const dadosDoSite = {
         periodo: "O início",
         titulo: "Sahtein Rotisseria",
         texto:
-          "Tudo começou com o desejo de compartilhar as receitas árabes da família em Itaipu, conquistando os clientes pelo sabor das esfihas abertas, dos quibes e dos grelhados na brasa.",
+          "A Sahtein Rotisseria abriu em Itaipu com as receitas árabes da família: esfiha aberta, kibe, shawarma e charuto de folha de uva.",
       },
       {
         periodo: "A expansão",
         titulo: "Nasce o Forno Sahtein",
         texto:
-          "Com a casa árabe consolidada e muita dedicação, a família decidiu expandir seus horizontes gastronômicos e criar um segundo espaço dedicado à culinária italiana.",
+          "A família abriu o Forno Sahtein na mesma Estrada Francisco da Cruz Nunes, com pizzas artesanais e paninis.",
       },
       {
         periodo: "Atualmente",
-        titulo: "Duas casas na mesma rua",
+        titulo: "Duas casas na mesma estrada",
         texto:
-          "Hoje, a Sahtein Rotisseria e o Forno Sahtein caminham lado a lado em Itaipu, permitindo começar a experiência com clássicos árabes e celebrar com pizzas artesanais.",
+          "A Rotisseria abre de terça a sábado, das 16h às 22h. O Forno abre de terça a domingo, das 11h às 23h.",
       },
     ],
   },
@@ -56,7 +56,7 @@ export const dadosDoSite = {
     intro: "Sahtein Rotisseria · Cozinha Árabe",
     titulo: "Onde a família começou",
     subTitulo:
-      "Tudo começou na Sahtein Rotisseria, criada pela família com muito carinho e dedicação em Itaipu. Ali, receitas autênticas ganhavam vida em cada prato, envolvendo os clientes no aroma das especiarias frescas e no sabor das esfihas assadas na hora. Foi nesse ambiente acolhedor que nasceu uma clientela fiel e o primeiro passo da nossa trajetória.",
+      "A Sahtein Rotisseria é onde tudo começou. Da cozinha saem esfihas assadas na hora, kibe de forno, shawarma e charutos de folha de uva, todos receitas da família. O cardápio ainda tem mini kibe, torre de kibe cru e ninhos de Galak, KitKat e Kinder Bueno.",
     menu: "Shawarma · Kibe de forno · Charutos de folha de uva",
     info: {
       endereco: "Estr. Francisco da Cruz Nunes, 1874 B - Itaipu, Niterói - RJ",
@@ -74,9 +74,9 @@ export const dadosDoSite = {
     id: "forno-sahtein",
     nome: "Forno Sahtein",
     intro: "Forno Sahtein · Cozinha Italiana",
-    titulo: "Pizza fresca, feita no forno",
+    titulo: "Pizza artesanal, direto do forno",
     subTitulo:
-      "A história da família ganhou um novo capítulo com a inauguração do Forno Sahtein, nosso segundo restaurante na mesma rua em Itaipu, dedicado aos sabores da cozinha italiana. Pizzas artesanais e paninis passaram a fazer parte dessa trajetória, mantendo o propósito que sempre inspirou a família: acolher pessoas e transformar momentos à mesa em boas lembranças.",
+      "O Forno Sahtein é a segunda casa da família, na mesma estrada da Rotisseria. As pizzas são artesanais, com sabores como salmão, camarão, calabresa e pistache, e o cardápio também tem paninis.",
     menu: "Pizza de salmão · Pizza de camarão · Pizza de calabresa · Pizza de pistache · Pizza de KitKat",
     info: {
       endereco: "Estr. Francisco da Cruz Nunes, 1980 A - Itaipu, Niterói - RJ",
@@ -91,11 +91,11 @@ export const dadosDoSite = {
     linkMenu: "https://cardapio.takeat.app/fornosahtein",
   },
   reviews: {
-    titulo: "O que dizem nossos convidados",
-    introducao: "Histórias à mesa, compartilhadas por quem já nos visitou.",
+    titulo: "O que clientes dizem no Google",
+    introducao: "Três avaliações reais das duas casas, com a fonte de cada uma.",
     listaAriaLabel: "Depoimentos de visitantes",
     autorLabel: "Autor",
-     convite: "Já nos visitou? Conte como foi a sua experiência no Google.",
+     convite: "Já foi a uma das casas? Conte como foi no Google.",
     avaliarLink: "Avaliar {restaurant} no Google",
     notaLabel: "Nota {rating} de 5",
     perfisGoogle: [

@@ -1,27 +1,42 @@
 /* src/index.css */
-@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
+/* Fontes carregadas via <link> no index.html: Fraunces (títulos) e Hanken Grotesk (textos) */
 
-/* Fontes, paleta de cores (com contraste WCAG AA validado) e espaçamentos compartilhados */
+/*
+  Paleta "Duas casas, uma mesa" (cores do Mediterrâneo que unem as duas cozinhas):
+  - Açafrão-âmbar   = casa árabe (especiarias, brasa dourada)
+  - Azeitona        = casa italiana (azeite, manjericão)
+  - Brasa/terracota = cor da família (forno, argila): ações e detalhes comuns
+  - Cal / pão       = fundos quentes
+  Todos os textos pequenos mantêm contraste mínimo de 4,5:1 (WCAG AA).
+*/
 :root {
-  --font-titulos: "Lora", "Book Antiqua", serif;
-  --font-textos: "Montserrat", sans-serif;
+  --font-titulos: "Fraunces", Georgia, serif;
+  --font-textos: "Hanken Grotesk", system-ui, sans-serif;
 
-  --cor-fundo: #fcfbf8;
-  --cor-fundo-creme: #f3efe6;
-  --cor-fundo-italiano: #f1f5f0;
+  --cor-fundo: #fbf6ec;
+  --cor-fundo-creme: #f1e8d6;
+  --cor-fundo-italiano: #edf0e1;
+  --cor-fundo-claro: #fdfaf3;
 
-  --cor-texto-escuro: #111827;
-  --cor-titulo: #49362c;
-  --cor-texto: #5b554e;
+  --cor-texto-escuro: #2a1d17;
+  --cor-titulo: #3d2b23;
+  --cor-texto: #574a40;
 
-  --cor-borda: #e4dfd3;
-  --cor-linha: #c9b99f;
+  --cor-borda: #e4d8c0;
+  --cor-linha: #d3bf9f;
 
-  --cor-marrom-destaque: #7a5833;
-  --cor-terracota-destaque: #8a4329;
-  --cor-verde-destaque: #3b5d47;
-  --cor-verde-botao: #4e785d;
+  --cor-arabe: #8a5a12;
+  --cor-brasa: #a8401f;
+  --cor-brasa-escura: #8a3418;
+  --cor-italiano: #4f5f3a;
+
+  /* Raios por contexto: fotos quase retas, cartões suaves, botões em pílula */
+  --raio-foto: 2px;
+  --raio-cartao: 10px;
+  --raio-botao: 999px;
+
+  /* Sombras: seções só com linha; cartões flutuam com sombra suave */
+  --sombra-cartao: 0 12px 28px -14px rgba(61, 43, 35, 0.28);
 
   --espaco-secao: 5.8rem;
 }
@@ -60,6 +75,27 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Etiqueta pequena acima dos títulos ("A família", "A história", nomes das casas):
+   serifada em itálico, sem caixa-alta, com um traço curto como assinatura */
+.rotulo-secao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--cor-arabe);
+  font-family: var(--font-titulos);
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.rotulo-secao::before {
+  width: 1.75rem;
+  height: 1px;
+  background-color: currentColor;
+  content: "";
+}
+
 /* M5: Por padrão, todo o conteúdo é visível (acessibilidade, print, busca e fallback sem JS) */
 main > section {
   opacity: 1;
@@ -90,3 +126,4 @@ main > section {
     transition: none !important;
   }
 }
+
