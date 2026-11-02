@@ -91,11 +91,13 @@ export const dadosDoSite = {
     linkMenu: "https://cardapio.takeat.app/fornosahtein",
   },
   reviews: {
+    intro: "Avaliações",
     titulo: "O que clientes dizem no Google",
-    introducao: "Três avaliações reais das duas casas, com a fonte de cada uma.",
+    introducao: "Depoimentos reais de quem já visitou a Sahtein Rotisseria e o Forno Sahtein em Itaipu.",
     listaAriaLabel: "Depoimentos de visitantes",
-    autorLabel: "Autor",
-     convite: "Já foi a uma das casas? Conte como foi no Google.",
+    lerMaisLabel: "Ler mais",
+    lerMenosLabel: "Ler menos",
+    convite: "Já foi a uma das casas? Conte como foi no Google.",
     avaliarLink: "Avaliar {restaurant} no Google",
     notaLabel: "Nota {rating} de 5",
     perfisGoogle: [
