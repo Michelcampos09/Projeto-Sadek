@@ -13,7 +13,7 @@ export const dadosDoSite = {
     },
   },
   owners: {
-    intro: 'Eyebrow - the "family"',
+    intro: "A Família",
     titulo: "Conheça os donos",
     paragrafo1:
       "Nossa história na gastronomia começou há mais de vinte anos, quando abrimos as portas do nosso primeiro restaurante para compartilhar as receitas árabes passadas de geração em geração.",
@@ -23,7 +23,7 @@ export const dadosDoSite = {
       "Seja com nossas especiarias árabes ou uma massa fresca feita no dia, o nosso maior prazer é receber você. Duas cozinhas, duas culturas, mas a mesma hospitalidade de sempre.",
   },
   history: {
-    intro: 'Eyebrow - the "history"',
+    intro: "A história",
     titulo: "De um restaurante à dois",
     subTitulo:
       "O tradicional restaurante árabe decidiu inovar e expandir seus horizontes gastronômicos. Com muita dedicação, os donos criaram um novo espaço focado inteiramente na culinária italiana, unindo duas culturas apaixonantes. Agora, os clientes têm o privilégio de começar a refeição com deliciosas esfihas e celebrar o prato principal com uma autêntica massa artesanal.",
@@ -34,24 +34,24 @@ export const dadosDoSite = {
     intro: "O Restaurante árabe",
     titulo: "Onde a família começou",
     subTitulo:
-      "O pequeno restaurante árabe começou como um projeto familiar, encantando os clientes com receitas autênticas passadas de geração em geração. Foi nesse ambiente acolhedor, repleto do aroma de especiarias frescas e esfihas assadas na hora, que eles construíram sua clientela fiel antes de expandir.",
-    menu: "Shawarma, Kibe de Forno, Charutos de Folha de Uva",
+      "Tudo começou em um pequeno restaurante árabe, criado pela família com muito carinho e dedicação. Ali, receitas autênticas passadas de geração em geração ganhavam vida em cada prato, envolvendo os clientes no aroma das especiarias frescas e no sabor das esfihas assadas na hora. Foi nesse ambiente acolhedor, marcado pela tradição e pelo afeto, que nasceu uma clientela fiel, e também o primeiro passo de uma história que continuaria a crescer.",
+    menu: "Shawarma · Kibe de forno · Charutos de folha de uva",
     info: {
       endereco: "Estr. Francisco da Cruz Nunes, 1874 B - Itaipu, Niterói - RJ",
-      horario: "Terça a domingo, das 11h às 23h",
-      telefone: "(21) 98765-4321",
+      horario: "Terça a sábado, das 16h às 22h",
+      telefone: "(21) 97301-1881",
     },
   },
   italian: {
     intro: "O novo restaurante italiano",
     titulo: "Pizza fresca, feita no forno",
     subTitulo:
-      "O restaurante árabe nasceu do sonho de compartilhar receitas familiares, conquistando o paladar local com temperos marcantes e porções fartas. Com o sucesso absoluto das esfihas e quibes artesanais, o pequeno espaço tornou-se um ponto de encontro clássico antes da sua grande expansão.",
-    menu: "Pizza de salmão com cream cheese, pizza carbonara, pizza de calabresa e pizza de pistache com hortelã",
+      "A história da família ganhou um novo capítulo com a criação de seu segundo restaurante, agora dedicado aos sabores da cozinha italiana. Pizzas e paninis passaram a fazer parte dessa trajetória, com o mesmo carinho e dedicação que marcaram o início de tudo. Mais do que uma expansão, o novo espaço nasceu para dar continuidade ao que sempre inspirou a família: acolher pessoas e transformar momentos à mesa em boas lembranças.",
+    menu: "Pizza de salmão · Pizza de camarão · Pizza de calabresa · Pizza de pistache · Pizza de KitKat",
     info: {
-      endereco: "Estr. Francisco da Cruz Nunes, 1874 B - Itaipu, Niterói - RJ",
+      endereco: "Estr. Francisco da Cruz Nunes, 1980 A - Itaipu, Niterói - RJ",
       horario: "Terça a domingo, das 11h às 23h",
-      telefone: "(21) 98765-4321",
+      telefone: "(21) 97301-1881",
     },
   },
   reviews: {

@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { dadosDoSite } from "../../data/conteudo";
-import pizzaNaMesa from "../../assets/italian-pizza-wood-table.jpg";
-import pizzasNaVitrine from "../../assets/italian-pizza-display.jpg";
-import pratoDeMassa from "../../assets/italian-spaghetti.jpg";
-import restauranteEmVeneza from "../../assets/italian-cafe-venice.jpg";
-import massaFresca from "../../assets/italian-fresh-pasta.jpg";
-import pizzaNoForno from "../../assets/italian-wood-fired-pizza.jpg";
+import pizzaDeSalmao from "../../assets/pizza-salmao-artesanal.png";
+import pizzaDePistache from "../../assets/pizza-pistache-artesanal.png";
+import pizzaDeKitKat from "../../assets/pizza-kitkat-artesanal.png";
+import pizzaDeCamarao from "../../assets/pizza-camarao-artesanal.png";
+import pizzaDeCalabresa from "../../assets/pizza-calabresa-artesanal.png";
 import iconeLink from "../../assets/icone.png";
 import "./italian.css";
 
@@ -13,15 +12,11 @@ function Italian() {
   const { italian } = dadosDoSite;
   const [imagemAtual, setImagemAtual] = useState(0);
   const imagens = [
-    {
-      src: pizzaNaMesa,
-      alt: "Pizzas artesanais servidas em uma mesa de madeira",
-    },
-    { src: pizzasNaVitrine, alt: "Pizzas expostas em uma vitrine italiana" },
-    { src: pratoDeMassa, alt: "Prato de espaguete servido em restaurante" },
-    { src: restauranteEmVeneza, alt: "Restaurante ao ar livre em Veneza" },
-    { src: massaFresca, alt: "Massa italiana fresca preparada artesanalmente" },
-    { src: pizzaNoForno, alt: "Pizzas assando em forno a lenha" },
+    { src: pizzaDeSalmao, alt: "Pizza artesanal de salmão" },
+    { src: pizzaDePistache, alt: "Pizza artesanal de pistache" },
+    { src: pizzaDeKitKat, alt: "Pizza artesanal de KitKat" },
+    { src: pizzaDeCamarao, alt: "Pizza artesanal de camarão" },
+    { src: pizzaDeCalabresa, alt: "Pizza artesanal de calabresa" },
   ];
 
   const selecionarImagem = (indice) => {
@@ -73,7 +68,7 @@ function Italian() {
         </div>
         <hr className="italian-divider" />
         <div>
-          <span className="italian-dishes-title">Pratos Principais:</span>
+          <span className="italian-dishes-title">Sabores da nossa cozinha</span>
           <span className="italian-dishes">{italian.menu}</span>
         </div>
         <hr className="italian-divider" />

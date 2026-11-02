@@ -73,7 +73,7 @@ function Arabic() {
         </div>
         <hr className="line-arabic" />
         <div>
-          <span className="dishes-title">Pratos Principais:</span>
+          <span className="dishes-title">Sabores da nossa cozinha</span>
           <span className="dishes">{arabic.menu}</span>
         </div>
         <hr className="line-arabic" />
