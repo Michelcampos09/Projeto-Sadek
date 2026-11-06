@@ -34,10 +34,10 @@ function ReviewCard({ review, conteudo }) {
   const [expandido, setExpandido] = useState(false);
   const textoLongo = review.text.length > 180;
   const ehItaliano = review.restaurant.toLowerCase().includes("forno");
-  const classeTema = ehItaliano ? "reviews__card--italian" : "reviews__card--arabic";
+  const classeTema = ehItaliano ? " reviews__card--italian" : "";
 
   return (
-    <figure className={`reviews__card ${classeTema}`}>
+    <figure className={`reviews__card${classeTema}`}>
       <div className="reviews__card-meta">
         {review.rating != null && (
           <Stars
@@ -115,10 +115,8 @@ function Reviews() {
                 .includes("forno");
               return (
                 <a
-                  className={`reviews__all-link ${
-                    ehItaliano
-                      ? "reviews__all-link--italian"
-                      : "reviews__all-link--arabic"
+                  className={`reviews__all-link${
+                    ehItaliano ? " reviews__all-link--italian" : ""
                   }`}
                   href={profile.url}
                   key={profile.restaurant}

@@ -212,14 +212,6 @@
     color 180ms ease;
 }
 
-.contact__btn--arabic {
-  --cor-casa-footer: var(--cor-footer-arabe);
-}
-
-.contact__btn--italian {
-  --cor-casa-footer: var(--cor-footer-italiano);
-}
-
 .contact__btn-arrow {
   display: inline-block;
   font-size: 1rem;

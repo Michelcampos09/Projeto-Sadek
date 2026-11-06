@@ -90,8 +90,6 @@
 .reviews__stars {
   display: inline-flex;
   gap: 0.15rem;
-  color: var(--cor-arabe);
-  vertical-align: middle;
 }
 
 .reviews__star {

@@ -22,7 +22,6 @@ const LINKS_RESTAURANTES = {
 const REDES_SOCIAIS_GRUPO = [
   {
     id: "instagram",
-    nome: "Instagram",
     url: "#", // TODO: substituir pela URL do Instagram unificado do grupo
     ariaLabel: "Instagram do Grupo Sahtein (abre em nova aba)",
     svg: (
@@ -35,7 +34,6 @@ const REDES_SOCIAIS_GRUPO = [
   },
   {
     id: "facebook",
-    nome: "Facebook",
     url: "#", // TODO: substituir pela URL do Facebook unificado do grupo
     ariaLabel: "Facebook do Grupo Sahtein (abre em nova aba)",
     svg: (
@@ -46,7 +44,6 @@ const REDES_SOCIAIS_GRUPO = [
   },
   {
     id: "whatsapp",
-    nome: "WhatsApp",
     url: "#", // TODO: substituir pelo link wa.me oficial do grupo
     ariaLabel: "WhatsApp do Grupo Sahtein (abre em nova aba)",
     svg: (
@@ -100,7 +97,7 @@ function Contact() {
       <div className="contact__inner">
         <div className="contact__grid">
           {/* Coluna 1: Grupo + redes sociais unificadas */}
-          <div className="contact__col contact__col--brand">
+          <div className="contact__col">
             <a
               className="contact__logo-link"
               href="/#inicio"
@@ -155,7 +152,7 @@ function Contact() {
               </ul>
 
               <a
-                className={`contact__btn contact__btn--${casa.modificador}`}
+                className="contact__btn"
                 href={casa.url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -170,7 +167,7 @@ function Contact() {
           ))}
 
           {/* Coluna 4: Contato e endereços das duas casas */}
-          <div className="contact__col contact__col--contact">
+          <div className="contact__col">
             <span className="contact__eyebrow">Fale conosco</span>
             <h2 className="contact__heading">Contato</h2>
 
@@ -220,7 +217,7 @@ function Contact() {
             © {ANO_ATUAL} {DADOS_GRUPO.nome}. Todos os direitos reservados.
           </p>
 
-          <nav className="contact__legal" aria-label="Links legais e créditos">
+          <nav aria-label="Links legais e créditos">
             <ul className="contact__legal-list">
               <li>
                 <a

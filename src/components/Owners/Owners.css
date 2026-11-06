@@ -71,7 +71,6 @@
 }
 
 .owners-divider {
-  width: auto;
   margin-block: 1.75rem;
   border: 0;
   border-top: 1px solid var(--cor-linha);

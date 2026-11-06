@@ -68,44 +68,38 @@ export function Restaurante({ variante, dados, imagens, ariaGaleria }) {
       </div>
 
       <div className="restaurante-conteudo">
-        <div>
-          <h2 className="restaurante-titulo" id={`${variante}-title`}>
-            {dados.titulo}
-          </h2>
-          <p className="restaurante-subtitulo">{dados.subTitulo}</p>
-        </div>
+        <h2 className="restaurante-titulo">
+          {dados.titulo}
+        </h2>
+        <p className="restaurante-subtitulo">{dados.subTitulo}</p>
         <hr className="restaurante-divisor" />
-        <div>
-          <h3 className="restaurante-secao-titulo">Sabores da nossa cozinha</h3>
-          <span className="restaurante-pratos">{dados.menu}</span>
-        </div>
+        <h3 className="restaurante-secao-titulo">Sabores da nossa cozinha</h3>
+        <span className="restaurante-pratos">{dados.menu}</span>
         <hr className="restaurante-divisor" />
-        <div>
-          <h3 className="restaurante-secao-titulo">Informações:</h3>
-          <ul className="restaurante-info-lista">
-            <li>
-              <span className="restaurante-info-rotulo">Endereço</span>
-              <a
-                className="restaurante-info-link"
-                href={dados.info.linkMapa}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {dados.info.endereco}
-              </a>
-            </li>
-            <li>
-              <span className="restaurante-info-rotulo">Horário</span>
-              <span className="restaurante-info-texto">{dados.info.horario}</span>
-            </li>
-            <li>
-              <span className="restaurante-info-rotulo">Telefone</span>
-              <a className="restaurante-info-link" href={`tel:+55${telefoneLimpo}`}>
-                {dados.info.telefone}
-              </a>
-            </li>
-          </ul>
-        </div>
+        <h3 className="restaurante-secao-titulo">Informações:</h3>
+        <ul className="restaurante-info-lista">
+          <li>
+            <span className="restaurante-info-rotulo">Endereço</span>
+            <a
+              className="restaurante-info-link"
+              href={dados.info.linkMapa}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {dados.info.endereco}
+            </a>
+          </li>
+          <li>
+            <span className="restaurante-info-rotulo">Horário</span>
+            <span className="restaurante-info-texto">{dados.info.horario}</span>
+          </li>
+          <li>
+            <span className="restaurante-info-rotulo">Telefone</span>
+            <a className="restaurante-info-link" href={`tel:+55${telefoneLimpo}`}>
+              {dados.info.telefone}
+            </a>
+          </li>
+        </ul>
         <div className="restaurante-links">
           <a
             className="restaurante-botao-primario"

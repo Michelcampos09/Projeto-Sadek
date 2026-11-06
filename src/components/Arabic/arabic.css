@@ -126,7 +126,6 @@
 }
 
 .restaurante-secao-titulo {
-  display: block;
   margin: 0;
   color: var(--cor-titulo);
   font-family: var(--font-titulos);
@@ -143,7 +142,6 @@
 }
 
 .restaurante-divisor {
-  width: auto;
   margin-block: 1.3rem;
   border: 0;
   border-top: 1px solid var(--cor-linha);
