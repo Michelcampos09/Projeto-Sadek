@@ -134,4 +134,68 @@ export const dadosDoSite = {
       },
     ],
   },
+  contact: {
+    dadosGrupo: {
+      nome: "Grupo Sahtein",
+      descricao:
+        "Duas cozinhas em Itaipu — a Sahtein Rotisseria e o Forno Sahtein — cuidadas pela mesma família.",
+      email: "contato@exemplo.com", // TODO: substituir pelo e-mail real do grupo
+      telefone: "(21) 97301-1881",
+      linkPrivacidade: "#privacidade", // TODO: substituir pela rota ou URL da Política de Privacidade
+      linkCreditos: "#creditos", // TODO: substituir pela URL ou identificação dos créditos
+    },
+    linksRestaurantes: {
+      arabe: "https://sahteinrotisseria.com.br",
+      italiano: "https://cardapio.takeat.app/fornosahtein",
+    },
+    redesSociaisGrupo: [
+      {
+        id: "instagram",
+        url: "#", // TODO: substituir pela URL do Instagram unificado do grupo
+        ariaLabel: "Instagram do Grupo Sahtein (abre em nova aba)",
+      },
+      {
+        id: "facebook",
+        url: "#", // TODO: substituir pela URL do Facebook unificado do grupo
+        ariaLabel: "Facebook do Grupo Sahtein (abre em nova aba)",
+      },
+      {
+        id: "whatsapp",
+        url: "#", // TODO: substituir pelo link wa.me oficial do grupo
+        ariaLabel: "WhatsApp do Grupo Sahtein (abre em nova aba)",
+      },
+    ],
+    casas: [
+      {
+        chave: "arabic",
+        modificador: "arabic",
+        nome: "Sahtein Rotisseria",
+        cozinha: "Cozinha Árabe",
+        resumo:
+          "Esfihas abertas na hora, kibe de forno, shawarma e charutos de folha de uva com receitas da família.",
+        destaques: [
+          "Shawarma · Kibe de forno · Charutos de folha de uva",
+          "Terça a sábado, das 16h às 22h",
+        ],
+        endereco: "Estr. Francisco da Cruz Nunes, 1874 B - Itaipu, Niterói - RJ",
+        linkMapa:
+          "https://www.google.com/maps/search/?api=1&query=Sahtein+Rotisseria+Estr.+Francisco+da+Cruz+Nunes+1874+B+Itaipu+Niteroi",
+      },
+      {
+        chave: "italian",
+        modificador: "italian",
+        nome: "Forno Sahtein",
+        cozinha: "Cozinha Italiana",
+        resumo:
+          "Pizzas artesanais assadas no forno e paninis preparados na mesma estrada da Rotisseria.",
+        destaques: [
+          "Pizzas artesanais · Paninis · Sabores da casa",
+          "Terça a domingo, das 11h às 23h",
+        ],
+        endereco: "Estr. Francisco da Cruz Nunes, 1980 A - Itaipu, Niterói - RJ",
+        linkMapa:
+          "https://www.google.com/maps/search/?api=1&query=Forno+Sahtein+Estr.+Francisco+da+Cruz+Nunes+1980+A+Itaipu+Niteroi",
+      },
+    ],
+  },
 };
