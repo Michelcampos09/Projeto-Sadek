@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import LogoSahtein from "../../assets/LogoSahtein.png";
 import "./Header.css";
 
@@ -117,31 +116,24 @@ function Header() {
               <a href="/#avaliacao">Avaliações</a>
             </li>
             <li>
-              <Link to="/reservas" className="nav-reservas">
-                Reservas
-              </Link>
+              <a href="/#contato">Contato</a>
             </li>
           </ul>
         </nav>
 
-        {/* Barra de ações mobile com CTA "Reservar" e botão hambúrguer */}
-        <div className="acoes-mobile">
-          <Link to="/reservas" className="nav-reservas-mobile">
-            Reservar
-          </Link>
-          <button
-            ref={botaoMenuRef}
-            className="botao-menu"
-            aria-label={menuAberto ? "Fechar menu" : "Abrir menu"}
-            aria-expanded={menuAberto}
-            aria-controls="menu-mobile"
-            onClick={() => setMenuAberto(!menuAberto)}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-        </div>
+        <button
+          ref={botaoMenuRef}
+          type="button"
+          className="botao-menu"
+          aria-label={menuAberto ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={menuAberto}
+          aria-controls="menu-mobile"
+          onClick={() => setMenuAberto(!menuAberto)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
 
         {/* Fundo escurecido clicável para fechar o menu mobile */}
         {menuAberto && (
@@ -187,13 +179,9 @@ function Header() {
               </a>
             </li>
             <li>
-              <Link
-                className="nav-reservas"
-                to="/reservas"
-                onClick={() => setMenuAberto(false)}
-              >
-                Reservas
-              </Link>
+              <a href="/#contato" onClick={() => setMenuAberto(false)}>
+                Contato
+              </a>
             </li>
           </ul>
         </nav>

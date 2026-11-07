@@ -90,7 +90,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <section id="contact" aria-label="Contato">
+        <section id="contato" aria-label="Contato">
           <Contact />
         </section>
       </main>

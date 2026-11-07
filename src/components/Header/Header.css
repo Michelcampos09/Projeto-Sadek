@@ -64,23 +64,6 @@
   outline-offset: 3px;
 }
 
-/* Reservas é a ação da família: sempre na cor brasa, em pílula */
-.nav-right .nav-reservas,
-.menu-mobile .nav-reservas {
-  padding: 0.7rem 1.25rem;
-  border-radius: var(--raio-botao);
-  background-color: var(--cor-brasa);
-  color: #fff;
-  font-weight: 600;
-  text-align: center;
-}
-
-.nav-right .nav-reservas:hover,
-.menu-mobile .nav-reservas:hover {
-  background-color: var(--cor-brasa-escura);
-  color: #fff;
-}
-
 /* Marca central */
 .marca {
   display: flex;
@@ -94,8 +77,7 @@
   height: auto;
 }
 
-/* O menu, ações mobile e backdrop ficam ocultos no desktop */
-.acoes-mobile,
+/* O menu, botão hambúrguer e backdrop ficam ocultos no desktop */
 .menu-backdrop,
 .botao-menu,
 .menu-mobile {
@@ -136,39 +118,6 @@
   .nav-left,
   .nav-right {
     display: none;
-  }
-
-  /* Grupo de ações visíveis na barra mobile */
-  .acoes-mobile {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  /* CTA "Reservar" visível diretamente na barra mobile */
-  .nav-reservas-mobile {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.55rem 1.1rem;
-    border-radius: var(--raio-botao);
-    background-color: var(--cor-brasa);
-    color: #fff;
-    font-size: 0.85rem;
-    font-weight: 600;
-    line-height: 1;
-    text-decoration: none;
-    transition: background-color 160ms ease;
-  }
-
-  .nav-reservas-mobile:hover {
-    background-color: var(--cor-brasa-escura);
-    color: #fff;
-  }
-
-  .nav-reservas-mobile:focus-visible {
-    outline: 2px solid var(--cor-brasa);
-    outline-offset: 3px;
   }
 
   .botao-menu {
@@ -225,9 +174,5 @@
   .menu-mobile a:hover,
   .menu-mobile a:focus-visible {
     background-color: rgba(138, 90, 18, 0.08);
-  }
-
-  .menu-mobile .nav-reservas {
-    margin-top: 0.4rem;
   }
 }

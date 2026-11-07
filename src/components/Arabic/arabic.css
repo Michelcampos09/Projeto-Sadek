@@ -248,7 +248,7 @@
       "gallery"
       "content";
     row-gap: 1rem;
-    margin-block: 2rem;
+    margin-block: 2rem 0;
     padding: 1.5rem;
   }
 
