@@ -1,17 +1,6 @@
 import { useState } from "react";
-import { dadosDoSite } from "../../data/conteudo";
+import { dadosDoSite, obterUrlSegura } from "../../data/conteudo";
 import "./reviews.css";
-
-// Extrai até 2 iniciais do nome do cliente para o avatar discreto
-function obterIniciais(nome) {
-  return nome
-    .trim()
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((parte) => parte[0])
-    .join("")
-    .toUpperCase();
-}
 
 function Stars({ rating, label }) {
   return (
@@ -49,15 +38,12 @@ function ReviewCard({ review, conteudo }) {
       </div>
 
       <div className="reviews__quote-wrapper">
-        <span className="reviews__quote-mark" aria-hidden="true">
-          “
-        </span>
         <blockquote
           className={`reviews__quote${
             textoLongo && !expandido ? " reviews__quote--clamped" : ""
           }`}
         >
-          {review.text}
+          “{review.text}”
         </blockquote>
         {textoLongo && (
           <button
@@ -72,13 +58,8 @@ function ReviewCard({ review, conteudo }) {
       </div>
 
       <figcaption className="reviews__caption">
-        <span className="reviews__avatar" aria-hidden="true">
-          {obterIniciais(review.author)}
-        </span>
-        <div className="reviews__author-info">
-          <span className="reviews__author">{review.author}</span>
-          <span className="reviews__restaurant">{review.restaurant}</span>
-        </div>
+        <span className="reviews__author">{review.author}</span>
+        <span className="reviews__restaurant">{review.restaurant}</span>
       </figcaption>
     </figure>
   );
@@ -113,12 +94,13 @@ function Reviews() {
               const ehItaliano = profile.restaurant
                 .toLowerCase()
                 .includes("forno");
+              const urlSegura = obterUrlSegura(profile.url, "#visite");
               return (
                 <a
                   className={`reviews__all-link${
                     ehItaliano ? " reviews__all-link--italian" : ""
                   }`}
-                  href={profile.url}
+                  href={urlSegura}
                   key={profile.restaurant}
                   target="_blank"
                   rel="noopener noreferrer"

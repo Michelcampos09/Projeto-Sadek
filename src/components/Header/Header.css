@@ -4,8 +4,9 @@
   top: 0;
   z-index: 1000;
   padding-inline: clamp(1.25rem, 4vw, 3.5rem);
-  border-bottom: 1px solid var(--cor-borda);
-  background-color: var(--cor-fundo-creme);
+  border-bottom: 1px solid var(--cor-linha);
+  background-color: color-mix(in srgb, var(--cor-fundo-creme) 94%, transparent);
+  backdrop-filter: blur(8px);
   font-family: var(--font-textos);
   font-weight: 500;
 }
@@ -37,15 +38,15 @@
   justify-content: space-between;
   gap: 1.5rem;
   width: min(100%, 78rem);
-  min-height: 4rem;
+  min-height: 4.35rem;
   margin: 0 auto;
 }
 
-/* Marca à esquerda: monograma + nome, legíveis em qualquer largura */
+/* Marca à esquerda: selo escuro para contraste do monograma dourado + tipografia */
 .marca a {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.75rem;
   border-radius: var(--raio-foto);
   text-decoration: none;
 }
@@ -55,19 +56,49 @@
   outline-offset: 4px;
 }
 
+.marca-selo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.35rem;
+  height: 2.85rem;
+  padding: 0.25rem;
+  border: 1px solid rgba(211, 191, 159, 0.55);
+  border-radius: 3px;
+  background-color: var(--cor-texto-escuro);
+  box-shadow: 0 2px 8px rgba(42, 29, 23, 0.16);
+}
+
 .marca img {
   display: block;
   width: auto;
-  height: 2.75rem;
+  height: 2.25rem;
+  object-fit: contain;
+}
+
+.marca-textos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
 }
 
 .marca-nome {
   color: var(--cor-titulo);
   font-family: var(--font-titulos);
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-weight: 600;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
   line-height: 1;
+}
+
+.marca-subtitulo {
+  color: var(--cor-arabe);
+  font-family: var(--font-textos);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.1;
 }
 
 /* Listas desktop e mobile sem marcadores padrão */
@@ -184,12 +215,17 @@
     display: none;
   }
 
+  .marca-selo {
+    width: 2.15rem;
+    height: 2.6rem;
+  }
+
   .marca img {
-    height: 2.5rem;
+    height: 2rem;
   }
 
   .marca-nome {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
   }
 
   .botao-menu {
@@ -207,7 +243,7 @@
   }
 
   .botao-menu:focus-visible {
-    border-radius: 6px;
+    border-radius: 4px;
     outline: 2px solid var(--cor-brasa);
     outline-offset: 2px;
   }
@@ -216,7 +252,7 @@
   .menu-backdrop {
     display: block;
     position: fixed;
-    top: 4rem;
+    top: 4.35rem;
     right: 0;
     bottom: 0;
     left: 0;
@@ -232,26 +268,41 @@
     left: 0;
     z-index: 1001;
     display: block;
-    padding: 0.75rem 1.25rem 1.25rem;
-    border-top: 1px solid var(--cor-borda);
-    background-color: var(--cor-fundo-creme);
-    box-shadow: 0 10px 25px rgba(42, 29, 23, 0.15);
+    padding: 0.85rem 1.25rem 1.35rem;
+    border-top: 1px solid var(--cor-linha);
+    border-bottom: 2px solid var(--cor-brasa);
+    background-color: var(--cor-fundo);
+    box-shadow: 0 14px 28px rgba(42, 29, 23, 0.18);
   }
 
   .menu-mobile ul {
     flex-direction: column;
     align-items: stretch;
-    gap: 0.15rem;
+    gap: 0.25rem;
   }
 
   .menu-mobile a {
-    padding: 0.75rem 0.85rem;
+    padding: 0.75rem 0.9rem;
+    border-radius: var(--raio-botao);
     font-size: 1rem;
   }
 
-  .menu-mobile a:hover,
-  .menu-mobile a:focus-visible {
+  .menu-mobile a:hover {
     background-color: rgba(138, 90, 18, 0.08);
+  }
+
+  .menu-mobile .menu-mobile-destaque {
+    margin-top: 0.4rem;
+    border: 1px solid var(--cor-brasa);
+    background-color: var(--cor-brasa);
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .menu-mobile .menu-mobile-destaque:hover {
+    background-color: var(--cor-brasa-escura);
+    color: #fff;
   }
 }
 

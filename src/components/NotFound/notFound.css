@@ -181,10 +181,7 @@
   font-size: 0.95rem;
   font-weight: 600;
   text-decoration: none;
-}
-
-.not-found-house-link .icone {
-  filter: brightness(0);
+  transition: background-color 180ms ease;
 }
 
 .not-found-house-link--arabic {

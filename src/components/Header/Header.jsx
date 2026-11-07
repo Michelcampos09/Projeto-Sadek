@@ -139,8 +139,15 @@ function Header() {
       <div className="topo">
         <div className="marca">
           <a href="/#inicio" aria-label={nav.marcaAriaLabel}>
-            <img src={LogoSahtein2} alt="" />
-            <span className="marca-nome">{nav.marca}</span>
+            <span className="marca-selo" aria-hidden="true">
+              <img src={LogoSahtein2} alt="" />
+            </span>
+            <span className="marca-textos">
+              <span className="marca-nome">{nav.marca}</span>
+              {nav.subtituloMarca && (
+                <span className="marca-subtitulo">{nav.subtituloMarca}</span>
+              )}
+            </span>
           </a>
         </div>
 
@@ -195,6 +202,7 @@ function Header() {
             {nav.itens.map((item) => (
               <li key={item.id}>
                 <a
+                  className={item.destaque ? "menu-mobile-destaque" : undefined}
                   href={`/#${item.id}`}
                   aria-current={itemAtivo === item.id ? "location" : undefined}
                   onClick={() => setMenuAberto(false)}

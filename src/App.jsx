@@ -81,10 +81,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-        <section id="contato" aria-label="Contato">
-          <Contact />
-        </section>
       </main>
+      <Contact />
     </>
   );
 }

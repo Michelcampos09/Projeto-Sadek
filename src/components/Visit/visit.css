@@ -379,13 +379,14 @@
   outline-offset: 3px;
 }
 
-/* Faixa inferior de informações práticas (estacionamento, acessibilidade, distância) */
+/* Faixa inferior de informações práticas em formato de régua editorial (sem cards extras) */
 .visit__practical {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
-  margin: 2.5rem 0 0;
-  padding: 0;
+  gap: 0;
+  margin: 3rem 0 0;
+  padding: 1.85rem 0 0.5rem;
+  border-top: 1px solid var(--cor-linha);
   list-style: none;
 }
 
@@ -393,10 +394,19 @@
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  padding: 1.35rem 1.5rem;
-  border: 1px solid var(--cor-borda);
-  border-radius: var(--raio-cartao);
-  background-color: var(--cor-fundo-creme);
+  padding: 0 1.75rem;
+}
+
+.visit__practical-item:first-child {
+  padding-left: 0;
+}
+
+.visit__practical-item:last-child {
+  padding-right: 0;
+}
+
+.visit__practical-item + .visit__practical-item {
+  border-left: 1px solid var(--cor-borda);
 }
 
 .visit__practical-icon {
@@ -404,11 +414,11 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.25rem;
+  height: 2.25rem;
   border: 1px solid var(--cor-linha);
-  border-radius: 50%;
-  background-color: var(--cor-fundo-claro);
+  border-radius: var(--raio-cartao);
+  background-color: var(--cor-fundo-creme);
   color: var(--cor-brasa);
 }
 
@@ -456,7 +466,19 @@
 
   .visit__practical {
     grid-template-columns: minmax(0, 1fr);
-    gap: 1rem;
+    gap: 1.35rem;
+  }
+
+  .visit__practical-item,
+  .visit__practical-item:first-child,
+  .visit__practical-item:last-child {
+    padding: 0;
+  }
+
+  .visit__practical-item + .visit__practical-item {
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--cor-borda);
+    border-left: 0;
   }
 }
 

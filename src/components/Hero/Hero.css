@@ -1,44 +1,150 @@
-/* Imagem principal e conteúdo sobreposto */
+/* Imagem principal e composição editorial de abertura */
 .background-image {
   position: relative;
-  height: calc(100vh - 4rem);
-  height: calc(100svh - 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 4.35rem);
+  min-height: calc(100svh - 4.35rem);
+  padding: clamp(2.5rem, 6vw, 4.5rem) 1.5rem;
   overflow: hidden;
+  background-color: #1c130f;
 }
 
 .background-image > img {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.72) blur(2px);
-  transform: scale(1.02);
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(28, 19, 15, 0.42) 0%, rgba(22, 14, 10, 0.78) 100%),
+    linear-gradient(180deg, rgba(26, 17, 13, 0.55) 0%, rgba(26, 17, 13, 0.48) 45%, rgba(26, 17, 13, 0.86) 100%);
 }
 
 .texto-sobre-imagem {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 90%;
-  color: white;
+  position: relative;
+  z-index: 1;
+  width: min(100%, 58rem);
+  margin: 0 auto;
+  color: var(--cor-fundo);
   text-align: center;
-  text-shadow: 0 4px 4px black;
-  transform: translate(-50%, -50%);
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  color: #e9c47a;
+  font-family: var(--font-titulos);
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.hero-eyebrow::before,
+.hero-eyebrow::after {
+  width: 2rem;
+  height: 1px;
+  background-color: rgba(233, 196, 122, 0.55);
+  content: "";
 }
 
 .texto-sobre-imagem h1 {
+  color: #fdfaf3;
   font-family: var(--font-titulos);
   font-size: var(--fs-hero);
   font-weight: 500;
-  line-height: 0.98;
+  line-height: 1.02;
   letter-spacing: -0.02em;
 }
 
 .texto-sobre-imagem p {
-  max-width: 62ch;
-  margin: 1.25rem auto 0;
+  max-width: 56ch;
+  margin: 1.35rem auto 0;
+  color: rgba(251, 246, 236, 0.92);
   font-family: var(--font-textos);
-  font-size: var(--fs-body);
+  font-size: clamp(1.05rem, 0.98rem + 0.35vw, 1.2rem);
   font-weight: 400;
-  line-height: 1.65;
+  line-height: 1.68;
+}
+
+.hero-houses {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  width: min(100%, 42rem);
+  margin: 2.5rem auto 0;
+  border: 1px solid rgba(211, 191, 159, 0.38);
+  border-radius: var(--raio-cartao);
+  background-color: rgba(211, 191, 159, 0.28);
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+}
+
+.hero-house-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  padding: 1rem 1.35rem;
+  background-color: rgba(32, 22, 17, 0.82);
+  color: #fdfaf3;
+  text-align: left;
+  text-decoration: none;
+  transition: background-color 180ms ease;
+}
+
+.hero-house-card:hover {
+  background-color: rgba(48, 33, 25, 0.92);
+}
+
+.hero-house-card:focus-visible {
+  outline: 2px solid #e9c47a;
+  outline-offset: -2px;
+}
+
+.hero-house-detail {
+  color: #e4b95a;
+  font-family: var(--font-textos);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.hero-house-card--italian .hero-house-detail {
+  color: #b5ca9c;
+}
+
+.hero-house-name {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: #fdfaf3;
+  font-family: var(--font-titulos);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .hero-houses {
+    grid-template-columns: 1fr;
+    margin-top: 2rem;
+  }
+
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    width: 1.1rem;
+  }
 }

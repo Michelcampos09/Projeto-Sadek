@@ -10,22 +10,16 @@
   Todos os textos pequenos mantêm contraste mínimo de 4,5:1 (WCAG AA).
 */
 :root {
-  /* Opção A (recomendada - Seção 5.4) */
   --font-titulos: "Fraunces", Georgia, serif;
-  --font-textos: "Hanken Grotesk", "Instrument Sans", system-ui, sans-serif;
+  --font-textos: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
   --font-arabe: "Reem Kufi", system-ui, sans-serif;
 
-  /* Opção B (mantida disponível no projeto conforme Seção 5.4) */
-  --font-titulos-opcao-b: "Young Serif", Georgia, serif;
-  --font-textos-opcao-b: "Work Sans", system-ui, sans-serif;
-  --font-arabe-opcao-b: "Aref Ruqaa", serif;
-
-  /* Escala tipográfica fluida (Seção 5.4) */
-  --fs-hero: clamp(2.75rem, 1.5rem + 6vw, 6.5rem);
-  --fs-h2: clamp(2rem, 1.2rem + 3.5vw, 3.75rem);
-  --fs-h3: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  /* Escala tipográfica fluida editorial */
+  --fs-hero: clamp(2.65rem, 1.45rem + 5.4vw, 5.75rem);
+  --fs-h2: clamp(2rem, 1.25rem + 3vw, 3.35rem);
+  --fs-h3: clamp(1.22rem, 1rem + 0.85vw, 1.6rem);
   --fs-body: 1.0625rem;
-  --fs-eyebrow: 0.75rem;
+  --fs-eyebrow: 0.875rem;
 
   --cor-fundo: #fbf6ec;
   --cor-fundo-creme: #f1e8d6;
@@ -36,23 +30,22 @@
   --cor-titulo: #3d2b23;
   --cor-texto: #574a40;
 
-  --cor-borda: #e4d8c0;
-  --cor-linha: #d3bf9f;
+  --cor-borda: #e2d5bc;
+  --cor-linha: #cfb996;
 
   --cor-arabe: #8a5a12;
   --cor-brasa: #a8401f;
   --cor-brasa-escura: #8a3418;
   --cor-italiano: #4f5f3a;
 
-  /* Raios por contexto: fotos quase retas, cartões suaves, botões em pílula */
+  /* Raios contidos e arquitetônicos: sem excesso de pílulas ou cartões arredondados */
   --raio-foto: 2px;
-  --raio-cartao: 10px;
-  --raio-botao: 999px;
+  --raio-cartao: 4px;
+  --raio-botao: 4px;
 
-  /* Sombras: seções só com linha; cartões flutuam com sombra suave */
-  --sombra-cartao: 0 12px 28px -14px rgba(61, 43, 35, 0.28);
+  --sombra-cartao: 0 12px 28px -18px rgba(42, 29, 23, 0.22);
 
-  --espaco-secao: 5.8rem;
+  --espaco-secao: clamp(4rem, 7vw, 6.25rem);
 }
 
 /* Reset e estilos base */
@@ -130,13 +123,11 @@ body::before {
   }
 }
 
-/* Seção 5.6: sublinhado desenhado à mão em uma única palavra de alguns títulos */
+/* Destaque tipográfico editorial em itálico (substitui sublinhado artificial repetitivo) */
 .sublinhado-mao {
-  padding-bottom: 0.12em;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M3 8c24-5 46 3 74-2s52 4 78-1 28 2 42-1' fill='none' stroke='%23a8401f' stroke-width='3' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  background-size: 100% 0.3em;
+  color: var(--cor-brasa);
+  font-style: italic;
+  font-weight: 400;
 }
 
 /* Seção 5.7: revelação suave das fotos ao entrar na tela.

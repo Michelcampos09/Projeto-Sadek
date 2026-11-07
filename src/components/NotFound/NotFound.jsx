@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { dadosDoSite } from "../../data/conteudo";
-import iconeLink from "../../assets/icone.png";
+import { dadosDoSite, obterUrlSegura } from "../../data/conteudo";
 import "./notFound.css";
 
 function NotFound() {
   const { arabic, italian } = dadosDoSite;
+  const urlArabe = obterUrlSegura(arabic.linkRestaurante, "/#restaurantes");
+  const urlItaliano = obterUrlSegura(italian.linkRestaurante, "/#restaurantes");
 
   useEffect(() => {
     const tituloAnterior = document.title;
@@ -17,7 +18,7 @@ function NotFound() {
       metaRobots.setAttribute("content", "noindex, nofollow");
     }
 
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "instant" });
 
     return () => {
       document.title = tituloAnterior;
@@ -30,7 +31,9 @@ function NotFound() {
   return (
     <section className="not-found" aria-labelledby="not-found-title">
       <div className="not-found-card">
-        <span className="not-found-uptitle rotulo-secao">Erro 404 · Página não encontrada</span>
+        <span className="not-found-uptitle rotulo-secao">
+          Erro 404 · Página não encontrada
+        </span>
 
         <div className="not-found-badge" aria-hidden="true">
           <span className="not-found-number">404</span>
@@ -68,21 +71,21 @@ function NotFound() {
           <div className="not-found-houses-links">
             <a
               className="not-found-house-link not-found-house-link--arabic"
-              href={arabic.linkRestaurante}
+              href={urlArabe}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <span>{arabic.nome}</span>
-              <img className="icone" src={iconeLink} alt="" />
+              <span aria-hidden="true">↗</span>
             </a>
             <a
               className="not-found-house-link not-found-house-link--italian"
-              href={italian.linkRestaurante}
+              href={urlItaliano}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <span>{italian.nome}</span>
-              <img className="icone" src={iconeLink} alt="" />
+              <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>

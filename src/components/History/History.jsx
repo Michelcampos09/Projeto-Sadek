@@ -10,10 +10,16 @@ const imagens = [
   { src: imagemItaliano, alt: "Prato da culinária italiana preparado na casa" },
 ];
 
+const CAPITULOS = ["I", "II", "III"];
+
 function History() {
   const { history } = dadosDoSite;
   const { origemNome } = history;
-  const [tituloAntes, tituloDepois] = history.titulo.split(history.tituloDestaque);
+  const possuiDestaque =
+    history.tituloDestaque && history.titulo.includes(history.tituloDestaque);
+  const [tituloAntes, tituloDepois] = possuiDestaque
+    ? history.titulo.split(history.tituloDestaque)
+    : [history.titulo, ""];
 
   return (
     <div className="history">
@@ -21,7 +27,9 @@ function History() {
         <span className="rotulo-secao">{history.intro}</span>
         <h2 id="historia-title">
           {tituloAntes}
-          <span className="sublinhado-mao">{history.tituloDestaque}</span>
+          {possuiDestaque && (
+            <span className="sublinhado-mao">{history.tituloDestaque}</span>
+          )}
           {tituloDepois}
         </h2>
       </div>
@@ -46,16 +54,23 @@ function History() {
       <div className="timeline" role="region" aria-label="Linha do tempo da história">
         {history.itens.map((item, index) => (
           <article className="timeline-item" key={item.titulo}>
-            <span className="timeline-period">{item.periodo}</span>
+            <div className="timeline-header">
+              <span className="timeline-chapter" aria-hidden="true">
+                {CAPITULOS[index] || index + 1}
+              </span>
+              <span className="timeline-period">{item.periodo}</span>
+            </div>
+            <div className="timeline-media">
+              <img
+                className="timeline-image revelar-foto"
+                src={imagens[index].src}
+                alt={imagens[index].alt}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <h3 className="timeline-title">{item.titulo}</h3>
             <p>{item.texto}</p>
-            <img
-              className="timeline-image revelar-foto"
-              src={imagens[index].src}
-              alt={imagens[index].alt}
-              loading="lazy"
-              decoding="async"
-            />
           </article>
         ))}
       </div>

@@ -1,22 +1,47 @@
-import { dadosDoSite } from "../../data/conteudo";
+import { dadosDoSite, obterUrlSegura } from "../../data/conteudo";
 import "./faq.css";
 
 function Faq() {
   const { faq, arabic, italian } = dadosDoSite;
-  const [tituloAntes, tituloDepois] = faq.titulo.split(faq.tituloDestaque);
+  const possuiDestaque =
+    faq.tituloDestaque && faq.titulo.includes(faq.tituloDestaque);
+  const [tituloAntes, tituloDepois] = possuiDestaque
+    ? faq.titulo.split(faq.tituloDestaque)
+    : [faq.titulo, ""];
+
+  const urlMenuArabe = obterUrlSegura(arabic.linkMenu, "#sahtein-rotisseria");
+  const urlMenuItaliano = obterUrlSegura(italian.linkMenu, "#forno-sahtein");
+  const urlCtaWhatsapp = obterUrlSegura(faq.ctaUrl, "#contato");
 
   return (
     <div className="faq">
       <div className="faq__inner">
-        <header className="faq__header">
-          <span className="rotulo-secao">{faq.intro}</span>
-          <h2 className="faq__title" id="faq-title">
-            {tituloAntes}
-            <span className="sublinhado-mao">{faq.tituloDestaque}</span>
-            {tituloDepois}
-          </h2>
-          <p className="faq__intro">{faq.descricao}</p>
-        </header>
+        <div className="faq__sidebar">
+          <header className="faq__header">
+            <span className="rotulo-secao">{faq.intro}</span>
+            <h2 className="faq__title" id="faq-title">
+              {tituloAntes}
+              {possuiDestaque && (
+                <span className="sublinhado-mao">{faq.tituloDestaque}</span>
+              )}
+              {tituloDepois}
+            </h2>
+            <p className="faq__intro">{faq.descricao}</p>
+          </header>
+
+          <footer className="faq__footer">
+            <p className="faq__footer-text">{faq.ctaTexto}</p>
+            <a
+              className="faq__cta"
+              href={urlCtaWhatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span>{faq.ctaRotulo}</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </footer>
+        </div>
 
         <div className="faq__list">
           {faq.itens.map((item, index) => (
@@ -44,7 +69,7 @@ function Faq() {
                   <div className="faq__answer-links">
                     <a
                       className="faq__menu-link faq__menu-link--arabic"
-                      href={arabic.linkMenu}
+                      href={urlMenuArabe}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -53,7 +78,7 @@ function Faq() {
                     </a>
                     <a
                       className="faq__menu-link faq__menu-link--italian"
-                      href={italian.linkMenu}
+                      href={urlMenuItaliano}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -66,19 +91,6 @@ function Faq() {
             </details>
           ))}
         </div>
-
-        <footer className="faq__footer">
-          <p className="faq__footer-text">{faq.ctaTexto}</p>
-          <a
-            className="faq__cta"
-            href={faq.ctaUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span>{faq.ctaRotulo}</span>
-            <span aria-hidden="true">↗</span>
-          </a>
-        </footer>
       </div>
     </div>
   );

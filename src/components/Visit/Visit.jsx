@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { dadosDoSite } from "../../data/conteudo";
+import {
+  dadosDoSite,
+  obterUrlMapaSegura,
+  obterUrlSegura,
+} from "../../data/conteudo";
 import "./visit.css";
 
 const ICONES_PRATICOS = {
@@ -26,10 +30,16 @@ const ICONES_PRATICOS = {
 function Visit() {
   const { visit } = dadosDoSite;
   const [casaAtivaId, setCasaAtivaId] = useState(visit.casas[0].id);
-  const [tituloAntes, tituloDepois] = visit.titulo.split(visit.tituloDestaque);
+  const possuiDestaque =
+    visit.tituloDestaque && visit.titulo.includes(visit.tituloDestaque);
+  const [tituloAntes, tituloDepois] = possuiDestaque
+    ? visit.titulo.split(visit.tituloDestaque)
+    : [visit.titulo, ""];
 
   const casaAtiva =
     visit.casas.find((casa) => casa.id === casaAtivaId) || visit.casas[0];
+  const urlEmbedAtiva = obterUrlMapaSegura(casaAtiva.embedUrl);
+  const urlMapaAtiva = obterUrlSegura(casaAtiva.mapsUrl, "#visite");
 
   return (
     <div className="visit">
@@ -38,7 +48,9 @@ function Visit() {
           <span className="rotulo-secao">{visit.intro}</span>
           <h2 className="visit__title" id="visite-title">
             {tituloAntes}
-            <span className="sublinhado-mao">{visit.tituloDestaque}</span>
+            {possuiDestaque && (
+              <span className="sublinhado-mao">{visit.tituloDestaque}</span>
+            )}
             {tituloDepois}
           </h2>
           <p className="visit__intro">{visit.descricao}</p>
@@ -50,6 +62,9 @@ function Visit() {
             {visit.casas.map((casa) => {
               const telefoneLimpo = casa.telefone.replace(/\D/g, "");
               const selecionada = casa.id === casaAtiva.id;
+              const urlMaps = obterUrlSegura(casa.mapsUrl, "#visite");
+              const urlWaze = obterUrlSegura(casa.wazeUrl, "#visite");
+              const urlWhatsapp = obterUrlSegura(casa.whatsappUrl, "#contato");
 
               return (
                 <article
@@ -108,7 +123,7 @@ function Visit() {
                   <div className="visit__actions">
                     <a
                       className="visit__btn visit__btn--primary"
-                      href={casa.mapsUrl}
+                      href={urlMaps}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Abrir ${casa.nome} no Google Maps (abre em nova aba)`}
@@ -118,7 +133,7 @@ function Visit() {
                     </a>
                     <a
                       className="visit__btn visit__btn--secondary"
-                      href={casa.wazeUrl}
+                      href={urlWaze}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Traçar rota para ${casa.nome} no Waze (abre em nova aba)`}
@@ -128,7 +143,7 @@ function Visit() {
                     </a>
                     <a
                       className="visit__btn visit__btn--whatsapp"
-                      href={casa.whatsappUrl}
+                      href={urlWhatsapp}
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Conversar com ${casa.nome} no WhatsApp (abre em nova aba)`}
@@ -169,15 +184,18 @@ function Visit() {
             </div>
 
             <div className="visit__map-frame">
-              <iframe
-                key={casaAtiva.id}
-                className="visit__map-iframe"
-                src={casaAtiva.embedUrl}
-                title={`Mapa de localização de ${casaAtiva.nome} em Itaipu, Niterói`}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
+              {urlEmbedAtiva && (
+                <iframe
+                  key={casaAtiva.id}
+                  className="visit__map-iframe"
+                  src={urlEmbedAtiva}
+                  title={`Mapa de localização de ${casaAtiva.nome} em Itaipu, Niterói`}
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+                  allowFullScreen
+                />
+              )}
             </div>
 
             <div className="visit__map-caption">
@@ -186,7 +204,7 @@ function Visit() {
               </div>
               <a
                 className="visit__map-external"
-                href={casaAtiva.mapsUrl}
+                href={urlMapaAtiva}
                 target="_blank"
                 rel="noopener noreferrer"
               >

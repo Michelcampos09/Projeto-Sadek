@@ -1,21 +1,20 @@
 import { useState } from "react";
-import { dadosDoSite } from "../../data/conteudo";
+import { dadosDoSite, obterUrlSegura } from "../../data/conteudo";
 import miniKibe from "../../assets/arabic-mini-kibe.png";
 import torreKibeCru from "../../assets/arabic-torre-kibe-cru.png";
 import copinhoTeta from "../../assets/arabic-copinho-teta.png";
 import ninhoGalak from "../../assets/arabic-ninho-galak.png";
 import ninhoKinderBueno from "../../assets/arabic-ninho-kinder-bueno.png";
 import ninhoKitKat from "../../assets/arabic-ninho-kitkat.png";
-import iconeLink from "../../assets/icone.png";
 import "./arabic.css";
 
 const imagensArabe = [
-  { src: miniKibe, alt: "Pôster dourado de mini kibe" },
-  { src: torreKibeCru, alt: "Pôster dourado de torre de kibe cru" },
-  { src: copinhoTeta, alt: "Pôster dourado do copinho da TeTa" },
-  { src: ninhoGalak, alt: "Pôster do ninho Galak" },
-  { src: ninhoKinderBueno, alt: "Pôster do ninho Kinder Bueno" },
-  { src: ninhoKitKat, alt: "Pôster do ninho KitKat" },
+  { src: miniKibe, alt: "Mini porção de kibe artesanal da Sahtein Rotisseria" },
+  { src: torreKibeCru, alt: "Torre de kibe cru tradicional da Sahtein Rotisseria" },
+  { src: copinhoTeta, alt: "Sobremesa Copinho da TeTa da Sahtein Rotisseria" },
+  { src: ninhoGalak, alt: "Ninho árabe recheado com Galak" },
+  { src: ninhoKinderBueno, alt: "Ninho árabe recheado com Kinder Bueno" },
+  { src: ninhoKitKat, alt: "Ninho árabe recheado com KitKat" },
 ];
 
 export function Restaurante({ variante, dados, imagens, ariaGaleria }) {
@@ -26,10 +25,24 @@ export function Restaurante({ variante, dados, imagens, ariaGaleria }) {
   };
 
   const telefoneLimpo = dados.info.telefone.replace(/\D/g, "");
+  const pratosDestaque = dados.menu
+    .split("·")
+    .map((prato) => prato.trim())
+    .filter(Boolean);
+
+  const urlMapaSegura = obterUrlSegura(dados.info.linkMapa, "#visite");
+  const urlRestauranteSegura = obterUrlSegura(dados.linkRestaurante, "#visite");
+  const urlMenuSegura = obterUrlSegura(dados.linkMenu, "#visite");
 
   return (
     <div id={dados.id} className={`restaurante ${variante}`}>
-      <span className="restaurante-uptitle rotulo-secao">{dados.intro}</span>
+      <div className="restaurante-cabecalho">
+        {dados.capitulo && (
+          <span className="restaurante-capitulo">{dados.capitulo}</span>
+        )}
+        <span className="restaurante-uptitle rotulo-secao">{dados.intro}</span>
+      </div>
+
       <div
         className="restaurante-galeria"
         role="region"
@@ -65,59 +78,87 @@ export function Restaurante({ variante, dados, imagens, ariaGaleria }) {
             </svg>
           </button>
         </div>
+
+        <div className="restaurante-galeria-barra">
+          <span className="restaurante-galeria-contador" aria-live="polite">
+            {imagemAtual + 1} / {imagens.length} — {imagens[imagemAtual].alt}
+          </span>
+          <div className="restaurante-galeria-pontos" role="tablist" aria-label="Selecionar foto">
+            {imagens.map((img, idx) => (
+              <button
+                key={img.alt}
+                type="button"
+                role="tab"
+                aria-selected={idx === imagemAtual}
+                aria-label={`Ver foto ${idx + 1}: ${img.alt}`}
+                className={`restaurante-ponto${idx === imagemAtual ? " ativo" : ""}`}
+                onClick={() => selecionarImagem(idx)}
+              />
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="restaurante-conteudo">
-        <h2 className="restaurante-titulo">
-          {dados.titulo}
-        </h2>
+        <h2 className="restaurante-titulo">{dados.titulo}</h2>
         <p className="restaurante-subtitulo">{dados.subTitulo}</p>
-        <hr className="restaurante-divisor" />
-        <h3 className="restaurante-secao-titulo">Sabores da nossa cozinha</h3>
-        <span className="restaurante-pratos">{dados.menu}</span>
-        <hr className="restaurante-divisor" />
-        <h3 className="restaurante-secao-titulo">Informações:</h3>
-        <ul className="restaurante-info-lista">
-          <li>
-            <span className="restaurante-info-rotulo">Endereço</span>
-            <a
-              className="restaurante-info-link"
-              href={dados.info.linkMapa}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {dados.info.endereco}
-            </a>
-          </li>
-          <li>
-            <span className="restaurante-info-rotulo">Horário</span>
-            <span className="restaurante-info-texto">{dados.info.horario}</span>
-          </li>
-          <li>
-            <span className="restaurante-info-rotulo">Telefone</span>
-            <a className="restaurante-info-link" href={`tel:+55${telefoneLimpo}`}>
-              {dados.info.telefone}
-            </a>
-          </li>
-        </ul>
+
+        <div className="restaurante-bloco-menu">
+          <h3 className="restaurante-secao-titulo">Sabores da nossa cozinha</h3>
+          <ul className="restaurante-pratos-lista" aria-label="Especialidades da casa">
+            {pratosDestaque.map((prato) => (
+              <li key={prato} className="restaurante-prato-tag">
+                {prato}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="restaurante-bloco-info">
+          <h3 className="restaurante-secao-titulo">Visite a casa</h3>
+          <ul className="restaurante-info-lista">
+            <li>
+              <span className="restaurante-info-rotulo">Endereço</span>
+              <a
+                className="restaurante-info-link"
+                href={urlMapaSegura}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {dados.info.endereco}
+              </a>
+            </li>
+            <li>
+              <span className="restaurante-info-rotulo">Horário</span>
+              <span className="restaurante-info-texto">{dados.info.horario}</span>
+            </li>
+            <li>
+              <span className="restaurante-info-rotulo">Telefone</span>
+              <a className="restaurante-info-link" href={`tel:+55${telefoneLimpo}`}>
+                {dados.info.telefone}
+              </a>
+            </li>
+          </ul>
+        </div>
+
         <div className="restaurante-links">
           <a
             className="restaurante-botao-primario"
-            href={dados.linkRestaurante}
+            href={urlRestauranteSegura}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <span>{dados.textoBotaoPrimario}</span>
-            <img className="icone" src={iconeLink} alt="" />
+            <span className="restaurante-icone-seta" aria-hidden="true">↗</span>
           </a>
           <a
             className="restaurante-botao-secundario"
-            href={dados.linkMenu}
+            href={urlMenuSegura}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <span>{dados.textoBotaoSecundario}</span>
-            <img className="icone" src={iconeLink} alt="" />
+            <span className="restaurante-icone-seta" aria-hidden="true">↗</span>
           </a>
         </div>
       </div>

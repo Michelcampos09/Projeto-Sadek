@@ -1,30 +1,91 @@
+const PROTOCOLOS_SEGUROS = new Set(["https:", "mailto:", "tel:"]);
+const HOSTS_MAPA_PERMITIDOS = new Set(["www.google.com", "maps.google.com"]);
+
+/**
+ * Valida URLs externas ou de protocolo (https:, mailto:, tel:) para prevenir
+ * injeção de esquemas perigosos (javascript:, data:, vbscript:) ou links quebrados ("#").
+ */
+export function obterUrlSegura(url, fallback = null) {
+  if (typeof url !== "string") return fallback;
+  const limpa = url.trim();
+  if (!limpa || limpa === "#") return fallback;
+
+  if (limpa.startsWith("/#") || (limpa.startsWith("#") && limpa.length > 1)) {
+    return limpa;
+  }
+
+  try {
+    const parsed = new URL(limpa);
+    if (!PROTOCOLOS_SEGUROS.has(parsed.protocol)) return fallback;
+    if (parsed.protocol === "mailto:" && parsed.pathname.toLowerCase().endsWith("@exemplo.com")) {
+      return fallback;
+    }
+    return parsed.toString();
+  } catch {
+    return fallback;
+  }
+}
+
+/**
+ * Garante que apenas URLs HTTPS oficiais do Google Maps sejam carregadas em iframes.
+ */
+export function obterUrlMapaSegura(url) {
+  if (typeof url !== "string") return null;
+  try {
+    const parsed = new URL(url.trim());
+    if (parsed.protocol !== "https:") return null;
+    if (!HOSTS_MAPA_PERMITIDOS.has(parsed.hostname)) return null;
+    return parsed.toString();
+  } catch {
+    return null;
+  }
+}
+
 export const dadosDoSite = {
   nav: {
     marca: "Sahtein",
+    subtituloMarca: "Rotisseria & Forno",
     marcaAriaLabel: "Sahtein: ir para o início",
     pularConteudo: "Pular para o conteúdo",
     ariaLabel: "Navegação principal",
     ariaLabelMobile: "Navegação mobile",
     // Seções observadas para marcar o item ativo da navbar (ordem de aparição na página)
-    secoes: ["inicio", "donos", "historia", "restaurantes", "visite", "faq", "contato"],
+    secoes: ["inicio", "donos", "historia", "restaurantes", "avaliacao", "visite", "faq", "contato"],
     itens: [
-      { id: "donos", rotulo: "Os donos" },
+      { id: "donos", rotulo: "A Família" },
       { id: "historia", rotulo: "História" },
-      { id: "restaurantes", rotulo: "Restaurantes" },
+      { id: "restaurantes", rotulo: "As Duas Casas" },
       { id: "visite", rotulo: "Como chegar" },
       { id: "faq", rotulo: "Dúvidas" },
       { id: "contato", rotulo: "Contato", destaque: true },
     ],
   },
   hero: {
+    eyebrow: "Tradição familiar em Itaipu · Niterói",
     titulo: "Esfiha primeiro. Pizza depois.",
     descricao:
       "Em Itaipu, a mesma família cuida de duas casas na Estrada Francisco da Cruz Nunes: a Sahtein Rotisseria, de cozinha árabe, e o Forno Sahtein, de pizzas artesanais.",
+    atalhosCasas: [
+      {
+        rotulo: "Sahtein Rotisseria",
+        detalhe: "Cozinha Árabe · Nº 1874 B",
+        ancora: "#sahtein-rotisseria",
+        variante: "arabic",
+      },
+      {
+        rotulo: "Forno Sahtein",
+        detalhe: "Pizzas & Paninis · Nº 1980 A",
+        ancora: "#forno-sahtein",
+        variante: "italian",
+      },
+    ],
   },
   owners: {
     intro: "A Família",
     titulo: "Conheça os donos",
     tituloDestaque: "donos",
+    legendaFoto:
+      "A família reunida no salão do Forno Sahtein, em Itaipu — ao fundo, o forno e o monograma que unem nossas duas cozinhas.",
     paragrafo1:
       "Há mais de vinte anos, abrimos a Sahtein Rotisseria em Itaipu para servir as receitas árabes da nossa família: esfiha assada na hora, kibe, shawarma e charuto de folha de uva.",
     paragrafo2:
@@ -33,12 +94,14 @@ export const dadosDoSite = {
       "Hoje dá para começar o jantar com uma esfiha na Rotisseria e terminar com uma pizza de pistache no Forno. São duas cozinhas, tocadas pela mesma família.",
     linksRestaurantes: [
       {
-        nome: "Sahtein Rotisseria (Cozinha Árabe)",
+        nome: "Sahtein Rotisseria",
+        cozinha: "Cozinha Árabe · A origem da família",
         ancora: "#sahtein-rotisseria",
         classe: "link-arabic",
       },
       {
-        nome: "Forno Sahtein (Cozinha Italiana)",
+        nome: "Forno Sahtein",
+        cozinha: "Cozinha Italiana · Pizzas & Paninis",
         ancora: "#forno-sahtein",
         classe: "link-italian",
       },
@@ -79,6 +142,7 @@ export const dadosDoSite = {
   },
   arabic: {
     id: "sahtein-rotisseria",
+    capitulo: "Primeira Casa · A Origem",
     nome: "Sahtein Rotisseria",
     intro: "Sahtein Rotisseria · Cozinha Árabe",
     titulo: "Onde a família começou",
@@ -87,7 +151,7 @@ export const dadosDoSite = {
     menu: "Shawarma · Kibe de forno · Charutos de folha de uva",
     info: {
       endereco: "Estr. Francisco da Cruz Nunes, 1874 B - Itaipu, Niterói - RJ",
-       linkMapa:
+      linkMapa:
         "https://www.google.com/maps/search/?api=1&query=Sahtein+Rotisseria+Estr.+Francisco+da+Cruz+Nunes+1874+B+Itaipu+Niteroi",
       horario: "Terça a sábado, das 16h às 22h",
       telefone: "(21) 97301-1881",
@@ -99,6 +163,7 @@ export const dadosDoSite = {
   },
   italian: {
     id: "forno-sahtein",
+    capitulo: "Segunda Casa · A Expansão",
     nome: "Forno Sahtein",
     intro: "Forno Sahtein · Cozinha Italiana",
     titulo: "Pizza artesanal, direto do forno",
@@ -180,7 +245,7 @@ export const dadosDoSite = {
         folga: "Fechado aos domingos e segundas-feiras", // TODO: confirmar dias de fechamento da Rotisseria
         telefone: "(21) 97301-1881",
         whatsappUrl:
-          "https://wa.me/5521973011881?text=Ol%C3%A3!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20Sahtein%20Rotisseria.",
+          "https://wa.me/5521973011881?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20Sahtein%20Rotisseria.",
         mapsUrl:
           "https://www.google.com/maps/search/?api=1&query=Sahtein+Rotisseria+Estr.+Francisco+da+Cruz+Nunes+1874+B+Itaipu+Niteroi",
         wazeUrl:
@@ -199,7 +264,7 @@ export const dadosDoSite = {
         folga: "Fechado às segundas-feiras", // TODO: confirmar se abre em feriados às segundas
         telefone: "(21) 97301-1881",
         whatsappUrl:
-          "https://wa.me/5521973011881?text=Ol%C3%A3!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Forno%20Sahtein.",
+          "https://wa.me/5521973011881?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Forno%20Sahtein.",
         mapsUrl:
           "https://www.google.com/maps/search/?api=1&query=Forno+Sahtein+Estr.+Francisco+da+Cruz+Nunes+1980+A+Itaipu+Niteroi",
         wazeUrl:
@@ -301,17 +366,20 @@ export const dadosDoSite = {
     redesSociaisGrupo: [
       {
         id: "instagram",
+        rotulo: "Instagram",
         url: "#", // TODO: substituir pela URL do Instagram unificado do grupo
         ariaLabel: "Instagram do Grupo Sahtein (abre em nova aba)",
       },
       {
         id: "facebook",
+        rotulo: "Facebook",
         url: "#", // TODO: substituir pela URL do Facebook unificado do grupo
         ariaLabel: "Facebook do Grupo Sahtein (abre em nova aba)",
       },
       {
         id: "whatsapp",
-        url: "#", // TODO: substituir pelo link wa.me oficial do grupo
+        rotulo: "Falar no WhatsApp",
+        url: "https://wa.me/5521973011881?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20os%20restaurantes%20Sahtein.",
         ariaLabel: "WhatsApp do Grupo Sahtein (abre em nova aba)",
       },
     ],
