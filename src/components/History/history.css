@@ -24,6 +24,79 @@
   line-height: 1.05;
 }
 
+/* Destaque editorial sobre a origem e o significado da palavra árabe "Sahtein" (Seção 7 / 5.4) */
+.history-name-origin {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1.75rem;
+  width: min(100%, 70rem);
+  margin: 0 auto 3.25rem;
+  padding: 1.5rem 2rem;
+  border: 1px solid var(--cor-borda);
+  border-left: 4px solid var(--cor-arabe);
+  border-radius: var(--raio-cartao);
+  background-color: var(--cor-fundo-claro);
+  box-shadow: var(--sombra-cartao);
+}
+
+.history-name-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 7.5rem;
+  padding-right: 1.75rem;
+  border-right: 1px solid var(--cor-borda);
+  text-align: center;
+}
+
+.history-name-arabic {
+  color: var(--cor-arabe);
+  font-family: var(--font-arabe);
+  font-size: clamp(2rem, 3vw, 2.65rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.history-name-translit {
+  margin-top: 0.25rem;
+  color: var(--cor-titulo);
+  font-family: var(--font-titulos);
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.history-name-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.history-name-eyebrow {
+  color: var(--cor-arabe);
+  font-family: var(--font-titulos);
+  font-size: var(--fs-eyebrow);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.history-name-meaning {
+  max-width: 66ch;
+  margin: 0;
+  color: var(--cor-texto);
+  font-family: var(--font-textos);
+  font-size: var(--fs-body);
+  line-height: 1.65;
+}
+
+.history-name-meaning strong {
+  color: var(--cor-titulo);
+  font-family: var(--font-titulos);
+  font-weight: 600;
+}
+
 .timeline {
   position: relative;
   display: grid;
@@ -130,6 +203,29 @@
 
   .up-content {
     margin-bottom: 2.5rem;
+  }
+
+  .history-name-origin {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 36rem;
+    margin-bottom: 2.5rem;
+    padding: 1.35rem 1.5rem;
+  }
+
+  .history-name-badge {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.85rem;
+    padding-right: 0;
+    padding-bottom: 0.85rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--cor-borda);
+    text-align: left;
+  }
+
+  .history-name-translit {
+    margin-top: 0;
   }
 
   .timeline {

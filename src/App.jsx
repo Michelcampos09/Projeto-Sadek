@@ -7,6 +7,8 @@ import History from "./components/History/History";
 import Arabic from "./components/Arabic/Arabic";
 import Italian from "./components/Italian/Italian";
 import Reviews from "./components/Reviews/Reviews";
+import Visit from "./components/Visit/Visit";
+import Faq from "./components/Faq/Faq";
 import Contact from "./components/Contact/Contact";
 import NotFound from "./components/NotFound/NotFound";
 
@@ -59,6 +61,12 @@ function Home() {
       </section>
       <section id="avaliacao" aria-labelledby="reviews-title">
         <Reviews />
+      </section>
+      <section id="visite" aria-labelledby="visite-title">
+        <Visit />
+      </section>
+      <section id="faq" aria-labelledby="faq-title">
+        <Faq />
       </section>
     </>
   );

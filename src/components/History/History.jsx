@@ -12,6 +12,7 @@ const imagens = [
 
 function History() {
   const { history } = dadosDoSite;
+  const { origemNome } = history;
   const [tituloAntes, tituloDepois] = history.titulo.split(history.tituloDestaque);
 
   return (
@@ -24,6 +25,24 @@ function History() {
           {tituloDepois}
         </h2>
       </div>
+
+      {origemNome && (
+        <aside className="history-name-origin" aria-label={origemNome.rotulo}>
+          <div className="history-name-badge">
+            <span className="history-name-arabic" lang="ar" dir="rtl">
+              {origemNome.arabe}
+            </span>
+            <span className="history-name-translit">{origemNome.transliteracao}</span>
+          </div>
+          <div className="history-name-body">
+            <span className="history-name-eyebrow">{origemNome.rotulo}</span>
+            <p className="history-name-meaning">
+              <strong>{origemNome.traducao}</strong> — {origemNome.explicacao}
+            </p>
+          </div>
+        </aside>
+      )}
+
       <div className="timeline" role="region" aria-label="Linha do tempo da história">
         {history.itens.map((item, index) => (
           <article className="timeline-item" key={item.titulo}>

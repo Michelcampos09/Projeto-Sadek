@@ -1,0 +1,509 @@
+/* Seção "Visite-nos / Como chegar" — construída com os tokens de src/index.css */
+.visit {
+  padding: 4.5rem 2rem;
+  background-color: var(--cor-fundo);
+  border-bottom: 1px solid var(--cor-borda);
+  color: var(--cor-texto-escuro);
+}
+
+.visit__inner {
+  width: min(100%, 78rem);
+  margin: 0 auto;
+}
+
+.visit__header {
+  max-width: 48rem;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+}
+
+.visit__header .rotulo-secao {
+  margin-bottom: 0.75rem;
+}
+
+.visit__title {
+  margin: 0;
+  color: var(--cor-titulo);
+  font-family: var(--font-titulos);
+  font-size: var(--fs-h2);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.visit__intro {
+  max-width: 62ch;
+  margin: 0.9rem auto 0;
+  color: var(--cor-texto);
+  font-family: var(--font-textos);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+/* Grade principal: cartões das casas à esquerda e painel do mapa à direita */
+.visit__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(1.75rem, 3.5vw, 2.75rem);
+  align-items: stretch;
+}
+
+.visit__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.visit__card {
+  --cor-casa: var(--cor-arabe);
+
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  border: 1px solid var(--cor-borda);
+  border-left: 4px solid var(--cor-casa);
+  border-radius: var(--raio-cartao);
+  background-color: var(--cor-fundo-claro);
+  box-shadow: var(--sombra-cartao);
+  transition:
+    border-color 200ms ease,
+    transform 200ms ease;
+}
+
+.visit__card--italian {
+  --cor-casa: var(--cor-italiano);
+}
+
+.visit__card--active {
+  border-color: var(--cor-linha);
+  border-left-color: var(--cor-casa);
+}
+
+.visit__card-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.visit__card-eyebrow {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--cor-casa);
+  font-family: var(--font-titulos);
+  font-size: var(--fs-eyebrow);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.visit__card-title {
+  margin: 0;
+  color: var(--cor-titulo);
+  font-family: var(--font-titulos);
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.visit__map-PinBtn {
+  min-height: 2.25rem;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--cor-casa);
+  border-radius: var(--raio-botao);
+  background-color: transparent;
+  color: var(--cor-casa);
+  font-family: var(--font-textos);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.visit__map-PinBtn[aria-pressed="true"] {
+  background-color: var(--cor-casa);
+  color: #fff;
+}
+
+.visit__map-PinBtn:hover:not([aria-pressed="true"]) {
+  background-color: color-mix(in srgb, var(--cor-casa) 10%, transparent);
+}
+
+.visit__map-PinBtn:focus-visible {
+  outline: 2px solid var(--cor-casa);
+  outline-offset: 3px;
+}
+
+/* Lista semântica (<dl>) de endereço, horário e telefone */
+.visit__details {
+  display: grid;
+  gap: 0.9rem;
+  margin: 1.15rem 0 1.35rem;
+}
+
+.visit__detail-row {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.visit__detail-term {
+  color: var(--cor-casa);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.visit__detail-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin: 0;
+  color: var(--cor-texto-escuro);
+  font-size: 0.975rem;
+  line-height: 1.55;
+}
+
+.visit__detail-note {
+  color: var(--cor-texto);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.visit__phone-link {
+  width: fit-content;
+  color: var(--cor-texto-escuro);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--cor-linha);
+  text-underline-offset: 0.2em;
+  transition: color 160ms ease;
+}
+
+.visit__phone-link:hover {
+  color: var(--cor-casa);
+}
+
+.visit__phone-link:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid var(--cor-casa);
+  outline-offset: 3px;
+}
+
+/* Botões de rota (Google Maps, Waze) e WhatsApp */
+.visit__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: auto;
+}
+
+.visit__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 2.75rem;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--cor-casa);
+  border-radius: var(--raio-botao);
+  font-family: var(--font-textos);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    filter 180ms ease;
+}
+
+.visit__btn--primary {
+  background-color: var(--cor-casa);
+  color: #fff;
+}
+
+.visit__btn--primary:hover {
+  filter: brightness(0.92);
+}
+
+.visit__btn--secondary {
+  background-color: transparent;
+  color: var(--cor-casa);
+}
+
+.visit__btn--secondary:hover {
+  background-color: color-mix(in srgb, var(--cor-casa) 10%, transparent);
+}
+
+.visit__btn--whatsapp {
+  border-color: var(--cor-brasa);
+  background-color: transparent;
+  color: var(--cor-brasa);
+}
+
+.visit__btn--whatsapp:hover {
+  background-color: color-mix(in srgb, var(--cor-brasa) 10%, transparent);
+}
+
+.visit__btn:focus-visible {
+  outline: 2px solid var(--cor-brasa);
+  outline-offset: 3px;
+}
+
+/* Painel do mapa incorporado */
+.visit__map-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-cartao);
+  background-color: var(--cor-fundo-claro);
+  box-shadow: var(--sombra-cartao);
+}
+
+.visit__map-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--cor-borda);
+  background-color: var(--cor-fundo-creme);
+}
+
+.visit__map-tab {
+  --cor-aba: var(--cor-arabe);
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-botao);
+  background-color: var(--cor-fundo-claro);
+  color: var(--cor-titulo);
+  font-family: var(--font-textos);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.visit__map-tab--italian {
+  --cor-aba: var(--cor-italiano);
+}
+
+.visit__map-tab-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background-color: var(--cor-aba);
+}
+
+.visit__map-tab--active {
+  border-color: var(--cor-aba);
+  background-color: var(--cor-aba);
+  color: #fff;
+}
+
+.visit__map-tab--active .visit__map-tab-dot {
+  background-color: #fff;
+}
+
+.visit__map-tab:hover:not(.visit__map-tab--active) {
+  border-color: var(--cor-aba);
+}
+
+.visit__map-tab:focus-visible {
+  outline: 2px solid var(--cor-brasa);
+  outline-offset: 2px;
+}
+
+.visit__map-frame {
+  position: relative;
+  flex-grow: 1;
+  min-height: 22rem;
+  background-color: var(--cor-fundo-creme);
+}
+
+.visit__map-iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 22rem;
+  border: 0;
+}
+
+.visit__map-caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.95rem 1.25rem;
+  border-top: 1px solid var(--cor-borda);
+  background-color: var(--cor-fundo-claro);
+  font-size: 0.875rem;
+}
+
+.visit__map-caption-text {
+  color: var(--cor-texto);
+}
+
+.visit__map-caption-text strong {
+  color: var(--cor-titulo);
+}
+
+.visit__map-external {
+  color: var(--cor-brasa);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.visit__map-external:hover {
+  text-decoration: underline;
+}
+
+.visit__map-external:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid var(--cor-brasa);
+  outline-offset: 3px;
+}
+
+/* Faixa inferior de informações práticas (estacionamento, acessibilidade, distância) */
+.visit__practical {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.visit__practical-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.35rem 1.5rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-cartao);
+  background-color: var(--cor-fundo-creme);
+}
+
+.visit__practical-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--cor-linha);
+  border-radius: 50%;
+  background-color: var(--cor-fundo-claro);
+  color: var(--cor-brasa);
+}
+
+.visit__practical-icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.75;
+}
+
+.visit__practical-title {
+  margin: 0 0 0.3rem;
+  color: var(--cor-titulo);
+  font-family: var(--font-titulos);
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.visit__practical-text {
+  margin: 0;
+  color: var(--cor-texto);
+  font-size: 0.925rem;
+  line-height: 1.55;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .visit__card:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* Tablet */
+@media (max-width: 960px) {
+  .visit {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .visit__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .visit__practical {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Celular */
+@media (max-width: 640px) {
+  .visit {
+    padding: 3rem 1.25rem;
+  }
+
+  .visit__header {
+    margin-bottom: 2.25rem;
+  }
+
+  .visit__card {
+    padding: 1.35rem;
+  }
+
+  .visit__detail-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.15rem;
+  }
+
+  .visit__actions {
+    flex-direction: column;
+  }
+
+  .visit__btn {
+    width: 100%;
+  }
+
+  .visit__map-tabs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .visit__map-frame,
+  .visit__map-iframe {
+    min-height: 18rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visit__card,
+  .visit__btn,
+  .visit__map-PinBtn,
+  .visit__map-tab,
+  .visit__phone-link {
+    transition: none;
+  }
+}
+

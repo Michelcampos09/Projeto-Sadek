@@ -6,11 +6,13 @@ export const dadosDoSite = {
     ariaLabel: "Navegação principal",
     ariaLabelMobile: "Navegação mobile",
     // Seções observadas para marcar o item ativo da navbar (ordem de aparição na página)
-    secoes: ["inicio", "donos", "historia", "restaurantes", "avaliacao", "contato"],
+    secoes: ["inicio", "donos", "historia", "restaurantes", "visite", "faq", "contato"],
     itens: [
       { id: "donos", rotulo: "Os donos" },
       { id: "historia", rotulo: "História" },
       { id: "restaurantes", rotulo: "Restaurantes" },
+      { id: "visite", rotulo: "Como chegar" },
+      { id: "faq", rotulo: "Dúvidas" },
       { id: "contato", rotulo: "Contato", destaque: true },
     ],
   },
@@ -46,18 +48,26 @@ export const dadosDoSite = {
     intro: "A história",
     titulo: "De um restaurante a dois",
     tituloDestaque: "dois",
+    origemNome: {
+      rotulo: "O nome da família",
+      arabe: "صحتين",
+      transliteracao: "Sahtein",
+      traducao: "“Saúde em dobro”",
+      explicacao:
+        "Saudação árabe dita à mesa antes de comer para desejar bom apetite e mesa farta a quem divide a refeição. Escolhemos a palavra para batizar primeiro a Sahtein Rotisseria e, anos depois, o Forno Sahtein — mantendo o mesmo voto de hospitalidade nas duas cozinhas.", // TODO: confirmar com a família a história exata da escolha do nome
+    },
     itens: [
       {
         periodo: "O início",
         titulo: "Sahtein Rotisseria",
         texto:
-          "A Sahtein Rotisseria abriu em Itaipu com as receitas árabes da família: esfiha aberta, kibe, shawarma e charuto de folha de uva.",
+          "Sob o nome Sahtein (“saúde em dobro” em árabe), a família abriu a Rotisseria em Itaipu para servir receitas de casa: esfiha aberta na hora, kibe, shawarma e charuto de folha de uva.",
       },
       {
         periodo: "A expansão",
         titulo: "Nasce o Forno Sahtein",
         texto:
-          "A família abriu o Forno Sahtein na mesma Estrada Francisco da Cruz Nunes, com pizzas artesanais e paninis.",
+          "A família abriu o Forno Sahtein na mesma Estrada Francisco da Cruz Nunes, levando o mesmo nome para as pizzas artesanais e paninis.",
       },
       {
         periodo: "Atualmente",
@@ -150,6 +160,129 @@ export const dadosDoSite = {
         source: "Google · 7 meses atrás",
       },
     ],
+  },
+  visit: {
+    intro: "Visite-nos em Itaipu",
+    titulo: "Como chegar às duas casas",
+    tituloDestaque: "duas casas",
+    descricao:
+      "A Sahtein Rotisseria e o Forno Sahtein ficam na mesma Estrada Francisco da Cruz Nunes, em Itaipu (Niterói), a cerca de 100 metros uma da outra. Escolha por qual cozinha começar.",
+    mapaAriaLabel: " Seleção de mapa das unidades Sahtein em Itaipu",
+    casas: [
+      {
+        id: "rotisseria",
+        modificador: "arabic",
+        cozinha: "Cozinha Árabe · Unidade 1874 B",
+        nome: "Sahtein Rotisseria",
+        endereco: "Estr. Francisco da Cruz Nunes, 1874 B - Itaipu, Niterói - RJ",
+        referencia: "Na via principal de Itaipu, a ~100 m do Forno Sahtein", // TODO: confirmar ponto de referência exato em frente à loja
+        horario: "Terça a sábado, das 16h às 22h",
+        folga: "Fechado aos domingos e segundas-feiras", // TODO: confirmar dias de fechamento da Rotisseria
+        telefone: "(21) 97301-1881",
+        whatsappUrl:
+          "https://wa.me/5521973011881?text=Ol%C3%A3!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20Sahtein%20Rotisseria.",
+        mapsUrl:
+          "https://www.google.com/maps/search/?api=1&query=Sahtein+Rotisseria+Estr.+Francisco+da+Cruz+Nunes+1874+B+Itaipu+Niteroi",
+        wazeUrl:
+          "https://waze.com/ul?q=Estr.%20Francisco%20da%20Cruz%20Nunes%2C%201874%20B%20-%20Itaipu%2C%20Niter%C3%B3i%20-%20RJ&navigate=yes",
+        embedUrl:
+          "https://www.google.com/maps?q=Estr.+Francisco+da+Cruz+Nunes,+1874+B+-+Itaipu,+Niteroi+-+RJ&z=17&output=embed",
+      },
+      {
+        id: "forno",
+        modificador: "italian",
+        cozinha: "Cozinha Italiana · Unidade 1980 A",
+        nome: "Forno Sahtein",
+        endereco: "Estr. Francisco da Cruz Nunes, 1980 A - Itaipu, Niterói - RJ",
+        referencia: "Na mesma Estrada Francisco da Cruz Nunes da Rotisseria", // TODO: confirmar ponto de referência exato em frente à loja
+        horario: "Terça a domingo, das 11h às 23h",
+        folga: "Fechado às segundas-feiras", // TODO: confirmar se abre em feriados às segundas
+        telefone: "(21) 97301-1881",
+        whatsappUrl:
+          "https://wa.me/5521973011881?text=Ol%C3%A3!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Forno%20Sahtein.",
+        mapsUrl:
+          "https://www.google.com/maps/search/?api=1&query=Forno+Sahtein+Estr.+Francisco+da+Cruz+Nunes+1980+A+Itaipu+Niteroi",
+        wazeUrl:
+          "https://waze.com/ul?q=Estr.%20Francisco%20da%20Cruz%20Nunes%2C%201980%20A%20-%20Itaipu%2C%20Niter%C3%B3i%20-%20RJ&navigate=yes",
+        embedUrl:
+          "https://www.google.com/maps?q=Estr.+Francisco+da+Cruz+Nunes,+1980+A+-+Itaipu,+Niteroi+-+RJ&z=17&output=embed",
+      },
+    ],
+    informacoesPraticas: [
+      {
+        id: "estacionamento",
+        titulo: "Estacionamento",
+        texto:
+          "Há vagas de rua ao longo da Estrada Francisco da Cruz Nunes e nas vias laterais próximas aos números 1874 B e 1980 A.", // TODO: confirmar se alguma das unidades possui vagas próprias no recuo ou convênio
+      },
+      {
+        id: "acessibilidade",
+        titulo: "Acessibilidade e acesso",
+        texto:
+          "Ambas as casas ficam no piso térreo, com acesso direto pela calçada e circulação para cadeira de rodas e carrinhos de bebê.", // TODO: confirmar detalhes de rampa e banheiro adaptado em cada unidade
+      },
+      {
+        id: "distancia",
+        titulo: "Uma ao lado da outra",
+        texto:
+          "As duas cozinhas ficam a menos de 2 minutos de caminhada na mesma estrada — dá para buscar esfihas em uma e jantar pizza na outra.",
+      },
+    ],
+  },
+  faq: {
+    intro: "Perguntas frequentes",
+    titulo: "Dúvidas antes de vir à mesa",
+    tituloDestaque: "mesa",
+    descricao:
+      "Reunimos as respostas rápidas sobre funcionamento, estrutura para famílias, reservas e pedidos nas duas casas.",
+    itens: [
+      {
+        id: "reservas-atraso",
+        escopo: "Ambas as casas",
+        pergunta: "Preciso reservar mesa ou o atendimento é por ordem de chegada?",
+        resposta:
+          "Atendemos normalmente por ordem de chegada nas duas unidades. Se preferir garantir mesa para um horário específico, chame nossa equipe pelo WhatsApp com antecedência. Pedimos apenas que avise pelo WhatsApp caso haja atraso superior a 15 minutos ou necessidade de cancelamento.", // TODO: confirmar tempo exato de tolerância de reserva
+      },
+      {
+        id: "grupos-grandes",
+        escopo: "Comemorações",
+        pergunta: "Vocês recebem grupos grandes e aniversários?",
+        resposta:
+          "Sim! Tanto a Sahtein Rotisseria quanto o Forno Sahtein recebem famílias e comemorações. Para mesas acima de 6 pessoas, recomendamos enviar mensagem no WhatsApp no dia anterior para organizarmos o espaço com conforto.", // TODO: confirmar número máximo de pessoas por reserva de grupo
+      },
+      {
+        id: "criancas-cadeirinha",
+        escopo: "Família",
+        pergunta: "Há estrutura para crianças e cadeirinha infantil?",
+        resposta:
+          "Sim, o ambiente das duas casas é familiar, com espaço para carrinhos de bebê, cadeirinha infantil e opções no cardápio que as crianças adoram — como mini kibes, esfihas abertas, pizzas tradicionais e os ninhos e pizzas doces.", // TODO: confirmar quantidade de cadeirinhas disponíveis por casa
+      },
+      {
+        id: "pets",
+        escopo: "Pet friendly",
+        pergunta: "Posso levar meu pet (animal de estimação)?",
+        resposta:
+          "Pets de estimação tranquilos e na guia são bem-vindos nas áreas externas e mesas próximas à entrada. Se quiser confirmar a disponibilidade de mesa ideal para ir com seu pet, fale conosco pelo WhatsApp antes de sair.", // TODO: confirmar regra exata de áreas pet friendly em cada unidade
+      },
+      {
+        id: "estacionamento-faq",
+        escopo: "Como chegar",
+        pergunta: "Onde estacionar perto da Rotisseria e do Forno Sahtein?",
+        resposta:
+          "As duas unidades ficam na Estrada Francisco da Cruz Nunes (nº 1874 B e nº 1980 A), em Itaipu. É possível estacionar ao longo da própria via ou nas ruas transversais adjacentes, a poucos passos da entrada.", // TODO: confirmar se há vagas frontais próprias no recuo das lojas
+      },
+      {
+        id: "delivery-retirada",
+        escopo: "Delivery & Retirada",
+        pergunta: "Como faço pedido para delivery ou retirada no balcão?",
+        resposta:
+          "Cada cozinha tem seu cardápio digital próprio para pedidos de delivery e retirada em Itaipu e Região Oceânica: você pode pedir direto pelo site da Sahtein Rotisseria (cozinha árabe) ou pelo cardápio online do Forno Sahtein (pizzas e paninis).",
+      },
+    ],
+    ctaTexto: "Não encontrou sua dúvida? Fale diretamente com a nossa família pelo WhatsApp.",
+    ctaRotulo: "Chamar no WhatsApp",
+    ctaUrl:
+      "https://wa.me/5521973011881?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20os%20restaurantes%20Sahtein.",
   },
   contact: {
     dadosGrupo: {
