@@ -12,12 +12,17 @@ const imagens = [
 
 function History() {
   const { history } = dadosDoSite;
+  const [tituloAntes, tituloDepois] = history.titulo.split(history.tituloDestaque);
 
   return (
     <div className="history">
       <div className="up-content">
         <span className="rotulo-secao">{history.intro}</span>
-        <h2 id="historia-title">{history.titulo}</h2>
+        <h2 id="historia-title">
+          {tituloAntes}
+          <span className="sublinhado-mao">{history.tituloDestaque}</span>
+          {tituloDepois}
+        </h2>
       </div>
       <div className="timeline" role="region" aria-label="Linha do tempo da história">
         {history.itens.map((item, index) => (
@@ -26,7 +31,7 @@ function History() {
             <h3 className="timeline-title">{item.titulo}</h3>
             <p>{item.texto}</p>
             <img
-              className="timeline-image"
+              className="timeline-image revelar-foto"
               src={imagens[index].src}
               alt={imagens[index].alt}
               loading="lazy"

@@ -1,4 +1,19 @@
 export const dadosDoSite = {
+  nav: {
+    marca: "Sahtein",
+    marcaAriaLabel: "Sahtein: ir para o início",
+    pularConteudo: "Pular para o conteúdo",
+    ariaLabel: "Navegação principal",
+    ariaLabelMobile: "Navegação mobile",
+    // Seções observadas para marcar o item ativo da navbar (ordem de aparição na página)
+    secoes: ["inicio", "donos", "historia", "restaurantes", "avaliacao", "contato"],
+    itens: [
+      { id: "donos", rotulo: "Os donos" },
+      { id: "historia", rotulo: "História" },
+      { id: "restaurantes", rotulo: "Restaurantes" },
+      { id: "contato", rotulo: "Contato", destaque: true },
+    ],
+  },
   hero: {
     titulo: "Esfiha primeiro. Pizza depois.",
     descricao:
@@ -7,6 +22,7 @@ export const dadosDoSite = {
   owners: {
     intro: "A Família",
     titulo: "Conheça os donos",
+    tituloDestaque: "donos",
     paragrafo1:
       "Há mais de vinte anos, abrimos a Sahtein Rotisseria em Itaipu para servir as receitas árabes da nossa família: esfiha assada na hora, kibe, shawarma e charuto de folha de uva.",
     paragrafo2:
@@ -29,6 +45,7 @@ export const dadosDoSite = {
   history: {
     intro: "A história",
     titulo: "De um restaurante a dois",
+    tituloDestaque: "dois",
     itens: [
       {
         periodo: "O início",

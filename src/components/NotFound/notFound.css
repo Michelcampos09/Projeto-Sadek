@@ -81,18 +81,19 @@
   margin: 0 0 1rem;
   color: var(--cor-titulo);
   font-family: var(--font-titulos);
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 600;
-  line-height: 1.2;
+  font-size: var(--fs-h2);
+  font-weight: 500;
+  line-height: 1.05;
 }
 
 .not-found-text {
-  max-width: 34rem;
+  max-width: 62ch;
   margin: 0 auto 2rem;
   color: var(--cor-texto);
   font-family: var(--font-textos);
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.65;
 }
 
 .not-found-actions {
@@ -145,9 +146,10 @@
 }
 
 .not-found-divider {
+  height: 1px;
   margin: 2rem auto 1.5rem;
   border: 0;
-  border-top: 1px solid var(--cor-linha);
+  background: linear-gradient(90deg, transparent, var(--cor-brasa), transparent);
 }
 
 .not-found-houses {

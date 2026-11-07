@@ -57,23 +57,26 @@
   margin-bottom: 1.5rem;
   color: var(--cor-titulo);
   font-family: var(--font-titulos);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 600;
-  line-height: 1.15;
+  font-size: var(--fs-h2);
+  font-weight: 500;
+  line-height: 1.05;
 }
 
 .subtitle-owners {
+  max-width: 62ch;
   margin-top: 0.9rem;
   color: var(--cor-texto);
   font-family: var(--font-textos);
-  font-size: 1.05rem;
-  line-height: 1.8;
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.65;
 }
 
 .owners-divider {
+  height: 1px;
   margin-block: 1.75rem;
   border: 0;
-  border-top: 1px solid var(--cor-linha);
+  background: linear-gradient(90deg, var(--cor-brasa), transparent);
 }
 
 .owners-links {
@@ -87,8 +90,8 @@
   margin-bottom: 0.2rem;
   color: var(--cor-titulo);
   font-family: var(--font-titulos);
-  font-size: 1.6rem;
-  font-weight: 600;
+  font-size: var(--fs-h3);
+  font-weight: 500;
 }
 
 .link-arabic,

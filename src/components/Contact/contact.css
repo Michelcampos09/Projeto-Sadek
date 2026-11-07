@@ -129,7 +129,7 @@
   margin-bottom: 0.3rem;
   color: var(--cor-footer-apoio);
   font-family: var(--font-titulos);
-  font-size: 0.9rem;
+  font-size: var(--fs-eyebrow);
   font-style: italic;
   font-weight: 500;
   line-height: 1.4;
@@ -143,9 +143,9 @@
   margin: 0 0 0.85rem;
   color: var(--cor-footer-titulo);
   font-family: var(--font-titulos);
-  font-size: 1.35rem;
-  font-weight: 600;
-  line-height: 1.25;
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  line-height: 1.2;
 }
 
 .contact__heading--house {
@@ -331,16 +331,19 @@
 }
 
 .contact__legal-link {
+  padding-bottom: 0.15rem;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0% 1px no-repeat;
   color: var(--cor-footer-apoio);
   font-size: 0.875rem;
   text-decoration: none;
-  transition: color 160ms ease;
+  transition:
+    color 160ms ease,
+    background-size 220ms ease;
 }
 
 .contact__legal-link:hover {
+  background-size: 100% 1px;
   color: var(--cor-footer-titulo);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
 }
 
 .contact__legal-link:focus-visible {

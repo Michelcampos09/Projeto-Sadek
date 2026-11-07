@@ -36,7 +36,7 @@ export function Restaurante({ variante, dados, imagens, ariaGaleria }) {
         aria-label={ariaGaleria}
         aria-roledescription="carrossel"
       >
-        <div className="restaurante-galeria-quadro">
+        <div className="restaurante-galeria-quadro revelar-foto">
           <img
             key={imagemAtual}
             src={imagens[imagemAtual].src}

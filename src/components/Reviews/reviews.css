@@ -26,17 +26,19 @@
   margin: 0;
   color: var(--cor-titulo);
   font-family: var(--font-titulos);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 600;
-  line-height: 1.15;
+  font-size: var(--fs-h2);
+  font-weight: 500;
+  line-height: 1.05;
 }
 
 .reviews__intro {
-  margin-top: 0.9rem;
+  max-width: 62ch;
+  margin: 0.9rem auto 0;
   color: var(--cor-texto);
   font-family: var(--font-textos);
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.65;
 }
 
 /* Grade de cards: 3 colunas no desktop, 2 no tablet, 1 no celular */
@@ -135,12 +137,13 @@
 
 .reviews__quote {
   position: relative;
+  max-width: 62ch;
   margin: 0;
   color: var(--cor-texto-escuro);
   font-family: var(--font-textos);
-  font-size: 1rem;
+  font-size: var(--fs-body);
   font-weight: 400;
-  line-height: 1.7;
+  line-height: 1.65;
 }
 
 /* Trunca textos muito longos em 4 linhas até o clique em "Ler mais" */

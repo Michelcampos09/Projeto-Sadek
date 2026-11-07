@@ -4,18 +4,23 @@ import "./Owners.css";
 
 function Owners() {
   const { owners } = dadosDoSite;
+  const [tituloAntes, tituloDepois] = owners.titulo.split(owners.tituloDestaque);
 
   return (
     <div className="owners">
       <div className="owners-media">
-        <div className="owners-image-frame">
+        <div className="owners-image-frame revelar-foto">
           <img src={donosFamilia} alt="Os donos reunidos em frente ao restaurante" />
         </div>
       </div>
 
       <div className="owners-content">
         <span className="rotulo-secao">{owners.intro}</span>
-        <h2 className="title-owners" id="donos-title">{owners.titulo}</h2>
+        <h2 className="title-owners" id="donos-title">
+          {tituloAntes}
+          <span className="sublinhado-mao">{owners.tituloDestaque}</span>
+          {tituloDepois}
+        </h2>
         <p className="subtitle-owners">{owners.paragrafo1}</p>
         <p className="subtitle-owners">{owners.paragrafo2}</p>
         <p className="subtitle-owners">{owners.paragrafo3}</p>

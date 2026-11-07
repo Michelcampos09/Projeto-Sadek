@@ -1,11 +1,57 @@
 import { useState, useEffect, useRef } from "react";
-import LogoSahtein from "../../assets/LogoSahtein.png";
+import { useLocation } from "react-router-dom";
+import { dadosDoSite } from "../../data/conteudo";
+import LogoSahtein2 from "../../assets/LogoSahtein2.png";
 import "./Header.css";
 
 function Header() {
+  const { nav } = dadosDoSite;
+  const { pathname } = useLocation();
   const [menuAberto, setMenuAberto] = useState(false);
+  const [secaoAtiva, setSecaoAtiva] = useState(null);
   const menuRef = useRef(null);
   const botaoMenuRef = useRef(null);
+
+  // O item ativo só faz sentido na home, onde as seções existem
+  const itemAtivo = pathname === "/" ? secaoAtiva : null;
+
+  // Marca o item da navbar correspondente à seção que está na leitura (scroll-spy)
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    let quadro = 0;
+
+    const atualizar = () => {
+      quadro = 0;
+      const linhaDeLeitura = window.innerHeight * 0.35;
+      const noFimDaPagina =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+      let atual = null;
+
+      nav.secoes.forEach((id) => {
+        const secao = document.getElementById(id);
+        if (secao && secao.getBoundingClientRect().top <= linhaDeLeitura) {
+          atual = id;
+        }
+      });
+
+      setSecaoAtiva(noFimDaPagina ? nav.secoes[nav.secoes.length - 1] : atual);
+    };
+
+    const agendar = () => {
+      if (!quadro) quadro = window.requestAnimationFrame(atualizar);
+    };
+
+    agendar();
+    window.addEventListener("scroll", agendar, { passive: true });
+    window.addEventListener("resize", agendar);
+
+    return () => {
+      window.cancelAnimationFrame(quadro);
+      window.removeEventListener("scroll", agendar);
+      window.removeEventListener("resize", agendar);
+    };
+  }, [pathname, nav.secoes]);
 
   // Fecha o menu com tecla Esc, clique fora e implementa Focus Trap
   useEffect(() => {
@@ -86,38 +132,31 @@ function Header() {
 
   return (
     <header className="principal">
-      <div className="topo">
-        <nav className="nav-left" aria-label="Navegação principal">
-          <ul>
-            <li>
-              <a href="/#inicio">Início</a>
-            </li>
-            <li>
-              <a href="/#donos">Conheça os donos</a>
-            </li>
-            <li>
-              <a href="/#historia">História</a>
-            </li>
-          </ul>
-        </nav>
+      <a className="pular-conteudo" href="#conteudo-principal">
+        {nav.pularConteudo}
+      </a>
 
+      <div className="topo">
         <div className="marca">
-          <a href="/#inicio" aria-label="Ir para o início">
-            <img src={LogoSahtein} alt="Logo Sahtein" />
+          <a href="/#inicio" aria-label={nav.marcaAriaLabel}>
+            <img src={LogoSahtein2} alt="" />
+            <span className="marca-nome">{nav.marca}</span>
           </a>
         </div>
 
-        <nav className="nav-right" aria-label="Outras páginas">
+        <nav className="nav-principal" aria-label={nav.ariaLabel}>
           <ul>
-            <li>
-              <a href="/#restaurantes">Restaurantes</a>
-            </li>
-            <li>
-              <a href="/#avaliacao">Avaliações</a>
-            </li>
-            <li>
-              <a href="/#contato">Contato</a>
-            </li>
+            {nav.itens.map((item) => (
+              <li key={item.id}>
+                <a
+                  className={item.destaque ? "nav-destaque" : undefined}
+                  href={`/#${item.id}`}
+                  aria-current={itemAtivo === item.id ? "location" : undefined}
+                >
+                  {item.rotulo}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
 
@@ -147,42 +186,23 @@ function Header() {
         <nav
           ref={menuRef}
           id="menu-mobile"
-          aria-label="Navegação mobile"
+          aria-label={nav.ariaLabelMobile}
           aria-modal={menuAberto ? "true" : undefined}
           role={menuAberto ? "dialog" : undefined}
           className={menuAberto ? "menu-mobile aberta" : "menu-mobile"}
         >
           <ul>
-            <li>
-              <a href="/#inicio" onClick={() => setMenuAberto(false)}>
-                Início
-              </a>
-            </li>
-            <li>
-              <a href="/#donos" onClick={() => setMenuAberto(false)}>
-                Conheça os donos
-              </a>
-            </li>
-            <li>
-              <a href="/#historia" onClick={() => setMenuAberto(false)}>
-                História
-              </a>
-            </li>
-            <li>
-              <a href="/#restaurantes" onClick={() => setMenuAberto(false)}>
-                Restaurantes
-              </a>
-            </li>
-            <li>
-              <a href="/#avaliacao" onClick={() => setMenuAberto(false)}>
-                Avaliações
-              </a>
-            </li>
-            <li>
-              <a href="/#contato" onClick={() => setMenuAberto(false)}>
-                Contato
-              </a>
-            </li>
+            {nav.itens.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={`/#${item.id}`}
+                  aria-current={itemAtivo === item.id ? "location" : undefined}
+                  onClick={() => setMenuAberto(false)}
+                >
+                  {item.rotulo}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>

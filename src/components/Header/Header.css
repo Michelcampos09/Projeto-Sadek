@@ -10,25 +10,68 @@
   font-weight: 500;
 }
 
+/* Link para pular direto ao conteúdo: só aparece quando recebe o foco do teclado */
+.pular-conteudo {
+  position: absolute;
+  top: -4rem;
+  left: 1rem;
+  z-index: 1002;
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--raio-botao);
+  background-color: var(--cor-texto-escuro);
+  color: var(--cor-fundo);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pular-conteudo:focus-visible {
+  top: 0.75rem;
+  outline: 2px solid var(--cor-brasa);
+  outline-offset: 3px;
+}
+
 .topo {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
-  width: 100%;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: min(100%, 78rem);
   min-height: 4rem;
+  margin: 0 auto;
 }
 
-.nav-left {
-  justify-self: start;
+/* Marca à esquerda: monograma + nome, legíveis em qualquer largura */
+.marca a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: var(--raio-foto);
+  text-decoration: none;
 }
 
-.nav-right {
-  justify-self: end;
+.marca a:focus-visible {
+  outline: 2px solid var(--cor-brasa);
+  outline-offset: 4px;
+}
+
+.marca img {
+  display: block;
+  width: auto;
+  height: 2.75rem;
+}
+
+.marca-nome {
+  color: var(--cor-titulo);
+  font-family: var(--font-titulos);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
 }
 
 /* Listas desktop e mobile sem marcadores padrão */
-.nav-left ul,
-.nav-right ul,
+.nav-principal ul,
 .menu-mobile ul {
   display: flex;
   align-items: center;
@@ -39,8 +82,7 @@
 }
 
 /* Aparência, hover e foco dos links */
-.nav-left a,
-.nav-right a,
+.nav-principal a,
 .menu-mobile a {
   display: block;
   padding: 0.65rem 0.2rem;
@@ -51,33 +93,62 @@
   transition: color 160ms ease, background-color 160ms ease;
 }
 
-.nav-left a:hover,
-.nav-right a:hover,
+.nav-principal a:hover,
 .menu-mobile a:hover {
   color: var(--cor-arabe);
 }
 
-.nav-left a:focus-visible,
-.nav-right a:focus-visible,
+.nav-principal a:focus-visible,
 .menu-mobile a:focus-visible {
   outline: 2px solid var(--cor-brasa);
   outline-offset: 3px;
 }
 
-/* Marca central */
-.marca {
-  display: flex;
-  align-items: center;
-  justify-self: center;
+/* Sublinhado de brasa que se desenha da esquerda: no hover e fixo no item da seção atual */
+.nav-principal a:not(.nav-destaque) {
+  background: linear-gradient(var(--cor-brasa), var(--cor-brasa)) 0 calc(100% + 0.1rem) / 0% 2px no-repeat;
+  background-origin: content-box;
+  transition:
+    color 160ms ease,
+    background-size 240ms ease;
 }
 
-.marca img {
-  display: block;
-  width: 6rem;
-  height: auto;
+.nav-principal a:not(.nav-destaque):hover,
+.nav-principal a[aria-current="location"]:not(.nav-destaque) {
+  background-size: 100% 2px;
 }
 
-/* O menu, botão hambúrguer e backdrop ficam ocultos no desktop */
+.nav-principal a[aria-current="location"]:not(.nav-destaque) {
+  color: var(--cor-brasa);
+}
+
+/* Contato fecha a navbar como um item em pílula com borda, sem competir com as seções */
+.nav-principal .nav-destaque {
+  padding: 0.5rem 1.15rem;
+  border: 1px solid var(--cor-brasa);
+  border-radius: var(--raio-botao);
+  color: var(--cor-brasa);
+  font-weight: 600;
+}
+
+.nav-principal .nav-destaque:hover {
+  background-color: color-mix(in srgb, var(--cor-brasa) 10%, transparent);
+  color: var(--cor-brasa);
+}
+
+.nav-principal .nav-destaque[aria-current="location"] {
+  background-color: var(--cor-brasa);
+  color: #fff;
+}
+
+/* Menu mobile: item da seção atual em destaque suave */
+.menu-mobile a[aria-current="location"] {
+  background-color: rgba(168, 64, 31, 0.08);
+  color: var(--cor-brasa);
+  font-weight: 600;
+}
+
+/* Elementos exclusivos do menu mobile ficam ocultos no desktop */
 .menu-backdrop,
 .botao-menu,
 .menu-mobile {
@@ -109,15 +180,16 @@
     padding-inline: 1.25rem;
   }
 
-  .topo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .nav-principal {
+    display: none;
   }
 
-  .nav-left,
-  .nav-right {
-    display: none;
+  .marca img {
+    height: 2.5rem;
+  }
+
+  .marca-nome {
+    font-size: 1.35rem;
   }
 
   .botao-menu {
@@ -132,6 +204,12 @@
     border: 0;
     background: transparent;
     cursor: pointer;
+  }
+
+  .botao-menu:focus-visible {
+    border-radius: 6px;
+    outline: 2px solid var(--cor-brasa);
+    outline-offset: 2px;
   }
 
   /* Backdrop escuro com clique para fechar */
@@ -174,5 +252,11 @@
   .menu-mobile a:hover,
   .menu-mobile a:focus-visible {
     background-color: rgba(138, 90, 18, 0.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-principal a:not(.nav-destaque) {
+    transition: color 160ms ease;
   }
 }

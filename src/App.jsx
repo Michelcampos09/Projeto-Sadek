@@ -12,50 +12,33 @@ import NotFound from "./components/NotFound/NotFound";
 
 function Home() {
   useEffect(() => {
-    // Se IntersectionObserver não for suportado no ambiente, revela todas as seções
+    const fotos = document.querySelectorAll(".revelar-foto");
+
+    // Se IntersectionObserver não for suportado no ambiente, revela todas as fotos
     if (!("IntersectionObserver" in window)) {
-      document.querySelectorAll("main > section").forEach((secao) => {
-        secao.classList.add("apareceu");
+      fotos.forEach((foto) => {
+        foto.classList.add("revelada");
       });
       return;
     }
 
-    const secoes = document.querySelectorAll("main > section:not(#inicio)");
-
-    // Revela imediatamente a seção de destino caso a página seja aberta com âncora (#donos, etc.)
-    if (window.location.hash) {
-      const secaoAlvo = document.querySelector(window.location.hash);
-      if (secaoAlvo) {
-        secaoAlvo.classList.add("apareceu");
-      }
-    }
-
-    // M5: threshold 0 + rootMargin para revelar a seção assim que o topo entrar na tela
+    // Revela cada foto assim que entra na tela (threshold: 0 garante detecção imediata)
     const observer = new IntersectionObserver(
       (entradas) => {
         entradas.forEach((entrada) => {
           if (entrada.isIntersecting) {
-            entrada.target.classList.add("apareceu");
+            entrada.target.classList.add("revelada");
             observer.unobserve(entrada.target);
           }
         });
       },
-      { threshold: 0, rootMargin: "0px 0px -10% 0px" },
+      { threshold: 0, rootMargin: "0px 0px -8% 0px" },
     );
 
-    secoes.forEach((secao) => observer.observe(secao));
-
-    const lidarHashChange = () => {
-      if (window.location.hash) {
-        const secaoAlvo = document.querySelector(window.location.hash);
-        if (secaoAlvo) secaoAlvo.classList.add("apareceu");
-      }
-    };
-    window.addEventListener("hashchange", lidarHashChange);
+    fotos.forEach((foto) => observer.observe(foto));
 
     return () => {
       observer.disconnect();
-      window.removeEventListener("hashchange", lidarHashChange);
     };
   }, []);
 
@@ -85,7 +68,7 @@ function App() {
   return (
     <>
       <Header />
-      <main>
+      <main id="conteudo-principal">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />

@@ -10,8 +10,22 @@
   Todos os textos pequenos mantêm contraste mínimo de 4,5:1 (WCAG AA).
 */
 :root {
+  /* Opção A (recomendada - Seção 5.4) */
   --font-titulos: "Fraunces", Georgia, serif;
-  --font-textos: "Hanken Grotesk", system-ui, sans-serif;
+  --font-textos: "Hanken Grotesk", "Instrument Sans", system-ui, sans-serif;
+  --font-arabe: "Reem Kufi", system-ui, sans-serif;
+
+  /* Opção B (mantida disponível no projeto conforme Seção 5.4) */
+  --font-titulos-opcao-b: "Young Serif", Georgia, serif;
+  --font-textos-opcao-b: "Work Sans", system-ui, sans-serif;
+  --font-arabe-opcao-b: "Aref Ruqaa", serif;
+
+  /* Escala tipográfica fluida (Seção 5.4) */
+  --fs-hero: clamp(2.75rem, 1.5rem + 6vw, 6.5rem);
+  --fs-h2: clamp(2rem, 1.2rem + 3.5vw, 3.75rem);
+  --fs-h3: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  --fs-body: 1.0625rem;
+  --fs-eyebrow: 0.75rem;
 
   --cor-fundo: #fbf6ec;
   --cor-fundo-creme: #f1e8d6;
@@ -70,6 +84,9 @@
 
 body {
   font-family: var(--font-textos);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.65;
   background-color: var(--cor-fundo);
   color: var(--cor-texto-escuro);
   -webkit-font-smoothing: antialiased;
@@ -83,7 +100,7 @@ body {
   gap: 0.75rem;
   color: var(--cor-arabe);
   font-family: var(--font-titulos);
-  font-size: 1.1rem;
+  font-size: var(--fs-eyebrow);
   font-style: italic;
   font-weight: 500;
   line-height: 1.4;
@@ -96,34 +113,70 @@ body {
   content: "";
 }
 
-/* M5: Por padrão, todo o conteúdo é visível (acessibilidade, print, busca e fallback sem JS) */
-main > section {
+/* Seção 5.6: grão de papel sobre o fundo Cal (ruído SVG a 6% de opacidade, sem interferir nos cliques) */
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.24 0 0 0 0 0.17 0 0 0 0 0.14 0 0 0 1.4 -0.1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  content: "";
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+@media print {
+  body::before {
+    display: none;
+  }
+}
+
+/* Seção 5.6: sublinhado desenhado à mão em uma única palavra de alguns títulos */
+.sublinhado-mao {
+  padding-bottom: 0.12em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M3 8c24-5 46 3 74-2s52 4 78-1 28 2 42-1' fill='none' stroke='%23a8401f' stroke-width='3' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 0.3em;
+}
+
+/* Seção 5.7: revelação suave das fotos ao entrar na tela.
+   Por padrão a foto fica 100% visível (acessibilidade, print, busca e fallback sem JS).
+   Usamos opacity + transform em vez de clip-path: inset(100% 0 0 0) porque o recorte
+   100% zera a área de interseção do elemento e impede o IntersectionObserver e o
+   loading="lazy" de dispararem no navegador. */
+.revelar-foto {
   opacity: 1;
   transform: none;
+  transition:
+    opacity 650ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-/* Transição suave ativada somente quando há suporte a scripts e sem preferência de movimento reduzido */
+/* A animação só é ativada com scripts e sem preferência de movimento reduzido */
 @media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
-  html.js main > section:not(#inicio) {
+  html.js .revelar-foto:not(.revelada) {
     opacity: 0;
-    transform: translateY(20px);
-    transition:
-      opacity 600ms ease,
-      transform 600ms ease;
-  }
-
-  html.js main > section:not(#inicio).apareceu {
-    opacity: 1;
-    transform: translateY(0);
+    transform: translateY(18px);
   }
 }
 
-/* Na impressão ou quando o usuário prefere menos animações, mantém tudo 100% visível e estático */
 @media print, (prefers-reduced-motion: reduce) {
-  main > section {
+  .revelar-foto {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+  }
+}
+
+/* Seção 5.7: transição suave entre páginas (navegação entre documentos). Navegadores sem suporte ignoram a regra */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 280ms;
   }
 }
 
