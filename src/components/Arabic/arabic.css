@@ -53,6 +53,8 @@
   border-radius: var(--raio-cartao);
   background-color: var(--cor-fundo-claro);
   box-shadow: var(--sombra-cartao);
+  touch-action: pan-y;
+  user-select: none;
 }
 
 .restaurante-galeria-quadro > img {

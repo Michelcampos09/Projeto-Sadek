@@ -78,69 +78,87 @@
   line-height: 1.68;
 }
 
-.hero-houses {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
-  width: min(100%, 42rem);
-  margin: 2.5rem auto 0;
-  border: 1px solid rgba(211, 191, 159, 0.38);
-  border-radius: var(--raio-cartao);
-  background-color: rgba(211, 191, 159, 0.28);
-  overflow: hidden;
-  backdrop-filter: blur(6px);
-}
-
-.hero-house-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.25rem;
-  padding: 1rem 1.35rem;
-  background-color: rgba(32, 22, 17, 0.82);
-  color: #fdfaf3;
-  text-align: left;
-  text-decoration: none;
-  transition: background-color 180ms ease;
-}
-
-.hero-house-card:hover {
-  background-color: rgba(48, 33, 25, 0.92);
-}
-
-.hero-house-card:focus-visible {
-  outline: 2px solid #e9c47a;
-  outline-offset: -2px;
-}
-
-.hero-house-detail {
-  color: #e4b95a;
-  font-family: var(--font-textos);
-  font-size: 0.76rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.hero-house-card--italian .hero-house-detail {
-  color: #b5ca9c;
-}
-
-.hero-house-name {
+/* Chamada de descida editorial para a primeira seção após o hero */
+.hero-scroll-link {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  gap: 0.7rem;
+  margin-top: clamp(2.5rem, 5vw, 3.75rem);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--raio-botao);
   color: #fdfaf3;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.hero-scroll-link:hover {
+  color: #e9c47a;
+}
+
+.hero-scroll-link:focus-visible {
+  outline: 2px solid #e9c47a;
+  outline-offset: 4px;
+}
+
+.hero-scroll-label {
+  color: inherit;
   font-family: var(--font-titulos);
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: clamp(1rem, 0.94rem + 0.25vw, 1.12rem);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  line-height: 1.3;
+}
+
+.hero-scroll-indicator {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  color: #e9c47a;
+}
+
+.hero-scroll-stem {
+  width: 1px;
+  height: 1.4rem;
+  background: linear-gradient(
+    180deg,
+    rgba(233, 196, 122, 0.15) 0%,
+    rgba(233, 196, 122, 0.85) 100%
+  );
+  transition: height 240ms ease;
+}
+
+.hero-scroll-arrow {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: block;
+}
+
+@keyframes heroSetaFlutuando {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-scroll-arrow {
+    animation: heroSetaFlutuando 2.4s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  }
+
+  .hero-scroll-link:hover .hero-scroll-stem {
+    height: 1.75rem;
+  }
 }
 
 @media (max-width: 640px) {
-  .hero-houses {
-    grid-template-columns: 1fr;
-    margin-top: 2rem;
+  .hero-scroll-link {
+    margin-top: 2.15rem;
   }
 
   .hero-eyebrow::before,

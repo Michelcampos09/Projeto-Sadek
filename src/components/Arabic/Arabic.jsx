@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { dadosDoSite, obterUrlSegura } from "../../data/conteudo";
 import miniKibe from "../../assets/arabic-mini-kibe.png";
 import torreKibeCru from "../../assets/arabic-torre-kibe-cru.png";
@@ -19,9 +19,50 @@ const imagensArabe = [
 
 export function Restaurante({ variante, dados, imagens, ariaGaleria }) {
   const [imagemAtual, setImagemAtual] = useState(0);
+  const toqueInicioRef = useRef({ x: null, y: null });
 
   const selecionarImagem = (indice) => {
     setImagemAtual((indice + imagens.length) % imagens.length);
+  };
+
+  const lidarTouchStart = (evento) => {
+    const toque = evento.touches?.[0];
+    if (!toque) return;
+    toqueInicioRef.current = { x: toque.clientX, y: toque.clientY };
+  };
+
+  const lidarTouchEnd = (evento) => {
+    const { x: inicioX, y: inicioY } = toqueInicioRef.current;
+    const toque = evento.changedTouches?.[0];
+    toqueInicioRef.current = { x: null, y: null };
+
+    if (inicioX === null || inicioY === null || !toque) return;
+
+    const deltaX = toque.clientX - inicioX;
+    const deltaY = toque.clientY - inicioY;
+    const distanciaMinima = 40;
+
+    // Só troca o slide se o movimento horizontal for predominante e superar o limiar
+    if (
+      Math.abs(deltaX) >= distanciaMinima &&
+      Math.abs(deltaX) > Math.abs(deltaY) * 1.2
+    ) {
+      if (deltaX < 0) {
+        selecionarImagem(imagemAtual + 1);
+      } else {
+        selecionarImagem(imagemAtual - 1);
+      }
+    }
+  };
+
+  const lidarKeyDownGaleria = (evento) => {
+    if (evento.key === "ArrowLeft") {
+      evento.preventDefault();
+      selecionarImagem(imagemAtual - 1);
+    } else if (evento.key === "ArrowRight") {
+      evento.preventDefault();
+      selecionarImagem(imagemAtual + 1);
+    }
   };
 
   const telefoneLimpo = dados.info.telefone.replace(/\D/g, "");
@@ -48,8 +89,13 @@ export function Restaurante({ variante, dados, imagens, ariaGaleria }) {
         role="region"
         aria-label={ariaGaleria}
         aria-roledescription="carrossel"
+        onKeyDown={lidarKeyDownGaleria}
       >
-        <div className="restaurante-galeria-quadro revelar-foto">
+        <div
+          className="restaurante-galeria-quadro revelar-foto"
+          onTouchStart={lidarTouchStart}
+          onTouchEnd={lidarTouchEnd}
+        >
           <img
             key={imagemAtual}
             src={imagens[imagemAtual].src}

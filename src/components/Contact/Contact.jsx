@@ -1,5 +1,5 @@
 import { dadosDoSite, obterUrlSegura } from "../../data/conteudo";
-import LogoSahtein from "../../assets/LogoSahtein.png";
+import LogoSahtein2 from "../../assets/LogoSahtein2.png";
 import "./contact.css";
 
 const ICONES_REDES_SOCIAIS = {
@@ -45,15 +45,25 @@ function Contact() {
               href="/#inicio"
               aria-label={`${dadosGrupo.nome} — voltar ao início`}
             >
-              <img
-                className="contact__logo"
-                src={LogoSahtein}
-                alt={`Logo ${dadosGrupo.nome}`}
-                width="666"
-                height="375"
-                loading="lazy"
-                decoding="async"
-              />
+              <span className="contact__logo-seal" aria-hidden="true">
+                <img
+                  className="contact__logo"
+                  src={LogoSahtein2}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+              <span className="contact__brand-texts">
+                <span className="contact__brand-name">
+                  {dadosDoSite.nav.marca}
+                </span>
+                {dadosDoSite.nav.subtituloMarca && (
+                  <span className="contact__brand-subtitle">
+                    {dadosDoSite.nav.subtituloMarca}
+                  </span>
+                )}
+              </span>
             </a>
             <p className="contact__tagline">{dadosGrupo.descricao}</p>
 

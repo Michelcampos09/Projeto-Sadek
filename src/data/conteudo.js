@@ -65,20 +65,10 @@ export const dadosDoSite = {
     titulo: "Esfiha primeiro. Pizza depois.",
     descricao:
       "Em Itaipu, a mesma família cuida de duas casas na Estrada Francisco da Cruz Nunes: a Sahtein Rotisseria, de cozinha árabe, e o Forno Sahtein, de pizzas artesanais.",
-    atalhosCasas: [
-      {
-        rotulo: "Sahtein Rotisseria",
-        detalhe: "Cozinha Árabe · Nº 1874 B",
-        ancora: "#sahtein-rotisseria",
-        variante: "arabic",
-      },
-      {
-        rotulo: "Forno Sahtein",
-        detalhe: "Pizzas & Paninis · Nº 1980 A",
-        ancora: "#forno-sahtein",
-        variante: "italian",
-      },
-    ],
+    chamadaDescida: {
+      rotulo: "Conheça nossa história",
+      ancora: "#donos",
+    },
   },
   owners: {
     intro: "A Família",
